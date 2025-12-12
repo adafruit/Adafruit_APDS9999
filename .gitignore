@@ -1,0 +1,11 @@
+.DS_Store
+.vscode/
+build/
+*.bin
+*.elf
+*.hex
+*.o
+*.a
+*.so
+*.dylib
+*.dll

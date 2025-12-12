@@ -1,0 +1,12 @@
+name: Build
+
+on: [pull_request, push, repository_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: adafruit/ci-arduino@v1
+      with:
+        install-libraries: "Adafruit BusIO"
