@@ -603,3 +603,27 @@ bool Adafruit_APDS9999::getLSInterruptStatus() {
   Adafruit_BusIO_RegisterBits ls_int(&main_status, 1, 4);
   return ls_int.read();
 }
+
+/**************************************************************************/
+/*!
+    @brief  Check if proximity sensor data is ready
+    @return True if new proximity data is available
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::isPSDataReady() {
+  Adafruit_BusIO_Register main_status(i2c_dev, APDS9999_REG_MAIN_STATUS);
+  Adafruit_BusIO_RegisterBits ps_data(&main_status, 1, 0);
+  return ps_data.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Check if light sensor data is ready
+    @return True if new light sensor data is available
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::isLSDataReady() {
+  Adafruit_BusIO_Register main_status(i2c_dev, APDS9999_REG_MAIN_STATUS);
+  Adafruit_BusIO_RegisterBits ls_data(&main_status, 1, 3);
+  return ls_data.read();
+}

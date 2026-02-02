@@ -211,6 +211,8 @@ class Adafruit_APDS9999 {
   // Status reading (0x07)
   bool getPSInterruptStatus();
   bool getLSInterruptStatus();
+  bool isPSDataReady();
+  bool isLSDataReady();
 
  private:
   Adafruit_I2CDevice* i2c_dev = NULL; ///< Pointer to I2C bus interface
