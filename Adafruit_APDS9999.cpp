@@ -164,6 +164,131 @@ bool Adafruit_APDS9999::getRGBMode() {
 
 /**************************************************************************/
 /*!
+    @brief  Set the light sensor gain
+    @param  gain The gain setting (1x, 3x, 6x, 9x, or 18x)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLSGain(apds9999_ls_gain_t gain) {
+  Adafruit_BusIO_Register ls_gain_reg(i2c_dev, APDS9999_REG_LS_GAIN);
+  Adafruit_BusIO_RegisterBits ls_gain_bits(&ls_gain_reg, 3, 0);
+  return ls_gain_bits.write(gain);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the current light sensor gain setting
+    @return The current gain setting
+*/
+/**************************************************************************/
+apds9999_ls_gain_t Adafruit_APDS9999::getLSGain() {
+  Adafruit_BusIO_Register ls_gain_reg(i2c_dev, APDS9999_REG_LS_GAIN);
+  Adafruit_BusIO_RegisterBits ls_gain_bits(&ls_gain_reg, 3, 0);
+  return (apds9999_ls_gain_t)ls_gain_bits.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the light sensor ADC resolution
+    @param  res The resolution setting (20, 19, 18, 17, 16, or 13 bit)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLSResolution(apds9999_ls_resolution_t res) {
+  Adafruit_BusIO_Register ls_meas_rate(i2c_dev, APDS9999_REG_LS_MEAS_RATE);
+  Adafruit_BusIO_RegisterBits ls_res(&ls_meas_rate, 3, 4);
+  return ls_res.write(res);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the current light sensor ADC resolution setting
+    @return The current resolution setting
+*/
+/**************************************************************************/
+apds9999_ls_resolution_t Adafruit_APDS9999::getLSResolution() {
+  Adafruit_BusIO_Register ls_meas_rate(i2c_dev, APDS9999_REG_LS_MEAS_RATE);
+  Adafruit_BusIO_RegisterBits ls_res(&ls_meas_rate, 3, 4);
+  return (apds9999_ls_resolution_t)ls_res.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the light sensor measurement rate
+    @param  rate The measurement rate setting (25ms to 2000ms)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLSMeasRate(apds9999_ls_meas_rate_t rate) {
+  Adafruit_BusIO_Register ls_meas_rate(i2c_dev, APDS9999_REG_LS_MEAS_RATE);
+  Adafruit_BusIO_RegisterBits ls_rate(&ls_meas_rate, 3, 0);
+  return ls_rate.write(rate);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the current light sensor measurement rate setting
+    @return The current measurement rate setting
+*/
+/**************************************************************************/
+apds9999_ls_meas_rate_t Adafruit_APDS9999::getLSMeasRate() {
+  Adafruit_BusIO_Register ls_meas_rate(i2c_dev, APDS9999_REG_LS_MEAS_RATE);
+  Adafruit_BusIO_RegisterBits ls_rate(&ls_meas_rate, 3, 0);
+  return (apds9999_ls_meas_rate_t)ls_rate.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the proximity sensor ADC resolution
+    @param  res The resolution setting (8, 9, 10, or 11 bit)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setPSResolution(apds9999_ps_resolution_t res) {
+  Adafruit_BusIO_Register ps_meas_rate(i2c_dev, APDS9999_REG_PS_MEAS_RATE);
+  Adafruit_BusIO_RegisterBits ps_res(&ps_meas_rate, 2, 3);
+  return ps_res.write(res);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the current proximity sensor ADC resolution setting
+    @return The current resolution setting
+*/
+/**************************************************************************/
+apds9999_ps_resolution_t Adafruit_APDS9999::getPSResolution() {
+  Adafruit_BusIO_Register ps_meas_rate(i2c_dev, APDS9999_REG_PS_MEAS_RATE);
+  Adafruit_BusIO_RegisterBits ps_res(&ps_meas_rate, 2, 3);
+  return (apds9999_ps_resolution_t)ps_res.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the proximity sensor measurement rate
+    @param  rate The measurement rate setting (6ms to 400ms)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setPSMeasRate(apds9999_ps_meas_rate_t rate) {
+  Adafruit_BusIO_Register ps_meas_rate(i2c_dev, APDS9999_REG_PS_MEAS_RATE);
+  Adafruit_BusIO_RegisterBits ps_rate(&ps_meas_rate, 3, 0);
+  return ps_rate.write(rate);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the current proximity sensor measurement rate setting
+    @return The current measurement rate setting
+*/
+/**************************************************************************/
+apds9999_ps_meas_rate_t Adafruit_APDS9999::getPSMeasRate() {
+  Adafruit_BusIO_Register ps_meas_rate(i2c_dev, APDS9999_REG_PS_MEAS_RATE);
+  Adafruit_BusIO_RegisterBits ps_rate(&ps_meas_rate, 3, 0);
+  return (apds9999_ps_meas_rate_t)ps_rate.read();
+}
+
+/**************************************************************************/
+/*!
     @brief  Read proximity sensor data (11-bit value)
     @return Proximity value (0-2047)
 */
@@ -209,4 +334,77 @@ bool Adafruit_APDS9999::getRGBIRData(uint32_t *r, uint32_t *g, uint32_t *b, uint
   *r  = (buffer[9] | (buffer[10] << 8) | (buffer[11] << 16)) & 0x0FFFFF;
   
   return true;
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the number of LED pulses for proximity sensing
+    @param  pulses Number of pulses (0-255)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLEDPulses(uint8_t pulses) {
+  Adafruit_BusIO_Register ps_pulses(i2c_dev, APDS9999_REG_PS_PULSES);
+  return ps_pulses.write(pulses);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the number of LED pulses for proximity sensing
+    @return Number of pulses (0-255)
+*/
+/**************************************************************************/
+uint8_t Adafruit_APDS9999::getLEDPulses() {
+  Adafruit_BusIO_Register ps_pulses(i2c_dev, APDS9999_REG_PS_PULSES);
+  return ps_pulses.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the LED drive current for proximity sensing
+    @param  current The LED current setting (apds9999_led_current_t)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLEDCurrent(apds9999_led_current_t current) {
+  Adafruit_BusIO_Register ps_vcsel(i2c_dev, APDS9999_REG_PS_VCSEL);
+  Adafruit_BusIO_RegisterBits led_i(&ps_vcsel, 3, 0);
+  return led_i.write(current);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the LED drive current for proximity sensing
+    @return The LED current setting (apds9999_led_current_t)
+*/
+/**************************************************************************/
+apds9999_led_current_t Adafruit_APDS9999::getLEDCurrent() {
+  Adafruit_BusIO_Register ps_vcsel(i2c_dev, APDS9999_REG_PS_VCSEL);
+  Adafruit_BusIO_RegisterBits led_i(&ps_vcsel, 3, 0);
+  return (apds9999_led_current_t)led_i.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the LED pulse frequency for proximity sensing
+    @param  freq The LED frequency setting (apds9999_led_freq_t)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLEDFrequency(apds9999_led_freq_t freq) {
+  Adafruit_BusIO_Register ps_vcsel(i2c_dev, APDS9999_REG_PS_VCSEL);
+  Adafruit_BusIO_RegisterBits led_freq(&ps_vcsel, 3, 4);
+  return led_freq.write(freq);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the LED pulse frequency for proximity sensing
+    @return The LED frequency setting (apds9999_led_freq_t)
+*/
+/**************************************************************************/
+apds9999_led_freq_t Adafruit_APDS9999::getLEDFrequency() {
+  Adafruit_BusIO_Register ps_vcsel(i2c_dev, APDS9999_REG_PS_VCSEL);
+  Adafruit_BusIO_RegisterBits led_freq(&ps_vcsel, 3, 4);
+  return (apds9999_led_freq_t)led_freq.read();
 }

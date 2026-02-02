@@ -60,6 +60,70 @@
 #define APDS9999_REG_LS_THRES_LOW_2 0x26  ///< LS lower threshold high byte
 #define APDS9999_REG_LS_THRES_VAR 0x27    ///< LS variance threshold
 
+/** LS Gain settings for register 0x05 */
+typedef enum {
+  APDS9999_LS_GAIN_1X  = 0x00,  ///< 1x gain
+  APDS9999_LS_GAIN_3X  = 0x01,  ///< 3x gain
+  APDS9999_LS_GAIN_6X  = 0x02,  ///< 6x gain
+  APDS9999_LS_GAIN_9X  = 0x03,  ///< 9x gain
+  APDS9999_LS_GAIN_18X = 0x04   ///< 18x gain
+} apds9999_ls_gain_t;
+
+/** LED drive current options for proximity sensor */
+typedef enum {
+  APDS9999_LED_CURRENT_10MA = 0x02,
+  APDS9999_LED_CURRENT_25MA = 0x03
+} apds9999_led_current_t;
+
+/** LED pulse frequency options for proximity sensor */
+typedef enum {
+  APDS9999_LED_FREQ_60KHZ  = 0x03,
+  APDS9999_LED_FREQ_70KHZ  = 0x04,
+  APDS9999_LED_FREQ_80KHZ  = 0x05,
+  APDS9999_LED_FREQ_90KHZ  = 0x06,
+  APDS9999_LED_FREQ_100KHZ = 0x07
+} apds9999_led_freq_t;
+
+/** Light sensor resolution (ADC bit depth) for LS_MEAS_RATE register */
+typedef enum {
+  APDS9999_LS_RES_20BIT = 0x00,  ///< 20-bit resolution (400ms conversion)
+  APDS9999_LS_RES_19BIT = 0x01,  ///< 19-bit resolution (200ms conversion)
+  APDS9999_LS_RES_18BIT = 0x02,  ///< 18-bit resolution (100ms conversion)
+  APDS9999_LS_RES_17BIT = 0x03,  ///< 17-bit resolution (50ms conversion)
+  APDS9999_LS_RES_16BIT = 0x04,  ///< 16-bit resolution (25ms conversion)
+  APDS9999_LS_RES_13BIT = 0x05   ///< 13-bit resolution (3.125ms conversion)
+} apds9999_ls_resolution_t;
+
+/** Light sensor measurement rate for LS_MEAS_RATE register */
+typedef enum {
+  APDS9999_LS_RATE_25MS   = 0x00,  ///< 25ms measurement rate
+  APDS9999_LS_RATE_50MS   = 0x01,  ///< 50ms measurement rate
+  APDS9999_LS_RATE_100MS  = 0x02,  ///< 100ms measurement rate (default)
+  APDS9999_LS_RATE_200MS  = 0x03,  ///< 200ms measurement rate
+  APDS9999_LS_RATE_500MS  = 0x04,  ///< 500ms measurement rate
+  APDS9999_LS_RATE_1000MS = 0x05,  ///< 1000ms measurement rate
+  APDS9999_LS_RATE_2000MS = 0x06   ///< 2000ms measurement rate
+} apds9999_ls_meas_rate_t;
+
+/** Proximity sensor resolution (ADC bit depth) for PS_MEAS_RATE register */
+typedef enum {
+  APDS9999_PS_RES_8BIT  = 0x00,  ///< 8-bit resolution
+  APDS9999_PS_RES_9BIT  = 0x01,  ///< 9-bit resolution
+  APDS9999_PS_RES_10BIT = 0x02,  ///< 10-bit resolution
+  APDS9999_PS_RES_11BIT = 0x03   ///< 11-bit resolution (default)
+} apds9999_ps_resolution_t;
+
+/** Proximity sensor measurement rate for PS_MEAS_RATE register */
+typedef enum {
+  APDS9999_PS_RATE_6MS   = 0x01,  ///< 6.25ms measurement rate
+  APDS9999_PS_RATE_12MS  = 0x02,  ///< 12.5ms measurement rate
+  APDS9999_PS_RATE_25MS  = 0x03,  ///< 25ms measurement rate
+  APDS9999_PS_RATE_50MS  = 0x04,  ///< 50ms measurement rate
+  APDS9999_PS_RATE_100MS = 0x05,  ///< 100ms measurement rate (default)
+  APDS9999_PS_RATE_200MS = 0x06,  ///< 200ms measurement rate
+  APDS9999_PS_RATE_400MS = 0x07   ///< 400ms measurement rate
+} apds9999_ps_meas_rate_t;
+
 /*!
  *  @brief  Class that stores state and functions for interacting with
  *          APDS-9999 Digital Proximity and RGB Sensor
@@ -83,12 +147,38 @@ class Adafruit_APDS9999 {
   bool setRGBMode(bool en);
   bool getRGBMode();
 
+  // LS_GAIN register functions
+  bool setLSGain(apds9999_ls_gain_t gain);
+  apds9999_ls_gain_t getLSGain();
+
+  // LS_MEAS_RATE register functions
+  bool setLSResolution(apds9999_ls_resolution_t res);
+  apds9999_ls_resolution_t getLSResolution();
+  bool setLSMeasRate(apds9999_ls_meas_rate_t rate);
+  apds9999_ls_meas_rate_t getLSMeasRate();
+
+  // PS_MEAS_RATE register functions
+  bool setPSResolution(apds9999_ps_resolution_t res);
+  apds9999_ps_resolution_t getPSResolution();
+  bool setPSMeasRate(apds9999_ps_meas_rate_t rate);
+  apds9999_ps_meas_rate_t getPSMeasRate();
+
   // Proximity data functions
   uint16_t readProximity();
   bool getProximityOverflow();
 
   // RGB+IR bulk data read
   bool getRGBIRData(uint32_t *r, uint32_t *g, uint32_t *b, uint32_t *ir);
+
+  // PS_PULSES register functions
+  bool setLEDPulses(uint8_t pulses);
+  uint8_t getLEDPulses();
+
+  // PS_VCSEL register functions
+  bool setLEDCurrent(apds9999_led_current_t current);
+  apds9999_led_current_t getLEDCurrent();
+  bool setLEDFrequency(apds9999_led_freq_t freq);
+  apds9999_led_freq_t getLEDFrequency();
 
  private:
   Adafruit_I2CDevice* i2c_dev = NULL; ///< Pointer to I2C bus interface
