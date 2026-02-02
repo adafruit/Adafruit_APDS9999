@@ -226,6 +226,15 @@ class Adafruit_APDS9999 {
   bool isPSDataReady();
   bool isLSDataReady();
 
+  // Sleep After Interrupt modes (MAIN_CTRL bits 6,5)
+  bool setPSSleepAfterInterrupt(bool enable);
+  bool getPSSleepAfterInterrupt();
+  bool setLSSleepAfterInterrupt(bool enable);
+  bool getLSSleepAfterInterrupt();
+
+  // Software reset (MAIN_CTRL bit 4)
+  void reset();
+
  private:
   Adafruit_I2CDevice* i2c_dev = NULL; ///< Pointer to I2C bus interface
 };

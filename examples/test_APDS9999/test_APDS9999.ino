@@ -257,6 +257,34 @@ void setup() {
   Serial.print(F("PS Analog Cancel MAX: "));
   Serial.println(apds.getPSAnalogCancellation() == 31 ? F("[PASS]") : F("[FAIL]"));
 
+  // SAI mode tests
+  Serial.println(F("\n--- SAI Mode Tests ---"));
+
+  apds.setPSSleepAfterInterrupt(true);
+  Serial.print(F("SAI_PS enable: "));
+  Serial.println(apds.getPSSleepAfterInterrupt() ? F("[PASS]") : F("[FAIL]"));
+
+  apds.setPSSleepAfterInterrupt(false);
+  Serial.print(F("SAI_PS disable: "));
+  Serial.println(!apds.getPSSleepAfterInterrupt() ? F("[PASS]") : F("[FAIL]"));
+
+  apds.setLSSleepAfterInterrupt(true);
+  Serial.print(F("SAI_LS enable: "));
+  Serial.println(apds.getLSSleepAfterInterrupt() ? F("[PASS]") : F("[FAIL]"));
+
+  apds.setLSSleepAfterInterrupt(false);
+  Serial.print(F("SAI_LS disable: "));
+  Serial.println(!apds.getLSSleepAfterInterrupt() ? F("[PASS]") : F("[FAIL]"));
+
+  // Reset test - verify chip comes back
+  Serial.println(F("\n--- Reset Test ---"));
+  Serial.println(F("Testing reset..."));
+  apds.reset();
+  delay(20);  // Wait for reset
+  // Try to read part ID to confirm chip is responsive
+  Serial.print(F("Reset recovery: "));
+  Serial.println(apds.getPartID() == 0x0C ? F("[PASS]") : F("[FAIL]"));
+
   // Live interrupt test
   Serial.println(F("\n--- Live Interrupt Test ---"));
   pinMode(INT_PIN, INPUT_PULLUP);

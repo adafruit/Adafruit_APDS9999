@@ -745,3 +745,65 @@ bool Adafruit_APDS9999::isLSDataReady() {
   Adafruit_BusIO_RegisterBits ls_data(&main_status, 1, 3);
   return ls_data.read();
 }
+
+/**************************************************************************/
+/*!
+    @brief  Enable/disable sleep after proximity interrupt
+    @param  enable True to sleep after PS interrupt
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setPSSleepAfterInterrupt(bool enable) {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits sai_ps(&main_ctrl, 1, 6);
+  return sai_ps.write(enable ? 1 : 0);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get sleep after proximity interrupt setting
+    @return True if SAI_PS is enabled
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::getPSSleepAfterInterrupt() {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits sai_ps(&main_ctrl, 1, 6);
+  return sai_ps.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Enable/disable sleep after light sensor interrupt
+    @param  enable True to sleep after LS interrupt
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLSSleepAfterInterrupt(bool enable) {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits sai_ls(&main_ctrl, 1, 5);
+  return sai_ls.write(enable ? 1 : 0);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get sleep after light sensor interrupt setting
+    @return True if SAI_LS is enabled
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::getLSSleepAfterInterrupt() {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits sai_ls(&main_ctrl, 1, 5);
+  return sai_ls.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Perform software reset. Note: device does not ACK this command.
+            After reset, wait ~10ms before communicating again.
+*/
+/**************************************************************************/
+void Adafruit_APDS9999::reset() {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits sw_reset(&main_ctrl, 1, 4);
+  sw_reset.write(1);  // Write may fail due to no ACK, that's expected
+}
