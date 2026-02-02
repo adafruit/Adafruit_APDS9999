@@ -72,6 +72,9 @@ class Adafruit_APDS9999 {
   bool begin(uint8_t i2c_addr = APDS9999_I2CADDR_DEFAULT,
              TwoWire* wire = &Wire);
 
+  uint8_t getPartID();
+  uint8_t getRevisionID();
+
  private:
   Adafruit_I2CDevice* i2c_dev = NULL; ///< Pointer to I2C bus interface
 };

@@ -66,3 +66,23 @@ bool Adafruit_APDS9999::begin(uint8_t i2c_addr, TwoWire* wire) {
 
   return true;
 }
+
+/*!
+ *    @brief  Gets the part ID (upper nibble of PART_ID register)
+ *    @return Part ID value (should be 0x0C for APDS-9999)
+ */
+uint8_t Adafruit_APDS9999::getPartID() {
+  Adafruit_BusIO_Register part_id_reg(i2c_dev, APDS9999_REG_PART_ID);
+  Adafruit_BusIO_RegisterBits part_id_bits(&part_id_reg, 4, 4);
+  return part_id_bits.read();
+}
+
+/*!
+ *    @brief  Gets the revision ID (lower nibble of PART_ID register)
+ *    @return Revision ID value
+ */
+uint8_t Adafruit_APDS9999::getRevisionID() {
+  Adafruit_BusIO_Register part_id_reg(i2c_dev, APDS9999_REG_PART_ID);
+  Adafruit_BusIO_RegisterBits rev_id_bits(&part_id_reg, 4, 0);
+  return rev_id_bits.read();
+}
