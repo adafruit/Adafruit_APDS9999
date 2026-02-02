@@ -222,6 +222,22 @@ void setup() {
   Serial.print(F("PS Thresh Low 50: "));
   Serial.println(apds.getPSThresholdLow() == 50 ? F("[PASS]") : F("[FAIL]"));
 
+  // LS Threshold tests
+  Serial.println(F("\n--- LS Threshold Tests ---"));
+
+  apds.setLSThresholdHigh(100000);
+  Serial.print(F("LS Thresh High 100000: "));
+  Serial.println(apds.getLSThresholdHigh() == 100000 ? F("[PASS]") : F("[FAIL]"));
+
+  apds.setLSThresholdLow(5000);
+  Serial.print(F("LS Thresh Low 5000: "));
+  Serial.println(apds.getLSThresholdLow() == 5000 ? F("[PASS]") : F("[FAIL]"));
+
+  // Test max value (20-bit = 0xFFFFF = 1048575)
+  apds.setLSThresholdHigh(1048575);
+  Serial.print(F("LS Thresh High MAX: "));
+  Serial.println(apds.getLSThresholdHigh() == 1048575 ? F("[PASS]") : F("[FAIL]"));
+
   // Live interrupt test
   Serial.println(F("\n--- Live Interrupt Test ---"));
   pinMode(INT_PIN, INPUT_PULLUP);

@@ -208,6 +208,12 @@ class Adafruit_APDS9999 {
   bool setPSThresholdLow(uint16_t threshold);
   uint16_t getPSThresholdLow();
 
+  // LS Thresholds (0x21-0x26) register functions
+  bool setLSThresholdHigh(uint32_t threshold);
+  uint32_t getLSThresholdHigh();
+  bool setLSThresholdLow(uint32_t threshold);
+  uint32_t getLSThresholdLow();
+
   // Status reading (0x07)
   bool getPSInterruptStatus();
   bool getLSInterruptStatus();

@@ -582,6 +582,66 @@ uint16_t Adafruit_APDS9999::getPSThresholdLow() {
 
 /**************************************************************************/
 /*!
+    @brief  Set light sensor upper threshold (20-bit)
+    @param  threshold Threshold value (0-0xFFFFF)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLSThresholdHigh(uint32_t threshold) {
+  threshold &= 0x0FFFFF;  // Mask to 20 bits
+  uint8_t buffer[4];
+  buffer[0] = APDS9999_REG_LS_THRES_UP_0;
+  buffer[1] = threshold & 0xFF;
+  buffer[2] = (threshold >> 8) & 0xFF;
+  buffer[3] = (threshold >> 16) & 0x0F;
+  return i2c_dev->write(buffer, 4);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get light sensor upper threshold
+    @return Current upper threshold value (20-bit)
+*/
+/**************************************************************************/
+uint32_t Adafruit_APDS9999::getLSThresholdHigh() {
+  uint8_t buffer[3];
+  uint8_t reg = APDS9999_REG_LS_THRES_UP_0;
+  i2c_dev->write_then_read(&reg, 1, buffer, 3);
+  return ((uint32_t)buffer[0] | ((uint32_t)buffer[1] << 8) | (((uint32_t)buffer[2] & 0x0F) << 16));
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set light sensor lower threshold (20-bit)
+    @param  threshold Threshold value (0-0xFFFFF)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLSThresholdLow(uint32_t threshold) {
+  threshold &= 0x0FFFFF;  // Mask to 20 bits
+  uint8_t buffer[4];
+  buffer[0] = APDS9999_REG_LS_THRES_LOW_0;
+  buffer[1] = threshold & 0xFF;
+  buffer[2] = (threshold >> 8) & 0xFF;
+  buffer[3] = (threshold >> 16) & 0x0F;
+  return i2c_dev->write(buffer, 4);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get light sensor lower threshold
+    @return Current lower threshold value (20-bit)
+*/
+/**************************************************************************/
+uint32_t Adafruit_APDS9999::getLSThresholdLow() {
+  uint8_t buffer[3];
+  uint8_t reg = APDS9999_REG_LS_THRES_LOW_0;
+  i2c_dev->write_then_read(&reg, 1, buffer, 3);
+  return ((uint32_t)buffer[0] | ((uint32_t)buffer[1] << 8) | (((uint32_t)buffer[2] & 0x0F) << 16));
+}
+
+/**************************************************************************/
+/*!
     @brief  Get proximity sensor interrupt status (reading clears flag)
     @return True if PS interrupt flag is set
 */
