@@ -124,6 +124,14 @@ typedef enum {
   APDS9999_PS_RATE_400MS = 0x07   ///< 400ms measurement rate
 } apds9999_ps_meas_rate_t;
 
+/** LS interrupt channel select for INT_CFG register */
+typedef enum {
+  APDS9999_INT_CH_IR    = 0x00,  ///< IR channel for LS interrupt
+  APDS9999_INT_CH_GREEN = 0x01,  ///< Green channel for LS interrupt
+  APDS9999_INT_CH_RED   = 0x02,  ///< Red channel for LS interrupt
+  APDS9999_INT_CH_BLUE  = 0x03   ///< Blue channel for LS interrupt
+} apds9999_ls_int_channel_t;
+
 /*!
  *  @brief  Class that stores state and functions for interacting with
  *          APDS-9999 Digital Proximity and RGB Sensor
@@ -179,6 +187,30 @@ class Adafruit_APDS9999 {
   apds9999_led_current_t getLEDCurrent();
   bool setLEDFrequency(apds9999_led_freq_t freq);
   apds9999_led_freq_t getLEDFrequency();
+
+  // INT_CFG (0x19) register functions
+  bool enablePSInterrupt(bool en);
+  bool psInterruptEnabled();
+  bool enableLSInterrupt(bool en);
+  bool lsInterruptEnabled();
+  bool setLSIntChannel(apds9999_ls_int_channel_t ch);
+  apds9999_ls_int_channel_t getLSIntChannel();
+
+  // INT_PST (0x1A) register functions
+  bool setPSPersistence(uint8_t pers);
+  uint8_t getPSPersistence();
+  bool setLSPersistence(uint8_t pers);
+  uint8_t getLSPersistence();
+
+  // PS Thresholds (0x1B-0x1E) register functions
+  bool setPSThresholdHigh(uint16_t threshold);
+  uint16_t getPSThresholdHigh();
+  bool setPSThresholdLow(uint16_t threshold);
+  uint16_t getPSThresholdLow();
+
+  // Status reading (0x07)
+  bool getPSInterruptStatus();
+  bool getLSInterruptStatus();
 
  private:
   Adafruit_I2CDevice* i2c_dev = NULL; ///< Pointer to I2C bus interface

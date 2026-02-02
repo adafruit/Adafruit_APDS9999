@@ -408,3 +408,198 @@ apds9999_led_freq_t Adafruit_APDS9999::getLEDFrequency() {
   Adafruit_BusIO_RegisterBits led_freq(&ps_vcsel, 3, 4);
   return (apds9999_led_freq_t)led_freq.read();
 }
+
+/**************************************************************************/
+/*!
+    @brief  Enable or disable proximity sensor interrupt
+    @param  en True to enable, false to disable
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::enablePSInterrupt(bool en) {
+  Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
+  Adafruit_BusIO_RegisterBits ps_int_en(&int_cfg, 1, 0);
+  return ps_int_en.write(en ? 1 : 0);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Check if proximity sensor interrupt is enabled
+    @return True if enabled
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::psInterruptEnabled() {
+  Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
+  Adafruit_BusIO_RegisterBits ps_int_en(&int_cfg, 1, 0);
+  return ps_int_en.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Enable or disable light sensor interrupt
+    @param  en True to enable, false to disable
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::enableLSInterrupt(bool en) {
+  Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
+  Adafruit_BusIO_RegisterBits ls_int_en(&int_cfg, 1, 2);
+  return ls_int_en.write(en ? 1 : 0);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Check if light sensor interrupt is enabled
+    @return True if enabled
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::lsInterruptEnabled() {
+  Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
+  Adafruit_BusIO_RegisterBits ls_int_en(&int_cfg, 1, 2);
+  return ls_int_en.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the light sensor interrupt channel
+    @param  ch The channel to use for LS interrupt (IR, Green, Red, or Blue)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLSIntChannel(apds9999_ls_int_channel_t ch) {
+  Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
+  Adafruit_BusIO_RegisterBits ls_int_sel(&int_cfg, 2, 4);
+  return ls_int_sel.write(ch);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the current light sensor interrupt channel
+    @return The current LS interrupt channel setting
+*/
+/**************************************************************************/
+apds9999_ls_int_channel_t Adafruit_APDS9999::getLSIntChannel() {
+  Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
+  Adafruit_BusIO_RegisterBits ls_int_sel(&int_cfg, 2, 4);
+  return (apds9999_ls_int_channel_t)ls_int_sel.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the proximity sensor interrupt persistence
+    @param  pers Persistence value (0-15, number of consecutive readings)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setPSPersistence(uint8_t pers) {
+  Adafruit_BusIO_Register int_pst(i2c_dev, APDS9999_REG_INT_PST);
+  Adafruit_BusIO_RegisterBits ps_pers(&int_pst, 4, 0);
+  return ps_pers.write(pers & 0x0F);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the proximity sensor interrupt persistence
+    @return Persistence value (0-15)
+*/
+/**************************************************************************/
+uint8_t Adafruit_APDS9999::getPSPersistence() {
+  Adafruit_BusIO_Register int_pst(i2c_dev, APDS9999_REG_INT_PST);
+  Adafruit_BusIO_RegisterBits ps_pers(&int_pst, 4, 0);
+  return ps_pers.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the light sensor interrupt persistence
+    @param  pers Persistence value (0-15, number of consecutive readings)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLSPersistence(uint8_t pers) {
+  Adafruit_BusIO_Register int_pst(i2c_dev, APDS9999_REG_INT_PST);
+  Adafruit_BusIO_RegisterBits ls_pers(&int_pst, 4, 4);
+  return ls_pers.write(pers & 0x0F);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the light sensor interrupt persistence
+    @return Persistence value (0-15)
+*/
+/**************************************************************************/
+uint8_t Adafruit_APDS9999::getLSPersistence() {
+  Adafruit_BusIO_Register int_pst(i2c_dev, APDS9999_REG_INT_PST);
+  Adafruit_BusIO_RegisterBits ls_pers(&int_pst, 4, 4);
+  return ls_pers.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the proximity sensor upper threshold for interrupt
+    @param  threshold 11-bit threshold value (0-2047)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setPSThresholdHigh(uint16_t threshold) {
+  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_UP_0, 2, LSBFIRST);
+  return ps_thresh.write(threshold & 0x07FF);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the proximity sensor upper threshold
+    @return 11-bit threshold value (0-2047)
+*/
+/**************************************************************************/
+uint16_t Adafruit_APDS9999::getPSThresholdHigh() {
+  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_UP_0, 2, LSBFIRST);
+  return ps_thresh.read() & 0x07FF;
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set the proximity sensor lower threshold for interrupt
+    @param  threshold 11-bit threshold value (0-2047)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setPSThresholdLow(uint16_t threshold) {
+  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_LOW_0, 2, LSBFIRST);
+  return ps_thresh.write(threshold & 0x07FF);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get the proximity sensor lower threshold
+    @return 11-bit threshold value (0-2047)
+*/
+/**************************************************************************/
+uint16_t Adafruit_APDS9999::getPSThresholdLow() {
+  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_LOW_0, 2, LSBFIRST);
+  return ps_thresh.read() & 0x07FF;
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get proximity sensor interrupt status (reading clears flag)
+    @return True if PS interrupt flag is set
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::getPSInterruptStatus() {
+  Adafruit_BusIO_Register main_status(i2c_dev, APDS9999_REG_MAIN_STATUS);
+  Adafruit_BusIO_RegisterBits ps_int(&main_status, 1, 1);
+  return ps_int.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get light sensor interrupt status (reading clears flag)
+    @return True if LS interrupt flag is set
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::getLSInterruptStatus() {
+  Adafruit_BusIO_Register main_status(i2c_dev, APDS9999_REG_MAIN_STATUS);
+  Adafruit_BusIO_RegisterBits ls_int(&main_status, 1, 4);
+  return ls_int.read();
+}

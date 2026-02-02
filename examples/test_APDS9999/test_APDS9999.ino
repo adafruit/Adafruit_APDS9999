@@ -7,6 +7,8 @@
 
 #include <Adafruit_APDS9999.h>
 
+#define INT_PIN 2
+
 Adafruit_APDS9999 apds;
 
 void setup() {
@@ -176,6 +178,77 @@ void setup() {
   apds.setPSMeasRate(APDS9999_PS_RATE_100MS);
   Serial.print(F("PS Meas Rate (set 100ms): "));
   Serial.println(apds.getPSMeasRate() == APDS9999_PS_RATE_100MS ? F("[PASS]") : F("[FAIL]"));
+
+  // Interrupt config tests
+  Serial.println(F("\n--- INT_CFG Tests ---"));
+
+  apds.enablePSInterrupt(true);
+  Serial.print(F("PS Int Enable: "));
+  Serial.println(apds.psInterruptEnabled() ? F("[PASS]") : F("[FAIL]"));
+  apds.enablePSInterrupt(false);
+
+  apds.enableLSInterrupt(true);
+  Serial.print(F("LS Int Enable: "));
+  Serial.println(apds.lsInterruptEnabled() ? F("[PASS]") : F("[FAIL]"));
+  apds.enableLSInterrupt(false);
+
+  apds.setLSIntChannel(APDS9999_INT_CH_RED);
+  Serial.print(F("LS Int Channel RED: "));
+  Serial.println(apds.getLSIntChannel() == APDS9999_INT_CH_RED ? F("[PASS]") : F("[FAIL]"));
+
+  apds.setLSIntChannel(APDS9999_INT_CH_IR);
+  Serial.print(F("LS Int Channel IR: "));
+  Serial.println(apds.getLSIntChannel() == APDS9999_INT_CH_IR ? F("[PASS]") : F("[FAIL]"));
+
+  // Interrupt persistence tests
+  Serial.println(F("\n--- INT_PST Tests ---"));
+
+  apds.setPSPersistence(5);
+  Serial.print(F("PS Persistence 5: "));
+  Serial.println(apds.getPSPersistence() == 5 ? F("[PASS]") : F("[FAIL]"));
+
+  apds.setLSPersistence(10);
+  Serial.print(F("LS Persistence 10: "));
+  Serial.println(apds.getLSPersistence() == 10 ? F("[PASS]") : F("[FAIL]"));
+
+  // PS Threshold tests
+  Serial.println(F("\n--- PS Threshold Tests ---"));
+
+  apds.setPSThresholdHigh(500);
+  Serial.print(F("PS Thresh High 500: "));
+  Serial.println(apds.getPSThresholdHigh() == 500 ? F("[PASS]") : F("[FAIL]"));
+
+  apds.setPSThresholdLow(50);
+  Serial.print(F("PS Thresh Low 50: "));
+  Serial.println(apds.getPSThresholdLow() == 50 ? F("[PASS]") : F("[FAIL]"));
+
+  // Live interrupt test
+  Serial.println(F("\n--- Live Interrupt Test ---"));
+  pinMode(INT_PIN, INPUT_PULLUP);
+  apds.enableProximitySensor(true);
+  apds.setPSThresholdHigh(50);  // Low threshold so hand triggers it
+  apds.setPSPersistence(0);     // Trigger on first reading
+  apds.enablePSInterrupt(true);
+  delay(100);
+
+  Serial.println(F("Wave hand near sensor NOW..."));
+  bool triggered = false;
+  for (int i = 0; i < 50; i++) {  // 5 second timeout
+    if (digitalRead(INT_PIN) == LOW) {
+      triggered = true;
+      break;
+    }
+    delay(100);
+  }
+
+  if (triggered) {
+    Serial.print(F("INT triggered! PS Int Status: "));
+    Serial.println(apds.getPSInterruptStatus() ? F("SET [PASS]") : F("NOT SET [FAIL]"));
+  } else {
+    Serial.println(F("Timeout - no interrupt [FAIL]"));
+  }
+
+  apds.enablePSInterrupt(false);
 
   Serial.println(F("\n--- Tests Complete ---"));
 
