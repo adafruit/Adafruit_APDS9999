@@ -183,3 +183,30 @@ bool Adafruit_APDS9999::getProximityOverflow() {
   Adafruit_BusIO_Register ps_data(i2c_dev, APDS9999_REG_PS_DATA_0, 2, LSBFIRST);
   return (ps_data.read() & 0x0800) != 0;
 }
+
+/**************************************************************************/
+/*!
+    @brief  Read all RGB+IR data in a single 12-byte bulk read
+    @param  r Pointer to store red channel (20-bit value)
+    @param  g Pointer to store green channel (20-bit value)
+    @param  b Pointer to store blue channel (20-bit value)
+    @param  ir Pointer to store IR channel (20-bit value)
+    @return True if read succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::getRGBIRData(uint32_t *r, uint32_t *g, uint32_t *b, uint32_t *ir) {
+  uint8_t buffer[12];
+  uint8_t reg = APDS9999_REG_LS_DATA_IR_0;  // 0x0A
+  
+  if (!i2c_dev->write_then_read(&reg, 1, buffer, 12)) {
+    return false;
+  }
+  
+  // Each channel: 3 bytes, LSB first, mask to 20 bits
+  *ir = (buffer[0] | (buffer[1] << 8) | (buffer[2] << 16)) & 0x0FFFFF;
+  *g  = (buffer[3] | (buffer[4] << 8) | (buffer[5] << 16)) & 0x0FFFFF;
+  *b  = (buffer[6] | (buffer[7] << 8) | (buffer[8] << 16)) & 0x0FFFFF;
+  *r  = (buffer[9] | (buffer[10] << 8) | (buffer[11] << 16)) & 0x0FFFFF;
+  
+  return true;
+}

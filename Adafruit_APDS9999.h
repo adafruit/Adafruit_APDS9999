@@ -87,6 +87,9 @@ class Adafruit_APDS9999 {
   uint16_t readProximity();
   bool getProximityOverflow();
 
+  // RGB+IR bulk data read
+  bool getRGBIRData(uint32_t *r, uint32_t *g, uint32_t *b, uint32_t *ir);
+
  private:
   Adafruit_I2CDevice* i2c_dev = NULL; ///< Pointer to I2C bus interface
 };

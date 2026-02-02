@@ -67,7 +67,11 @@ void setup() {
 
   // Enable proximity sensor for continuous reading
   apds.enableProximitySensor(true);
-  delay(100);  // Allow time for first measurement
+  
+  // Enable light sensor with RGB mode for RGBIR readings
+  apds.enableLightSensor(true);
+  apds.setRGBMode(true);
+  delay(500);  // Wait for measurement
 }
 
 void loop() {
@@ -75,5 +79,17 @@ void loop() {
   Serial.print(apds.readProximity());
   Serial.print(F("  Overflow: "));
   Serial.println(apds.getProximityOverflow() ? F("YES") : F("no"));
+  
+  // Read and print RGB+IR data
+  uint32_t r, g, b, ir;
+  if (apds.getRGBIRData(&r, &g, &b, &ir)) {
+    Serial.print("R:"); Serial.print(r);
+    Serial.print(" G:"); Serial.print(g);
+    Serial.print(" B:"); Serial.print(b);
+    Serial.print(" IR:"); Serial.println(ir);
+  } else {
+    Serial.println("RGBIR read failed!");
+  }
+  
   delay(100);
 }
