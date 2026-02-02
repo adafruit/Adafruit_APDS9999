@@ -338,6 +338,54 @@ bool Adafruit_APDS9999::getRGBIRData(uint32_t *r, uint32_t *g, uint32_t *b, uint
 
 /**************************************************************************/
 /*!
+    @brief  Calculate lux from green channel count based on current settings
+    @param  green_count Raw green channel ADC count
+    @return Calculated lux value, or 0 if settings not supported
+*/
+/**************************************************************************/
+float Adafruit_APDS9999::calculateLux(uint32_t green_count) {
+  // Resolution factor lookup table [gain_index][resolution_index]
+  // Gain: 1x=0, 3x=1, 6x=2, 9x=3, 18x=4
+  // Resolution: 20-bit=0, 19-bit=1, 18-bit=2, 17-bit=3, 16-bit=4
+  static const float lux_factor[5][5] = {
+    // 20-bit  19-bit  18-bit  17-bit  16-bit
+    { 0.136,  0.273,  0.548,  1.099,  2.193 },  // 1x gain
+    { 0.045,  0.090,  0.180,  0.359,  0.722 },  // 3x gain
+    { 0.022,  0.045,  0.090,  0.179,  0.360 },  // 6x gain
+    { 0.015,  0.030,  0.059,  0.119,  0.239 },  // 9x gain
+    { 0.007,  0.015,  0.029,  0.059,  0.117 }   // 18x gain
+  };
+
+  // Get current gain setting
+  apds9999_ls_gain_t gain = getLSGain();
+  uint8_t gain_index;
+  switch (gain) {
+    case APDS9999_LS_GAIN_1X:  gain_index = 0; break;
+    case APDS9999_LS_GAIN_3X:  gain_index = 1; break;
+    case APDS9999_LS_GAIN_6X:  gain_index = 2; break;
+    case APDS9999_LS_GAIN_9X:  gain_index = 3; break;
+    case APDS9999_LS_GAIN_18X: gain_index = 4; break;
+    default: return 0;
+  }
+
+  // Get current resolution setting
+  apds9999_ls_resolution_t res = getLSResolution();
+  uint8_t res_index;
+  switch (res) {
+    case APDS9999_LS_RES_20BIT: res_index = 0; break;
+    case APDS9999_LS_RES_19BIT: res_index = 1; break;
+    case APDS9999_LS_RES_18BIT: res_index = 2; break;
+    case APDS9999_LS_RES_17BIT: res_index = 3; break;
+    case APDS9999_LS_RES_16BIT: res_index = 4; break;
+    case APDS9999_LS_RES_13BIT: return 0;  // Not supported in lux table
+    default: return 0;
+  }
+
+  return green_count * lux_factor[gain_index][res_index];
+}
+
+/**************************************************************************/
+/*!
     @brief  Set the number of LED pulses for proximity sensing
     @param  pulses Number of pulses (0-255)
     @return True if write succeeded

@@ -315,12 +315,28 @@ void setup() {
 
   Serial.println(F("\n--- Tests Complete ---"));
 
-  // Enable proximity sensor for continuous reading
-  apds.enableProximitySensor(true);
-  
-  // Enable light sensor with RGB mode for RGBIR readings
+  // Lux calculation test
+  Serial.println(F("\n--- Lux Calculation Test ---"));
+  // With default settings (3x gain, 18-bit), factor is 0.180
+  apds.setLSGain(APDS9999_LS_GAIN_3X);
+  apds.setLSResolution(APDS9999_LS_RES_18BIT);
   apds.enableLightSensor(true);
   apds.setRGBMode(true);
+  delay(200);  // Wait for measurement
+
+  uint32_t r, g, b, ir;
+  if (apds.getRGBIRData(&r, &g, &b, &ir)) {
+    float lux = apds.calculateLux(g);
+    Serial.print(F("Green count: "));
+    Serial.print(g);
+    Serial.print(F(" -> Lux: "));
+    Serial.println(lux, 2);
+    Serial.print(F("Lux calculation: "));
+    Serial.println(lux > 0 ? F("[PASS]") : F("[FAIL]"));
+  }
+
+  // Enable proximity sensor for continuous reading
+  apds.enableProximitySensor(true);
   delay(500);  // Wait for measurement
 }
 

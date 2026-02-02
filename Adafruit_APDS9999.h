@@ -178,6 +178,9 @@ class Adafruit_APDS9999 {
   // RGB+IR bulk data read
   bool getRGBIRData(uint32_t *r, uint32_t *g, uint32_t *b, uint32_t *ir);
 
+  // Lux calculation
+  float calculateLux(uint32_t green_count);
+
   // PS_PULSES register functions
   bool setLEDPulses(uint8_t pulses);
   uint8_t getLEDPulses();
