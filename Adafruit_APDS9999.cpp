@@ -161,3 +161,25 @@ bool Adafruit_APDS9999::getRGBMode() {
   Adafruit_BusIO_RegisterBits rgb_mode(&main_ctrl, 1, 2);
   return rgb_mode.read();
 }
+
+/**************************************************************************/
+/*!
+    @brief  Read proximity sensor data (11-bit value)
+    @return Proximity value (0-2047)
+*/
+/**************************************************************************/
+uint16_t Adafruit_APDS9999::readProximity() {
+  Adafruit_BusIO_Register ps_data(i2c_dev, APDS9999_REG_PS_DATA_0, 2, LSBFIRST);
+  return ps_data.read() & 0x07FF;
+}
+
+/**************************************************************************/
+/*!
+    @brief  Check if proximity sensor has overflowed
+    @return True if overflow occurred (bit 11 set)
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::getProximityOverflow() {
+  Adafruit_BusIO_Register ps_data(i2c_dev, APDS9999_REG_PS_DATA_0, 2, LSBFIRST);
+  return (ps_data.read() & 0x0800) != 0;
+}

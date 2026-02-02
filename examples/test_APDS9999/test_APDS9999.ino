@@ -64,9 +64,16 @@ void setup() {
   Serial.println(!apds.getRGBMode() ? F("[PASS]") : F("[FAIL]"));
 
   Serial.println(F("\n--- Tests Complete ---"));
+
+  // Enable proximity sensor for continuous reading
+  apds.enableProximitySensor(true);
+  delay(100);  // Allow time for first measurement
 }
 
 void loop() {
-  // Nothing here yet
+  Serial.print(F("Proximity: "));
+  Serial.print(apds.readProximity());
+  Serial.print(F("  Overflow: "));
+  Serial.println(apds.getProximityOverflow() ? F("YES") : F("no"));
   delay(100);
 }

@@ -83,6 +83,10 @@ class Adafruit_APDS9999 {
   bool setRGBMode(bool en);
   bool getRGBMode();
 
+  // Proximity data functions
+  uint16_t readProximity();
+  bool getProximityOverflow();
+
  private:
   Adafruit_I2CDevice* i2c_dev = NULL; ///< Pointer to I2C bus interface
 };
