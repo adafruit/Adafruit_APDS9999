@@ -75,6 +75,14 @@ class Adafruit_APDS9999 {
   uint8_t getPartID();
   uint8_t getRevisionID();
 
+  // MAIN_CTRL register functions
+  bool enableLightSensor(bool en);
+  bool lightSensorEnabled();
+  bool enableProximitySensor(bool en);
+  bool proximitySensorEnabled();
+  bool setRGBMode(bool en);
+  bool getRGBMode();
+
  private:
   Adafruit_I2CDevice* i2c_dev = NULL; ///< Pointer to I2C bus interface
 };

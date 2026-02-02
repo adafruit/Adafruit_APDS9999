@@ -86,3 +86,78 @@ uint8_t Adafruit_APDS9999::getRevisionID() {
   Adafruit_BusIO_RegisterBits rev_id_bits(&part_id_reg, 4, 0);
   return rev_id_bits.read();
 }
+
+/**************************************************************************/
+/*!
+    @brief  Enable or disable the light sensor (ALS/RGB)
+    @param  en True to enable, false to disable
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::enableLightSensor(bool en) {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits ls_en(&main_ctrl, 1, 1);
+  return ls_en.write(en ? 1 : 0);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Check if the light sensor is enabled
+    @return True if enabled
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::lightSensorEnabled() {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits ls_en(&main_ctrl, 1, 1);
+  return ls_en.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Enable or disable the proximity sensor
+    @param  en True to enable, false to disable
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::enableProximitySensor(bool en) {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits ps_en(&main_ctrl, 1, 0);
+  return ps_en.write(en ? 1 : 0);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Check if the proximity sensor is enabled
+    @return True if enabled
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::proximitySensorEnabled() {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits ps_en(&main_ctrl, 1, 0);
+  return ps_en.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set RGB mode (vs ALS mode) for light sensor
+    @param  en True for RGB mode, false for ALS mode
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setRGBMode(bool en) {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits rgb_mode(&main_ctrl, 1, 2);
+  return rgb_mode.write(en ? 1 : 0);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get current RGB mode setting
+    @return True if RGB mode, false if ALS mode
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::getRGBMode() {
+  Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
+  Adafruit_BusIO_RegisterBits rgb_mode(&main_ctrl, 1, 2);
+  return rgb_mode.read();
+}
