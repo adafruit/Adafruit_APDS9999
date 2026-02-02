@@ -238,6 +238,25 @@ void setup() {
   Serial.print(F("LS Thresh High MAX: "));
   Serial.println(apds.getLSThresholdHigh() == 1048575 ? F("[PASS]") : F("[FAIL]"));
 
+  // PS Cancellation tests
+  Serial.println(F("\n--- PS Cancellation Tests ---"));
+
+  apds.setPSCancellation(500);
+  Serial.print(F("PS Digital Cancel 500: "));
+  Serial.println(apds.getPSCancellation() == 500 ? F("[PASS]") : F("[FAIL]"));
+
+  apds.setPSCancellation(2047);  // Max 11-bit
+  Serial.print(F("PS Digital Cancel MAX: "));
+  Serial.println(apds.getPSCancellation() == 2047 ? F("[PASS]") : F("[FAIL]"));
+
+  apds.setPSAnalogCancellation(15);
+  Serial.print(F("PS Analog Cancel 15: "));
+  Serial.println(apds.getPSAnalogCancellation() == 15 ? F("[PASS]") : F("[FAIL]"));
+
+  apds.setPSAnalogCancellation(31);  // Max 5-bit
+  Serial.print(F("PS Analog Cancel MAX: "));
+  Serial.println(apds.getPSAnalogCancellation() == 31 ? F("[PASS]") : F("[FAIL]"));
+
   // Live interrupt test
   Serial.println(F("\n--- Live Interrupt Test ---"));
   pinMode(INT_PIN, INPUT_PULLUP);

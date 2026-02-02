@@ -642,6 +642,64 @@ uint32_t Adafruit_APDS9999::getLSThresholdLow() {
 
 /**************************************************************************/
 /*!
+    @brief  Set proximity sensor digital cancellation (11-bit)
+    @param  value Cancellation value (0-2047)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setPSCancellation(uint16_t value) {
+  value &= 0x07FF;  // Mask to 11 bits
+  // Write low byte to 0x1F
+  Adafruit_BusIO_Register ps_can_0(i2c_dev, APDS9999_REG_PS_CAN_0);
+  if (!ps_can_0.write(value & 0xFF)) return false;
+  // Read 0x20, preserve analog bits (7:3), write digital bits (2:0)
+  Adafruit_BusIO_Register ps_can_1(i2c_dev, APDS9999_REG_PS_CAN_1);
+  uint8_t reg1 = ps_can_1.read();
+  reg1 = (reg1 & 0xF8) | ((value >> 8) & 0x07);
+  return ps_can_1.write(reg1);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get proximity sensor digital cancellation value
+    @return Current digital cancellation value (11-bit)
+*/
+/**************************************************************************/
+uint16_t Adafruit_APDS9999::getPSCancellation() {
+  Adafruit_BusIO_Register ps_can_0(i2c_dev, APDS9999_REG_PS_CAN_0);
+  Adafruit_BusIO_Register ps_can_1(i2c_dev, APDS9999_REG_PS_CAN_1);
+  uint16_t low = ps_can_0.read();
+  uint16_t high = ps_can_1.read() & 0x07;
+  return low | (high << 8);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set proximity sensor analog cancellation (5-bit)
+    @param  value Cancellation value (0-31)
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setPSAnalogCancellation(uint8_t value) {
+  Adafruit_BusIO_Register ps_can_1(i2c_dev, APDS9999_REG_PS_CAN_1);
+  Adafruit_BusIO_RegisterBits ana_can(&ps_can_1, 5, 3);
+  return ana_can.write(value & 0x1F);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get proximity sensor analog cancellation value
+    @return Current analog cancellation value (5-bit)
+*/
+/**************************************************************************/
+uint8_t Adafruit_APDS9999::getPSAnalogCancellation() {
+  Adafruit_BusIO_Register ps_can_1(i2c_dev, APDS9999_REG_PS_CAN_1);
+  Adafruit_BusIO_RegisterBits ana_can(&ps_can_1, 5, 3);
+  return ana_can.read();
+}
+
+/**************************************************************************/
+/*!
     @brief  Get proximity sensor interrupt status (reading clears flag)
     @return True if PS interrupt flag is set
 */
