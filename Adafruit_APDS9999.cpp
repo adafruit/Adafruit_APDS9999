@@ -863,7 +863,16 @@ uint8_t Adafruit_APDS9999::getPSAnalogCancellation() {
 /**************************************************************************/
 uint8_t Adafruit_APDS9999::getMainStatus() {
   Adafruit_BusIO_Register main_status(i2c_dev, APDS9999_REG_MAIN_STATUS);
-  return main_status.read();
+  uint8_t status;
+  // Bits 7:6 are reserved and should be 0. If set, indicates I2C failure
+  // (bus reads 0xFF when NACK or stuck high). Retry up to 3 times.
+  for (uint8_t i = 0; i < 3; i++) {
+    status = main_status.read();
+    if ((status & 0xC0) == 0) {
+      return status;
+    }
+  }
+  return status; // Return last read even if bad
 }
 
 /**************************************************************************/
