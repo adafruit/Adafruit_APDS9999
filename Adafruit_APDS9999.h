@@ -60,6 +60,98 @@
 #define APDS9999_REG_LS_THRES_LOW_2 0x26  ///< LS lower threshold high byte
 #define APDS9999_REG_LS_THRES_VAR 0x27    ///< LS variance threshold
 
+/** Main status register bit masks (for getMainStatus()) */
+#define APDS9999_STATUS_PROX_DATA 0x01  ///< Proximity data ready
+#define APDS9999_STATUS_PROX_INT 0x02   ///< Proximity interrupt triggered
+#define APDS9999_STATUS_PROX_LOGIC 0x04 ///< Proximity logic signal state
+#define APDS9999_STATUS_LIGHT_DATA 0x08 ///< Light sensor data ready
+#define APDS9999_STATUS_LIGHT_INT 0x10  ///< Light sensor interrupt triggered
+#define APDS9999_STATUS_POWER_ON 0x20   ///< Power-on reset occurred
+
+/** LS Gain settings for register 0x05 */
+typedef enum {
+  APDS9999_LIGHT_GAIN_1X = 0x00, ///< 1x gain
+  APDS9999_LIGHT_GAIN_3X = 0x01, ///< 3x gain
+  APDS9999_LIGHT_GAIN_6X = 0x02, ///< 6x gain
+  APDS9999_LIGHT_GAIN_9X = 0x03, ///< 9x gain
+  APDS9999_LIGHT_GAIN_18X = 0x04 ///< 18x gain
+} apds9999_light_gain_t;
+
+/** LED drive current options for proximity sensor */
+typedef enum {
+  APDS9999_LED_CURRENT_10MA = 0x02,
+  APDS9999_LED_CURRENT_25MA = 0x03
+} apds9999_led_current_t;
+
+/** LED pulse frequency options for proximity sensor */
+typedef enum {
+  APDS9999_LED_FREQ_60KHZ = 0x03,
+  APDS9999_LED_FREQ_70KHZ = 0x04,
+  APDS9999_LED_FREQ_80KHZ = 0x05,
+  APDS9999_LED_FREQ_90KHZ = 0x06,
+  APDS9999_LED_FREQ_100KHZ = 0x07
+} apds9999_led_freq_t;
+
+/** Light sensor resolution (ADC bit depth) for LS_MEAS_RATE register */
+typedef enum {
+  APDS9999_LIGHT_RES_20BIT = 0x00, ///< 20-bit resolution (400ms conversion)
+  APDS9999_LIGHT_RES_19BIT = 0x01, ///< 19-bit resolution (200ms conversion)
+  APDS9999_LIGHT_RES_18BIT = 0x02, ///< 18-bit resolution (100ms conversion)
+  APDS9999_LIGHT_RES_17BIT = 0x03, ///< 17-bit resolution (50ms conversion)
+  APDS9999_LIGHT_RES_16BIT = 0x04, ///< 16-bit resolution (25ms conversion)
+  APDS9999_LIGHT_RES_13BIT = 0x05  ///< 13-bit resolution (3.125ms conversion)
+} apds9999_light_resolution_t;
+
+/** Light sensor measurement rate for LS_MEAS_RATE register */
+typedef enum {
+  APDS9999_LIGHT_RATE_25MS = 0x00,   ///< 25ms measurement rate
+  APDS9999_LIGHT_RATE_50MS = 0x01,   ///< 50ms measurement rate
+  APDS9999_LIGHT_RATE_100MS = 0x02,  ///< 100ms measurement rate (default)
+  APDS9999_LIGHT_RATE_200MS = 0x03,  ///< 200ms measurement rate
+  APDS9999_LIGHT_RATE_500MS = 0x04,  ///< 500ms measurement rate
+  APDS9999_LIGHT_RATE_1000MS = 0x05, ///< 1000ms measurement rate
+  APDS9999_LIGHT_RATE_2000MS = 0x06  ///< 2000ms measurement rate
+} apds9999_light_meas_rate_t;
+
+/** Proximity sensor resolution (ADC bit depth) for PS_MEAS_RATE register */
+typedef enum {
+  APDS9999_PROX_RES_8BIT = 0x00,  ///< 8-bit resolution (hardware default)
+  APDS9999_PROX_RES_9BIT = 0x01,  ///< 9-bit resolution
+  APDS9999_PROX_RES_10BIT = 0x02, ///< 10-bit resolution
+  APDS9999_PROX_RES_11BIT = 0x03  ///< 11-bit resolution
+} apds9999_prox_resolution_t;
+
+/** Proximity sensor measurement rate for PS_MEAS_RATE register */
+typedef enum {
+  APDS9999_PROX_RATE_6MS = 0x01,   ///< 6.25ms measurement rate
+  APDS9999_PROX_RATE_12MS = 0x02,  ///< 12.5ms measurement rate
+  APDS9999_PROX_RATE_25MS = 0x03,  ///< 25ms measurement rate
+  APDS9999_PROX_RATE_50MS = 0x04,  ///< 50ms measurement rate
+  APDS9999_PROX_RATE_100MS = 0x05, ///< 100ms measurement rate (default)
+  APDS9999_PROX_RATE_200MS = 0x06, ///< 200ms measurement rate
+  APDS9999_PROX_RATE_400MS = 0x07  ///< 400ms measurement rate
+} apds9999_prox_meas_rate_t;
+
+/** LS interrupt channel select for INT_CFG register */
+typedef enum {
+  APDS9999_LIGHT_INT_CH_IR = 0x00,    ///< IR channel for LS interrupt
+  APDS9999_LIGHT_INT_CH_GREEN = 0x01, ///< Green channel for LS interrupt
+  APDS9999_LIGHT_INT_CH_RED = 0x02,   ///< Red channel for LS interrupt
+  APDS9999_LIGHT_INT_CH_BLUE = 0x03   ///< Blue channel for LS interrupt
+} apds9999_light_int_channel_t;
+
+/** Light sensor variance threshold for LS_THRES_VAR register */
+typedef enum {
+  APDS9999_LIGHT_VAR_8 = 0x00,   ///< 8 count variance
+  APDS9999_LIGHT_VAR_16 = 0x01,  ///< 16 count variance
+  APDS9999_LIGHT_VAR_32 = 0x02,  ///< 32 count variance
+  APDS9999_LIGHT_VAR_64 = 0x03,  ///< 64 count variance
+  APDS9999_LIGHT_VAR_128 = 0x04, ///< 128 count variance
+  APDS9999_LIGHT_VAR_256 = 0x05, ///< 256 count variance
+  APDS9999_LIGHT_VAR_512 = 0x06, ///< 512 count variance
+  APDS9999_LIGHT_VAR_1024 = 0x07 ///< 1024 count variance
+} apds9999_light_variance_t;
+
 /*!
  *  @brief  Class that stores state and functions for interacting with
  *          APDS-9999 Digital Proximity and RGB Sensor
@@ -71,6 +163,109 @@ class Adafruit_APDS9999 {
 
   bool begin(uint8_t i2c_addr = APDS9999_I2CADDR_DEFAULT,
              TwoWire* wire = &Wire);
+
+  uint8_t getPartID();
+  uint8_t getRevisionID();
+
+  // MAIN_CTRL register functions
+  bool enableLightSensor(bool en);
+  bool lightSensorEnabled();
+  bool enableProximitySensor(bool en);
+  bool proximitySensorEnabled();
+  bool setRGBMode(bool en);
+  bool getRGBMode();
+
+  // LS_GAIN register functions
+  bool setLightGain(apds9999_light_gain_t gain);
+  apds9999_light_gain_t getLightGain();
+
+  // LS_MEAS_RATE register functions
+  bool setLightResolution(apds9999_light_resolution_t res);
+  apds9999_light_resolution_t getLightResolution();
+  bool setLightMeasRate(apds9999_light_meas_rate_t rate);
+  apds9999_light_meas_rate_t getLightMeasRate();
+
+  // PS_MEAS_RATE register functions
+  bool setProxResolution(apds9999_prox_resolution_t res);
+  apds9999_prox_resolution_t getProxResolution();
+  bool setProxMeasRate(apds9999_prox_meas_rate_t rate);
+  apds9999_prox_meas_rate_t getProxMeasRate();
+
+  // Proximity data functions
+  bool readProximity(uint16_t* prox);
+  bool readProximity(uint16_t* prox, bool* overflow);
+
+  // RGB+IR bulk data read
+  bool getRGBIRData(uint32_t* r, uint32_t* g, uint32_t* b, uint32_t* ir);
+
+  // Lux calculation
+  float calculateLux(uint32_t green_count);
+
+  // PS_PULSES register functions
+  bool setLEDPulses(uint8_t pulses);
+  uint8_t getLEDPulses();
+
+  // PS_VCSEL register functions
+  bool setLEDCurrent(apds9999_led_current_t current);
+  apds9999_led_current_t getLEDCurrent();
+  bool setLEDFrequency(apds9999_led_freq_t freq);
+  apds9999_led_freq_t getLEDFrequency();
+
+  // INT_CFG (0x19) register functions
+  bool enableProxInterrupt(bool en);
+  bool proxInterruptEnabled();
+  bool setProxLogicMode(bool enable);
+  bool getProxLogicMode();
+  bool enableLightInterrupt(bool en);
+  bool lightInterruptEnabled();
+  bool setLightVarianceMode(bool enable);
+  bool getLightVarianceMode();
+  bool setLightIntChannel(apds9999_light_int_channel_t ch);
+  apds9999_light_int_channel_t getLightIntChannel();
+
+  // INT_PST (0x1A) register functions
+  bool setProxPersistence(uint8_t pers);
+  uint8_t getProxPersistence();
+  bool setLightPersistence(uint8_t pers);
+  uint8_t getLightPersistence();
+
+  // PS Thresholds (0x1B-0x1E) register functions
+  bool setProxThresholdHigh(uint16_t threshold);
+  uint16_t getProxThresholdHigh();
+  bool setProxThresholdLow(uint16_t threshold);
+  uint16_t getProxThresholdLow();
+
+  // LS Thresholds (0x21-0x26) register functions
+  bool setLightThresholdHigh(uint32_t threshold);
+  uint32_t getLightThresholdHigh();
+  bool setLightThresholdLow(uint32_t threshold);
+  uint32_t getLightThresholdLow();
+  bool setLightVariance(apds9999_light_variance_t var);
+  apds9999_light_variance_t getLightVariance();
+
+  // PS Cancellation (0x1F-0x20) register functions
+  bool setProxCancellation(uint16_t value);
+  uint16_t getProxCancellation();
+  bool setProxAnalogCancellation(uint8_t value);
+  uint8_t getProxAnalogCancellation();
+
+  // Status reading (0x07)
+  // Note: Reading status clears ALL status bits! Use getMainStatus() to read
+  // once and check multiple flags with APDS9999_STATUS_* masks.
+  uint8_t getMainStatus();
+  bool getProxInterruptStatus();
+  bool getLightInterruptStatus();
+  bool isProxDataReady();
+  bool isLightDataReady();
+
+  // Sleep After Interrupt modes (MAIN_CTRL bits 6,5)
+  bool setProxSleepAfterInterrupt(bool enable);
+  bool getProxSleepAfterInterrupt();
+  bool setLightSleepAfterInterrupt(bool enable);
+  bool getLightSleepAfterInterrupt();
+
+  // Software reset (MAIN_CTRL bit 4)
+  void reset();
 
  private:
   Adafruit_I2CDevice* i2c_dev = NULL; ///< Pointer to I2C bus interface
