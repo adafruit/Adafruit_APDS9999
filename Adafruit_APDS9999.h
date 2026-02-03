@@ -140,6 +140,18 @@ typedef enum {
   APDS9999_INT_CH_BLUE = 0x03   ///< Blue channel for LS interrupt
 } apds9999_ls_int_channel_t;
 
+/** Light sensor variance threshold for LS_THRES_VAR register */
+typedef enum {
+  APDS9999_LS_VAR_8 = 0x00,   ///< 8 count variance
+  APDS9999_LS_VAR_16 = 0x01,  ///< 16 count variance
+  APDS9999_LS_VAR_32 = 0x02,  ///< 32 count variance
+  APDS9999_LS_VAR_64 = 0x03,  ///< 64 count variance
+  APDS9999_LS_VAR_128 = 0x04, ///< 128 count variance
+  APDS9999_LS_VAR_256 = 0x05, ///< 256 count variance
+  APDS9999_LS_VAR_512 = 0x06, ///< 512 count variance
+  APDS9999_LS_VAR_1024 = 0x07 ///< 1024 count variance
+} apds9999_ls_variance_t;
+
 /*!
  *  @brief  Class that stores state and functions for interacting with
  *          APDS-9999 Digital Proximity and RGB Sensor
@@ -202,8 +214,12 @@ class Adafruit_APDS9999 {
   // INT_CFG (0x19) register functions
   bool enablePSInterrupt(bool en);
   bool psInterruptEnabled();
+  bool setPSLogicMode(bool enable);
+  bool getPSLogicMode();
   bool enableLSInterrupt(bool en);
   bool lsInterruptEnabled();
+  bool setLSVarianceMode(bool enable);
+  bool getLSVarianceMode();
   bool setLSIntChannel(apds9999_ls_int_channel_t ch);
   apds9999_ls_int_channel_t getLSIntChannel();
 
@@ -224,6 +240,8 @@ class Adafruit_APDS9999 {
   uint32_t getLSThresholdHigh();
   bool setLSThresholdLow(uint32_t threshold);
   uint32_t getLSThresholdLow();
+  bool setLSVariance(apds9999_ls_variance_t var);
+  apds9999_ls_variance_t getLSVariance();
 
   // PS Cancellation (0x1F-0x20) register functions
   bool setPSCancellation(uint16_t value);

@@ -508,6 +508,31 @@ bool Adafruit_APDS9999::psInterruptEnabled() {
 
 /**************************************************************************/
 /*!
+    @brief  Set proximity sensor logic mode
+    @param  enable True for inside window, false for outside window
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setPSLogicMode(bool enable) {
+  Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
+  Adafruit_BusIO_RegisterBits ps_logic(&int_cfg, 1, 1);
+  return ps_logic.write(enable ? 1 : 0);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get proximity sensor logic mode
+    @return True if inside window triggers, false for outside window
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::getPSLogicMode() {
+  Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
+  Adafruit_BusIO_RegisterBits ps_logic(&int_cfg, 1, 1);
+  return ps_logic.read();
+}
+
+/**************************************************************************/
+/*!
     @brief  Enable or disable light sensor interrupt
     @param  en True to enable, false to disable
     @return True if write succeeded
@@ -529,6 +554,31 @@ bool Adafruit_APDS9999::lsInterruptEnabled() {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ls_int_en(&int_cfg, 1, 2);
   return ls_int_en.read();
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set light sensor variance mode
+    @param  enable True for variance mode, false for threshold mode
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLSVarianceMode(bool enable) {
+  Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
+  Adafruit_BusIO_RegisterBits ls_var_mode(&int_cfg, 1, 3);
+  return ls_var_mode.write(enable ? 1 : 0);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get light sensor variance mode
+    @return True if variance mode, false if threshold mode
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::getLSVarianceMode() {
+  Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
+  Adafruit_BusIO_RegisterBits ls_var_mode(&int_cfg, 1, 3);
+  return ls_var_mode.read();
 }
 
 /**************************************************************************/
@@ -716,6 +766,31 @@ uint32_t Adafruit_APDS9999::getLSThresholdLow() {
   i2c_dev->write_then_read(&reg, 1, buffer, 3);
   return ((uint32_t)buffer[0] | ((uint32_t)buffer[1] << 8) |
           (((uint32_t)buffer[2] & 0x0F) << 16));
+}
+
+/**************************************************************************/
+/*!
+    @brief  Set light sensor variance threshold
+    @param  var Variance threshold setting
+    @return True if write succeeded
+*/
+/**************************************************************************/
+bool Adafruit_APDS9999::setLSVariance(apds9999_ls_variance_t var) {
+  Adafruit_BusIO_Register ls_thres_var(i2c_dev, APDS9999_REG_LS_THRES_VAR);
+  Adafruit_BusIO_RegisterBits ls_var_bits(&ls_thres_var, 3, 0);
+  return ls_var_bits.write(var);
+}
+
+/**************************************************************************/
+/*!
+    @brief  Get light sensor variance threshold setting
+    @return Current variance threshold setting
+*/
+/**************************************************************************/
+apds9999_ls_variance_t Adafruit_APDS9999::getLSVariance() {
+  Adafruit_BusIO_Register ls_thres_var(i2c_dev, APDS9999_REG_LS_THRES_VAR);
+  Adafruit_BusIO_RegisterBits ls_var_bits(&ls_thres_var, 3, 0);
+  return (apds9999_ls_variance_t)ls_var_bits.read();
 }
 
 /**************************************************************************/
