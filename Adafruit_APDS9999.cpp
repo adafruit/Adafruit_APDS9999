@@ -319,20 +319,21 @@ bool Adafruit_APDS9999::getProximityOverflow() {
     @return True if read succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::getRGBIRData(uint32_t *r, uint32_t *g, uint32_t *b, uint32_t *ir) {
+bool Adafruit_APDS9999::getRGBIRData(uint32_t* r, uint32_t* g, uint32_t* b,
+                                     uint32_t* ir) {
   uint8_t buffer[12];
-  uint8_t reg = APDS9999_REG_LS_DATA_IR_0;  // 0x0A
-  
+  uint8_t reg = APDS9999_REG_LS_DATA_IR_0; // 0x0A
+
   if (!i2c_dev->write_then_read(&reg, 1, buffer, 12)) {
     return false;
   }
-  
+
   // Each channel: 3 bytes, LSB first, mask to 20 bits
   *ir = (buffer[0] | (buffer[1] << 8) | (buffer[2] << 16)) & 0x0FFFFF;
-  *g  = (buffer[3] | (buffer[4] << 8) | (buffer[5] << 16)) & 0x0FFFFF;
-  *b  = (buffer[6] | (buffer[7] << 8) | (buffer[8] << 16)) & 0x0FFFFF;
-  *r  = (buffer[9] | (buffer[10] << 8) | (buffer[11] << 16)) & 0x0FFFFF;
-  
+  *g = (buffer[3] | (buffer[4] << 8) | (buffer[5] << 16)) & 0x0FFFFF;
+  *b = (buffer[6] | (buffer[7] << 8) | (buffer[8] << 16)) & 0x0FFFFF;
+  *r = (buffer[9] | (buffer[10] << 8) | (buffer[11] << 16)) & 0x0FFFFF;
+
   return true;
 }
 
@@ -348,37 +349,60 @@ float Adafruit_APDS9999::calculateLux(uint32_t green_count) {
   // Gain: 1x=0, 3x=1, 6x=2, 9x=3, 18x=4
   // Resolution: 20-bit=0, 19-bit=1, 18-bit=2, 17-bit=3, 16-bit=4
   static const float lux_factor[5][5] = {
-    // 20-bit  19-bit  18-bit  17-bit  16-bit
-    { 0.136,  0.273,  0.548,  1.099,  2.193 },  // 1x gain
-    { 0.045,  0.090,  0.180,  0.359,  0.722 },  // 3x gain
-    { 0.022,  0.045,  0.090,  0.179,  0.360 },  // 6x gain
-    { 0.015,  0.030,  0.059,  0.119,  0.239 },  // 9x gain
-    { 0.007,  0.015,  0.029,  0.059,  0.117 }   // 18x gain
+      // 20-bit  19-bit  18-bit  17-bit  16-bit
+      {0.136, 0.273, 0.548, 1.099, 2.193}, // 1x gain
+      {0.045, 0.090, 0.180, 0.359, 0.722}, // 3x gain
+      {0.022, 0.045, 0.090, 0.179, 0.360}, // 6x gain
+      {0.015, 0.030, 0.059, 0.119, 0.239}, // 9x gain
+      {0.007, 0.015, 0.029, 0.059, 0.117}  // 18x gain
   };
 
   // Get current gain setting
   apds9999_ls_gain_t gain = getLSGain();
   uint8_t gain_index;
   switch (gain) {
-    case APDS9999_LS_GAIN_1X:  gain_index = 0; break;
-    case APDS9999_LS_GAIN_3X:  gain_index = 1; break;
-    case APDS9999_LS_GAIN_6X:  gain_index = 2; break;
-    case APDS9999_LS_GAIN_9X:  gain_index = 3; break;
-    case APDS9999_LS_GAIN_18X: gain_index = 4; break;
-    default: return 0;
+    case APDS9999_LS_GAIN_1X:
+      gain_index = 0;
+      break;
+    case APDS9999_LS_GAIN_3X:
+      gain_index = 1;
+      break;
+    case APDS9999_LS_GAIN_6X:
+      gain_index = 2;
+      break;
+    case APDS9999_LS_GAIN_9X:
+      gain_index = 3;
+      break;
+    case APDS9999_LS_GAIN_18X:
+      gain_index = 4;
+      break;
+    default:
+      return 0;
   }
 
   // Get current resolution setting
   apds9999_ls_resolution_t res = getLSResolution();
   uint8_t res_index;
   switch (res) {
-    case APDS9999_LS_RES_20BIT: res_index = 0; break;
-    case APDS9999_LS_RES_19BIT: res_index = 1; break;
-    case APDS9999_LS_RES_18BIT: res_index = 2; break;
-    case APDS9999_LS_RES_17BIT: res_index = 3; break;
-    case APDS9999_LS_RES_16BIT: res_index = 4; break;
-    case APDS9999_LS_RES_13BIT: return 0;  // Not supported in lux table
-    default: return 0;
+    case APDS9999_LS_RES_20BIT:
+      res_index = 0;
+      break;
+    case APDS9999_LS_RES_19BIT:
+      res_index = 1;
+      break;
+    case APDS9999_LS_RES_18BIT:
+      res_index = 2;
+      break;
+    case APDS9999_LS_RES_17BIT:
+      res_index = 3;
+      break;
+    case APDS9999_LS_RES_16BIT:
+      res_index = 4;
+      break;
+    case APDS9999_LS_RES_13BIT:
+      return 0; // Not supported in lux table
+    default:
+      return 0;
   }
 
   return green_count * lux_factor[gain_index][res_index];
@@ -590,7 +614,8 @@ uint8_t Adafruit_APDS9999::getLSPersistence() {
 */
 /**************************************************************************/
 bool Adafruit_APDS9999::setPSThresholdHigh(uint16_t threshold) {
-  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_UP_0, 2, LSBFIRST);
+  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_UP_0, 2,
+                                    LSBFIRST);
   return ps_thresh.write(threshold & 0x07FF);
 }
 
@@ -601,7 +626,8 @@ bool Adafruit_APDS9999::setPSThresholdHigh(uint16_t threshold) {
 */
 /**************************************************************************/
 uint16_t Adafruit_APDS9999::getPSThresholdHigh() {
-  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_UP_0, 2, LSBFIRST);
+  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_UP_0, 2,
+                                    LSBFIRST);
   return ps_thresh.read() & 0x07FF;
 }
 
@@ -613,7 +639,8 @@ uint16_t Adafruit_APDS9999::getPSThresholdHigh() {
 */
 /**************************************************************************/
 bool Adafruit_APDS9999::setPSThresholdLow(uint16_t threshold) {
-  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_LOW_0, 2, LSBFIRST);
+  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_LOW_0, 2,
+                                    LSBFIRST);
   return ps_thresh.write(threshold & 0x07FF);
 }
 
@@ -624,7 +651,8 @@ bool Adafruit_APDS9999::setPSThresholdLow(uint16_t threshold) {
 */
 /**************************************************************************/
 uint16_t Adafruit_APDS9999::getPSThresholdLow() {
-  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_LOW_0, 2, LSBFIRST);
+  Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_LOW_0, 2,
+                                    LSBFIRST);
   return ps_thresh.read() & 0x07FF;
 }
 
@@ -636,7 +664,7 @@ uint16_t Adafruit_APDS9999::getPSThresholdLow() {
 */
 /**************************************************************************/
 bool Adafruit_APDS9999::setLSThresholdHigh(uint32_t threshold) {
-  threshold &= 0x0FFFFF;  // Mask to 20 bits
+  threshold &= 0x0FFFFF; // Mask to 20 bits
   uint8_t buffer[4];
   buffer[0] = APDS9999_REG_LS_THRES_UP_0;
   buffer[1] = threshold & 0xFF;
@@ -655,7 +683,8 @@ uint32_t Adafruit_APDS9999::getLSThresholdHigh() {
   uint8_t buffer[3];
   uint8_t reg = APDS9999_REG_LS_THRES_UP_0;
   i2c_dev->write_then_read(&reg, 1, buffer, 3);
-  return ((uint32_t)buffer[0] | ((uint32_t)buffer[1] << 8) | (((uint32_t)buffer[2] & 0x0F) << 16));
+  return ((uint32_t)buffer[0] | ((uint32_t)buffer[1] << 8) |
+          (((uint32_t)buffer[2] & 0x0F) << 16));
 }
 
 /**************************************************************************/
@@ -666,7 +695,7 @@ uint32_t Adafruit_APDS9999::getLSThresholdHigh() {
 */
 /**************************************************************************/
 bool Adafruit_APDS9999::setLSThresholdLow(uint32_t threshold) {
-  threshold &= 0x0FFFFF;  // Mask to 20 bits
+  threshold &= 0x0FFFFF; // Mask to 20 bits
   uint8_t buffer[4];
   buffer[0] = APDS9999_REG_LS_THRES_LOW_0;
   buffer[1] = threshold & 0xFF;
@@ -685,7 +714,8 @@ uint32_t Adafruit_APDS9999::getLSThresholdLow() {
   uint8_t buffer[3];
   uint8_t reg = APDS9999_REG_LS_THRES_LOW_0;
   i2c_dev->write_then_read(&reg, 1, buffer, 3);
-  return ((uint32_t)buffer[0] | ((uint32_t)buffer[1] << 8) | (((uint32_t)buffer[2] & 0x0F) << 16));
+  return ((uint32_t)buffer[0] | ((uint32_t)buffer[1] << 8) |
+          (((uint32_t)buffer[2] & 0x0F) << 16));
 }
 
 /**************************************************************************/
@@ -696,10 +726,11 @@ uint32_t Adafruit_APDS9999::getLSThresholdLow() {
 */
 /**************************************************************************/
 bool Adafruit_APDS9999::setPSCancellation(uint16_t value) {
-  value &= 0x07FF;  // Mask to 11 bits
+  value &= 0x07FF; // Mask to 11 bits
   // Write low byte to 0x1F
   Adafruit_BusIO_Register ps_can_0(i2c_dev, APDS9999_REG_PS_CAN_0);
-  if (!ps_can_0.write(value & 0xFF)) return false;
+  if (!ps_can_0.write(value & 0xFF))
+    return false;
   // Read 0x20, preserve analog bits (7:3), write digital bits (2:0)
   Adafruit_BusIO_Register ps_can_1(i2c_dev, APDS9999_REG_PS_CAN_1);
   uint8_t reg1 = ps_can_1.read();
@@ -853,5 +884,5 @@ bool Adafruit_APDS9999::getLSSleepAfterInterrupt() {
 void Adafruit_APDS9999::reset() {
   Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
   Adafruit_BusIO_RegisterBits sw_reset(&main_ctrl, 1, 4);
-  sw_reset.write(1);  // Write may fail due to no ACK, that's expected
+  sw_reset.write(1); // Write may fail due to no ACK, that's expected
 }
