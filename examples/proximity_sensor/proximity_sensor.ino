@@ -22,7 +22,12 @@ void setup() {
 }
 
 void loop() {
-  Serial.print("Proximity: ");
-  Serial.println(apds.readProximity());
+  uint16_t prox;
+  if (apds.readProximity(&prox)) {
+    Serial.print("Proximity: ");
+    Serial.println(prox);
+  } else {
+    Serial.println("I2C read error");
+  }
   delay(100);
 }

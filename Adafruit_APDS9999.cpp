@@ -289,24 +289,54 @@ apds9999_ps_meas_rate_t Adafruit_APDS9999::getPSMeasRate() {
 
 /**************************************************************************/
 /*!
-    @brief  Read proximity sensor data (11-bit value)
-    @return Proximity value (0-2047)
+    @brief  Read proximity sensor data (11-bit value) with I2C error checking
+    @param  prox Pointer to store proximity value (0-2047)
+    @return True if read succeeded, false on I2C failure
 */
 /**************************************************************************/
-uint16_t Adafruit_APDS9999::readProximity() {
-  Adafruit_BusIO_Register ps_data(i2c_dev, APDS9999_REG_PS_DATA_0, 2, LSBFIRST);
-  return ps_data.read() & 0x07FF;
+bool Adafruit_APDS9999::readProximity(uint16_t* prox) {
+  uint8_t buffer[2];
+  uint8_t reg = APDS9999_REG_PS_DATA_0;
+
+  if (!i2c_dev->write_then_read(&reg, 1, buffer, 2)) {
+    return false;
+  }
+
+  uint16_t raw = buffer[0] | (buffer[1] << 8);
+  // Check for I2C failure (all bits set)
+  if (raw == 0xFFFF) {
+    return false;
+  }
+
+  *prox = raw & 0x07FF;
+  return true;
 }
 
 /**************************************************************************/
 /*!
-    @brief  Check if proximity sensor has overflowed
-    @return True if overflow occurred (bit 11 set)
+    @brief  Read proximity sensor data with overflow flag and I2C error checking
+    @param  prox Pointer to store proximity value (0-2047)
+    @param  overflow Pointer to store overflow flag (true if saturated)
+    @return True if read succeeded, false on I2C failure
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::getProximityOverflow() {
-  Adafruit_BusIO_Register ps_data(i2c_dev, APDS9999_REG_PS_DATA_0, 2, LSBFIRST);
-  return (ps_data.read() & 0x0800) != 0;
+bool Adafruit_APDS9999::readProximity(uint16_t* prox, bool* overflow) {
+  uint8_t buffer[2];
+  uint8_t reg = APDS9999_REG_PS_DATA_0;
+
+  if (!i2c_dev->write_then_read(&reg, 1, buffer, 2)) {
+    return false;
+  }
+
+  uint16_t raw = buffer[0] | (buffer[1] << 8);
+  // Check for I2C failure (all bits set)
+  if (raw == 0xFFFF) {
+    return false;
+  }
+
+  *prox = raw & 0x07FF;
+  *overflow = (raw & 0x0800) != 0;
+  return true;
 }
 
 /**************************************************************************/
@@ -325,6 +355,18 @@ bool Adafruit_APDS9999::getRGBIRData(uint32_t* r, uint32_t* g, uint32_t* b,
   uint8_t reg = APDS9999_REG_LS_DATA_IR_0; // 0x0A
 
   if (!i2c_dev->write_then_read(&reg, 1, buffer, 12)) {
+    return false;
+  }
+
+  // Check for I2C failure (all bytes 0xFF)
+  bool all_ff = true;
+  for (uint8_t i = 0; i < 12; i++) {
+    if (buffer[i] != 0xFF) {
+      all_ff = false;
+      break;
+    }
+  }
+  if (all_ff) {
     return false;
   }
 

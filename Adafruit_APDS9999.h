@@ -192,8 +192,8 @@ class Adafruit_APDS9999 {
   apds9999_ps_meas_rate_t getPSMeasRate();
 
   // Proximity data functions
-  uint16_t readProximity();
-  bool getProximityOverflow();
+  bool readProximity(uint16_t* prox);
+  bool readProximity(uint16_t* prox, bool* overflow);
 
   // RGB+IR bulk data read
   bool getRGBIRData(uint32_t* r, uint32_t* g, uint32_t* b, uint32_t* ir);

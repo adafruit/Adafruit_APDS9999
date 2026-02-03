@@ -231,16 +231,17 @@ void loop() {
 
   // Read proximity when ready
   if (status & APDS9999_STATUS_PS_DATA) {
-    uint16_t prox = apds.readProximity();
-    bool overflow = apds.getProximityOverflow();
-
-    Serial.print(F("Proximity: "));
-    if (overflow) {
-      Serial.print(F("OVERFLOW"));
-    } else {
-      Serial.print(prox);
+    uint16_t prox;
+    bool overflow;
+    if (apds.readProximity(&prox, &overflow)) {
+      Serial.print(F("Proximity: "));
+      if (overflow) {
+        Serial.print(F("OVERFLOW"));
+      } else {
+        Serial.print(prox);
+      }
+      printed = true;
     }
-    printed = true;
   }
 
   // Read RGBIR when ready
