@@ -26,10 +26,28 @@ void setup() {
   }
 
   // Print chip info
+  Serial.print(F("I2C Address: 0x"));
+  Serial.println(APDS9999_I2CADDR_DEFAULT, HEX);
   Serial.print(F("Part ID: 0x"));
   Serial.print(apds.getPartID(), HEX);
   Serial.print(F(" Revision: 0x"));
   Serial.println(apds.getRevisionID(), HEX);
+
+  // Check power-on status (should be set after fresh start)
+  uint8_t status = apds.getMainStatus();
+  Serial.print(F("Power-on status: "));
+  Serial.println((status & APDS9999_STATUS_POWER_ON) ? F("Yes") : F("No"));
+
+  // Test soft reset
+  Serial.print(F("Testing soft reset... "));
+  apds.reset();
+  delay(10); // Wait for reset to complete
+  // Re-init I2C device after reset
+  apds.begin();
+  status = apds.getMainStatus();
+  Serial.println((status & APDS9999_STATUS_POWER_ON)
+                     ? F("OK (power-on detected)")
+                     : F("FAIL"));
 
   // === Light Sensor Configuration ===
   Serial.println(F("\n--- Light Sensor Configuration ---"));
