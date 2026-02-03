@@ -84,6 +84,205 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4a992fbad2250f31cbf04f1b22722fc3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a4a992fbad2250f31cbf04f1b22722fc3">begin</a> (uint8_t i2c_addr=<a class="el" href="_adafruit___a_p_d_s9999_8h.html#a0dd2c4c324b29ca2c1ae02f3265f5e2d">APDS9999_I2CADDR_DEFAULT</a>, TwoWire *wire=&amp;Wire)</td></tr>
 <tr class="memdesc:a4a992fbad2250f31cbf04f1b22722fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the hardware and initializes I2C.  <a href="#a4a992fbad2250f31cbf04f1b22722fc3">More...</a><br /></td></tr>
 <tr class="separator:a4a992fbad2250f31cbf04f1b22722fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afca71d2c26a7e60ca76879ebac308a61"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#afca71d2c26a7e60ca76879ebac308a61">getPartID</a> ()</td></tr>
+<tr class="memdesc:afca71d2c26a7e60ca76879ebac308a61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the part ID (upper nibble of PART_ID register)  <a href="#afca71d2c26a7e60ca76879ebac308a61">More...</a><br /></td></tr>
+<tr class="separator:afca71d2c26a7e60ca76879ebac308a61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addfca5f91630147aaa5f0c8f5d58901c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#addfca5f91630147aaa5f0c8f5d58901c">getRevisionID</a> ()</td></tr>
+<tr class="memdesc:addfca5f91630147aaa5f0c8f5d58901c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the revision ID (lower nibble of PART_ID register)  <a href="#addfca5f91630147aaa5f0c8f5d58901c">More...</a><br /></td></tr>
+<tr class="separator:addfca5f91630147aaa5f0c8f5d58901c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e3ade59c06c8e56aeb85b8bab7759fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a1e3ade59c06c8e56aeb85b8bab7759fe">enableLightSensor</a> (bool en)</td></tr>
+<tr class="memdesc:a1e3ade59c06c8e56aeb85b8bab7759fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the light sensor (ALS/RGB)  <a href="#a1e3ade59c06c8e56aeb85b8bab7759fe">More...</a><br /></td></tr>
+<tr class="separator:a1e3ade59c06c8e56aeb85b8bab7759fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61c48bdb5faa5e1072e40f3a4118fb5a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a61c48bdb5faa5e1072e40f3a4118fb5a">lightSensorEnabled</a> ()</td></tr>
+<tr class="memdesc:a61c48bdb5faa5e1072e40f3a4118fb5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the light sensor is enabled.  <a href="#a61c48bdb5faa5e1072e40f3a4118fb5a">More...</a><br /></td></tr>
+<tr class="separator:a61c48bdb5faa5e1072e40f3a4118fb5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cdae0176bd5cd2f90e4733e8c8b7e74"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a9cdae0176bd5cd2f90e4733e8c8b7e74">enableProximitySensor</a> (bool en)</td></tr>
+<tr class="memdesc:a9cdae0176bd5cd2f90e4733e8c8b7e74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the proximity sensor.  <a href="#a9cdae0176bd5cd2f90e4733e8c8b7e74">More...</a><br /></td></tr>
+<tr class="separator:a9cdae0176bd5cd2f90e4733e8c8b7e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee09604119637142d2fa007a9ac4444c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#aee09604119637142d2fa007a9ac4444c">proximitySensorEnabled</a> ()</td></tr>
+<tr class="memdesc:aee09604119637142d2fa007a9ac4444c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the proximity sensor is enabled.  <a href="#aee09604119637142d2fa007a9ac4444c">More...</a><br /></td></tr>
+<tr class="separator:aee09604119637142d2fa007a9ac4444c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ce7931197558df37d1c97ae26cacadb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a4ce7931197558df37d1c97ae26cacadb">setRGBMode</a> (bool en)</td></tr>
+<tr class="memdesc:a4ce7931197558df37d1c97ae26cacadb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set RGB mode (vs ALS mode) for light sensor.  <a href="#a4ce7931197558df37d1c97ae26cacadb">More...</a><br /></td></tr>
+<tr class="separator:a4ce7931197558df37d1c97ae26cacadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae040ba0b40cd611e1754bc1b40c87e7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#ae040ba0b40cd611e1754bc1b40c87e7f">getRGBMode</a> ()</td></tr>
+<tr class="memdesc:ae040ba0b40cd611e1754bc1b40c87e7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current RGB mode setting.  <a href="#ae040ba0b40cd611e1754bc1b40c87e7f">More...</a><br /></td></tr>
+<tr class="separator:ae040ba0b40cd611e1754bc1b40c87e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bf02f0648fd57e660a26ac328db1bf0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a8bf02f0648fd57e660a26ac328db1bf0">setLightGain</a> (<a class="el" href="_adafruit___a_p_d_s9999_8h.html#a4a448a29115f00631d57ec9e855fafa7">apds9999_light_gain_t</a> gain)</td></tr>
+<tr class="memdesc:a8bf02f0648fd57e660a26ac328db1bf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the light sensor gain.  <a href="#a8bf02f0648fd57e660a26ac328db1bf0">More...</a><br /></td></tr>
+<tr class="separator:a8bf02f0648fd57e660a26ac328db1bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a925836228452f062ef67df7c66d486e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a4a448a29115f00631d57ec9e855fafa7">apds9999_light_gain_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a925836228452f062ef67df7c66d486e4">getLightGain</a> ()</td></tr>
+<tr class="memdesc:a925836228452f062ef67df7c66d486e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current light sensor gain setting.  <a href="#a925836228452f062ef67df7c66d486e4">More...</a><br /></td></tr>
+<tr class="separator:a925836228452f062ef67df7c66d486e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa81bedf4d3351bdb629256074f95537e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#aa81bedf4d3351bdb629256074f95537e">setLightResolution</a> (<a class="el" href="_adafruit___a_p_d_s9999_8h.html#aa332b78510026a9080603cec08115dbf">apds9999_light_resolution_t</a> res)</td></tr>
+<tr class="memdesc:aa81bedf4d3351bdb629256074f95537e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the light sensor ADC resolution.  <a href="#aa81bedf4d3351bdb629256074f95537e">More...</a><br /></td></tr>
+<tr class="separator:aa81bedf4d3351bdb629256074f95537e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6668eaa36be3bd35954a957e9348e620"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#aa332b78510026a9080603cec08115dbf">apds9999_light_resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a6668eaa36be3bd35954a957e9348e620">getLightResolution</a> ()</td></tr>
+<tr class="memdesc:a6668eaa36be3bd35954a957e9348e620"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current light sensor ADC resolution setting.  <a href="#a6668eaa36be3bd35954a957e9348e620">More...</a><br /></td></tr>
+<tr class="separator:a6668eaa36be3bd35954a957e9348e620"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f92c5d2194f5abda8d868965d32bcff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a4f92c5d2194f5abda8d868965d32bcff">setLightMeasRate</a> (<a class="el" href="_adafruit___a_p_d_s9999_8h.html#aea915ec523f9c75d9bfedcc0ac48ab45">apds9999_light_meas_rate_t</a> rate)</td></tr>
+<tr class="memdesc:a4f92c5d2194f5abda8d868965d32bcff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the light sensor measurement rate.  <a href="#a4f92c5d2194f5abda8d868965d32bcff">More...</a><br /></td></tr>
+<tr class="separator:a4f92c5d2194f5abda8d868965d32bcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff071559a3953c4b3c3402ceb683c8cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#aea915ec523f9c75d9bfedcc0ac48ab45">apds9999_light_meas_rate_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#aff071559a3953c4b3c3402ceb683c8cc">getLightMeasRate</a> ()</td></tr>
+<tr class="memdesc:aff071559a3953c4b3c3402ceb683c8cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current light sensor measurement rate setting.  <a href="#aff071559a3953c4b3c3402ceb683c8cc">More...</a><br /></td></tr>
+<tr class="separator:aff071559a3953c4b3c3402ceb683c8cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11a64947fde912015fcd632812599c05"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a11a64947fde912015fcd632812599c05">setProxResolution</a> (<a class="el" href="_adafruit___a_p_d_s9999_8h.html#afe175ddd60b88c4005cdd44f64808c0e">apds9999_prox_resolution_t</a> res)</td></tr>
+<tr class="memdesc:a11a64947fde912015fcd632812599c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the proximity sensor ADC resolution.  <a href="#a11a64947fde912015fcd632812599c05">More...</a><br /></td></tr>
+<tr class="separator:a11a64947fde912015fcd632812599c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59f36638b36d765ce7a172a7f5dbf174"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#afe175ddd60b88c4005cdd44f64808c0e">apds9999_prox_resolution_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a59f36638b36d765ce7a172a7f5dbf174">getProxResolution</a> ()</td></tr>
+<tr class="memdesc:a59f36638b36d765ce7a172a7f5dbf174"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current proximity sensor ADC resolution setting.  <a href="#a59f36638b36d765ce7a172a7f5dbf174">More...</a><br /></td></tr>
+<tr class="separator:a59f36638b36d765ce7a172a7f5dbf174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45125b1ffeab3238c17acd26c66a305d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a45125b1ffeab3238c17acd26c66a305d">setProxMeasRate</a> (<a class="el" href="_adafruit___a_p_d_s9999_8h.html#a30fcb9547279a22650aec2cbd96e9375">apds9999_prox_meas_rate_t</a> rate)</td></tr>
+<tr class="memdesc:a45125b1ffeab3238c17acd26c66a305d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the proximity sensor measurement rate.  <a href="#a45125b1ffeab3238c17acd26c66a305d">More...</a><br /></td></tr>
+<tr class="separator:a45125b1ffeab3238c17acd26c66a305d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf66487d91ffac48dec7dfcf676f612e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a30fcb9547279a22650aec2cbd96e9375">apds9999_prox_meas_rate_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#acf66487d91ffac48dec7dfcf676f612e">getProxMeasRate</a> ()</td></tr>
+<tr class="memdesc:acf66487d91ffac48dec7dfcf676f612e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current proximity sensor measurement rate setting.  <a href="#acf66487d91ffac48dec7dfcf676f612e">More...</a><br /></td></tr>
+<tr class="separator:acf66487d91ffac48dec7dfcf676f612e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9833d00dbe629c3ef957a46a3b3cac2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a9833d00dbe629c3ef957a46a3b3cac2f">readProximity</a> (uint16_t *prox)</td></tr>
+<tr class="memdesc:a9833d00dbe629c3ef957a46a3b3cac2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read proximity sensor data (11-bit value) with I2C error checking.  <a href="#a9833d00dbe629c3ef957a46a3b3cac2f">More...</a><br /></td></tr>
+<tr class="separator:a9833d00dbe629c3ef957a46a3b3cac2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62bed2e6e2ced7880b5f739cc96dabba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a62bed2e6e2ced7880b5f739cc96dabba">readProximity</a> (uint16_t *prox, bool *overflow)</td></tr>
+<tr class="memdesc:a62bed2e6e2ced7880b5f739cc96dabba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read proximity sensor data with overflow flag and I2C error checking.  <a href="#a62bed2e6e2ced7880b5f739cc96dabba">More...</a><br /></td></tr>
+<tr class="separator:a62bed2e6e2ced7880b5f739cc96dabba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c531b9aefe9d851f3587b8e4f2bbe0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a8c531b9aefe9d851f3587b8e4f2bbe0d">getRGBIRData</a> (uint32_t *r, uint32_t *g, uint32_t *b, uint32_t *ir)</td></tr>
+<tr class="memdesc:a8c531b9aefe9d851f3587b8e4f2bbe0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read all RGB+IR data in a single 12-byte bulk read.  <a href="#a8c531b9aefe9d851f3587b8e4f2bbe0d">More...</a><br /></td></tr>
+<tr class="separator:a8c531b9aefe9d851f3587b8e4f2bbe0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82fb73222961fefc037eebc1d282597d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a82fb73222961fefc037eebc1d282597d">calculateLux</a> (uint32_t green_count)</td></tr>
+<tr class="memdesc:a82fb73222961fefc037eebc1d282597d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate lux from green channel count based on current settings.  <a href="#a82fb73222961fefc037eebc1d282597d">More...</a><br /></td></tr>
+<tr class="separator:a82fb73222961fefc037eebc1d282597d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae81e2304630ef1b02c2bb92ce17cf8b3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#ae81e2304630ef1b02c2bb92ce17cf8b3">setLEDPulses</a> (uint8_t pulses)</td></tr>
+<tr class="memdesc:ae81e2304630ef1b02c2bb92ce17cf8b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the number of LED pulses for proximity sensing.  <a href="#ae81e2304630ef1b02c2bb92ce17cf8b3">More...</a><br /></td></tr>
+<tr class="separator:ae81e2304630ef1b02c2bb92ce17cf8b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5902f197d18cb35dbf19fec514ddbe7c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a5902f197d18cb35dbf19fec514ddbe7c">getLEDPulses</a> ()</td></tr>
+<tr class="memdesc:a5902f197d18cb35dbf19fec514ddbe7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of LED pulses for proximity sensing.  <a href="#a5902f197d18cb35dbf19fec514ddbe7c">More...</a><br /></td></tr>
+<tr class="separator:a5902f197d18cb35dbf19fec514ddbe7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9205cc6388303aeabd038a56dd394b51"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a9205cc6388303aeabd038a56dd394b51">setLEDCurrent</a> (<a class="el" href="_adafruit___a_p_d_s9999_8h.html#a312902bea3267e03e951b33f5d8ebb23">apds9999_led_current_t</a> current)</td></tr>
+<tr class="memdesc:a9205cc6388303aeabd038a56dd394b51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED drive current for proximity sensing.  <a href="#a9205cc6388303aeabd038a56dd394b51">More...</a><br /></td></tr>
+<tr class="separator:a9205cc6388303aeabd038a56dd394b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b57a297be615ad4997a6094246f66d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a312902bea3267e03e951b33f5d8ebb23">apds9999_led_current_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a6b57a297be615ad4997a6094246f66d9">getLEDCurrent</a> ()</td></tr>
+<tr class="memdesc:a6b57a297be615ad4997a6094246f66d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the LED drive current for proximity sensing.  <a href="#a6b57a297be615ad4997a6094246f66d9">More...</a><br /></td></tr>
+<tr class="separator:a6b57a297be615ad4997a6094246f66d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5be1028168b5e5cb2227d43ce25fb7ef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a5be1028168b5e5cb2227d43ce25fb7ef">setLEDFrequency</a> (<a class="el" href="_adafruit___a_p_d_s9999_8h.html#af0de4a44a8938dc924983d6ee16d36d4">apds9999_led_freq_t</a> freq)</td></tr>
+<tr class="memdesc:a5be1028168b5e5cb2227d43ce25fb7ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the LED pulse frequency for proximity sensing.  <a href="#a5be1028168b5e5cb2227d43ce25fb7ef">More...</a><br /></td></tr>
+<tr class="separator:a5be1028168b5e5cb2227d43ce25fb7ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab31f5a0ed5d3f68013e2dc1c1a15c30f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#af0de4a44a8938dc924983d6ee16d36d4">apds9999_led_freq_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#ab31f5a0ed5d3f68013e2dc1c1a15c30f">getLEDFrequency</a> ()</td></tr>
+<tr class="memdesc:ab31f5a0ed5d3f68013e2dc1c1a15c30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the LED pulse frequency for proximity sensing.  <a href="#ab31f5a0ed5d3f68013e2dc1c1a15c30f">More...</a><br /></td></tr>
+<tr class="separator:ab31f5a0ed5d3f68013e2dc1c1a15c30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bee294df37b74c605cc365ac4348ef5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a9bee294df37b74c605cc365ac4348ef5">enableProxInterrupt</a> (bool en)</td></tr>
+<tr class="memdesc:a9bee294df37b74c605cc365ac4348ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable proximity sensor interrupt.  <a href="#a9bee294df37b74c605cc365ac4348ef5">More...</a><br /></td></tr>
+<tr class="separator:a9bee294df37b74c605cc365ac4348ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a638bdf03dccdefa286ca8438493a27e0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a638bdf03dccdefa286ca8438493a27e0">proxInterruptEnabled</a> ()</td></tr>
+<tr class="memdesc:a638bdf03dccdefa286ca8438493a27e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if proximity sensor interrupt is enabled.  <a href="#a638bdf03dccdefa286ca8438493a27e0">More...</a><br /></td></tr>
+<tr class="separator:a638bdf03dccdefa286ca8438493a27e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc27888804118511320236d4668626bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#abc27888804118511320236d4668626bc">setProxLogicMode</a> (bool enable)</td></tr>
+<tr class="memdesc:abc27888804118511320236d4668626bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set proximity sensor logic mode.  <a href="#abc27888804118511320236d4668626bc">More...</a><br /></td></tr>
+<tr class="separator:abc27888804118511320236d4668626bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c981c9b0cfe510172a5ea9864ac9fdf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a9c981c9b0cfe510172a5ea9864ac9fdf">getProxLogicMode</a> ()</td></tr>
+<tr class="memdesc:a9c981c9b0cfe510172a5ea9864ac9fdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get proximity sensor logic mode.  <a href="#a9c981c9b0cfe510172a5ea9864ac9fdf">More...</a><br /></td></tr>
+<tr class="separator:a9c981c9b0cfe510172a5ea9864ac9fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeedb713514d7b45045738737a8ab9ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#adeedb713514d7b45045738737a8ab9ae">enableLightInterrupt</a> (bool en)</td></tr>
+<tr class="memdesc:adeedb713514d7b45045738737a8ab9ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable light sensor interrupt.  <a href="#adeedb713514d7b45045738737a8ab9ae">More...</a><br /></td></tr>
+<tr class="separator:adeedb713514d7b45045738737a8ab9ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a828e41130cacde554993cef900572b5c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a828e41130cacde554993cef900572b5c">lightInterruptEnabled</a> ()</td></tr>
+<tr class="memdesc:a828e41130cacde554993cef900572b5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if light sensor interrupt is enabled.  <a href="#a828e41130cacde554993cef900572b5c">More...</a><br /></td></tr>
+<tr class="separator:a828e41130cacde554993cef900572b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e9a3d6e66aa3d58b1bc93f38c4103b8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a1e9a3d6e66aa3d58b1bc93f38c4103b8">setLightVarianceMode</a> (bool enable)</td></tr>
+<tr class="memdesc:a1e9a3d6e66aa3d58b1bc93f38c4103b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set light sensor variance mode.  <a href="#a1e9a3d6e66aa3d58b1bc93f38c4103b8">More...</a><br /></td></tr>
+<tr class="separator:a1e9a3d6e66aa3d58b1bc93f38c4103b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8c3acb3b3d4beb8e757fee42eff110e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#aa8c3acb3b3d4beb8e757fee42eff110e">getLightVarianceMode</a> ()</td></tr>
+<tr class="memdesc:aa8c3acb3b3d4beb8e757fee42eff110e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get light sensor variance mode.  <a href="#aa8c3acb3b3d4beb8e757fee42eff110e">More...</a><br /></td></tr>
+<tr class="separator:aa8c3acb3b3d4beb8e757fee42eff110e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf9353e3607e792dbd69d3afd8c76948"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#acf9353e3607e792dbd69d3afd8c76948">setLightIntChannel</a> (<a class="el" href="_adafruit___a_p_d_s9999_8h.html#a87768b15cfa83eec621774e552e4077c">apds9999_light_int_channel_t</a> ch)</td></tr>
+<tr class="memdesc:acf9353e3607e792dbd69d3afd8c76948"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the light sensor interrupt channel.  <a href="#acf9353e3607e792dbd69d3afd8c76948">More...</a><br /></td></tr>
+<tr class="separator:acf9353e3607e792dbd69d3afd8c76948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed732efcd2af58674ef9973f17a29ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a87768b15cfa83eec621774e552e4077c">apds9999_light_int_channel_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a6ed732efcd2af58674ef9973f17a29ea">getLightIntChannel</a> ()</td></tr>
+<tr class="memdesc:a6ed732efcd2af58674ef9973f17a29ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current light sensor interrupt channel.  <a href="#a6ed732efcd2af58674ef9973f17a29ea">More...</a><br /></td></tr>
+<tr class="separator:a6ed732efcd2af58674ef9973f17a29ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a346d088e18d4df3b7612893f9b6a2313"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a346d088e18d4df3b7612893f9b6a2313">setProxPersistence</a> (uint8_t pers)</td></tr>
+<tr class="memdesc:a346d088e18d4df3b7612893f9b6a2313"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the proximity sensor interrupt persistence.  <a href="#a346d088e18d4df3b7612893f9b6a2313">More...</a><br /></td></tr>
+<tr class="separator:a346d088e18d4df3b7612893f9b6a2313"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a903dad86ebce44359de1ae051bc933ea"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a903dad86ebce44359de1ae051bc933ea">getProxPersistence</a> ()</td></tr>
+<tr class="memdesc:a903dad86ebce44359de1ae051bc933ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the proximity sensor interrupt persistence.  <a href="#a903dad86ebce44359de1ae051bc933ea">More...</a><br /></td></tr>
+<tr class="separator:a903dad86ebce44359de1ae051bc933ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab471c934fcbd55ca90702e81e4cb4d81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#ab471c934fcbd55ca90702e81e4cb4d81">setLightPersistence</a> (uint8_t pers)</td></tr>
+<tr class="memdesc:ab471c934fcbd55ca90702e81e4cb4d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the light sensor interrupt persistence.  <a href="#ab471c934fcbd55ca90702e81e4cb4d81">More...</a><br /></td></tr>
+<tr class="separator:ab471c934fcbd55ca90702e81e4cb4d81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebb8500675572daad37af521ac787b83"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#aebb8500675572daad37af521ac787b83">getLightPersistence</a> ()</td></tr>
+<tr class="memdesc:aebb8500675572daad37af521ac787b83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the light sensor interrupt persistence.  <a href="#aebb8500675572daad37af521ac787b83">More...</a><br /></td></tr>
+<tr class="separator:aebb8500675572daad37af521ac787b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad20fa315325656ef4e3c6dc8a661dd9c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#ad20fa315325656ef4e3c6dc8a661dd9c">setProxThresholdHigh</a> (uint16_t threshold)</td></tr>
+<tr class="memdesc:ad20fa315325656ef4e3c6dc8a661dd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the proximity sensor upper threshold for interrupt.  <a href="#ad20fa315325656ef4e3c6dc8a661dd9c">More...</a><br /></td></tr>
+<tr class="separator:ad20fa315325656ef4e3c6dc8a661dd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e427fcf2d9e4ac3d4acdcd39c0ac56e"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a1e427fcf2d9e4ac3d4acdcd39c0ac56e">getProxThresholdHigh</a> ()</td></tr>
+<tr class="memdesc:a1e427fcf2d9e4ac3d4acdcd39c0ac56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the proximity sensor upper threshold.  <a href="#a1e427fcf2d9e4ac3d4acdcd39c0ac56e">More...</a><br /></td></tr>
+<tr class="separator:a1e427fcf2d9e4ac3d4acdcd39c0ac56e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a032bcab841ca4cdd17cf8d825630493a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a032bcab841ca4cdd17cf8d825630493a">setProxThresholdLow</a> (uint16_t threshold)</td></tr>
+<tr class="memdesc:a032bcab841ca4cdd17cf8d825630493a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the proximity sensor lower threshold for interrupt.  <a href="#a032bcab841ca4cdd17cf8d825630493a">More...</a><br /></td></tr>
+<tr class="separator:a032bcab841ca4cdd17cf8d825630493a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a9cc51c2a2b756794d0685bf756686"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#ad7a9cc51c2a2b756794d0685bf756686">getProxThresholdLow</a> ()</td></tr>
+<tr class="memdesc:ad7a9cc51c2a2b756794d0685bf756686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the proximity sensor lower threshold.  <a href="#ad7a9cc51c2a2b756794d0685bf756686">More...</a><br /></td></tr>
+<tr class="separator:ad7a9cc51c2a2b756794d0685bf756686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42e550a1cca055701e1db9dbc3c1e830"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a42e550a1cca055701e1db9dbc3c1e830">setLightThresholdHigh</a> (uint32_t threshold)</td></tr>
+<tr class="memdesc:a42e550a1cca055701e1db9dbc3c1e830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set light sensor upper threshold (20-bit)  <a href="#a42e550a1cca055701e1db9dbc3c1e830">More...</a><br /></td></tr>
+<tr class="separator:a42e550a1cca055701e1db9dbc3c1e830"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafb4162e73eb37a12161ea5b852edb71"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#aafb4162e73eb37a12161ea5b852edb71">getLightThresholdHigh</a> ()</td></tr>
+<tr class="memdesc:aafb4162e73eb37a12161ea5b852edb71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get light sensor upper threshold.  <a href="#aafb4162e73eb37a12161ea5b852edb71">More...</a><br /></td></tr>
+<tr class="separator:aafb4162e73eb37a12161ea5b852edb71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3c76fdf647058350980da2a29c1935a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#ae3c76fdf647058350980da2a29c1935a">setLightThresholdLow</a> (uint32_t threshold)</td></tr>
+<tr class="memdesc:ae3c76fdf647058350980da2a29c1935a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set light sensor lower threshold (20-bit)  <a href="#ae3c76fdf647058350980da2a29c1935a">More...</a><br /></td></tr>
+<tr class="separator:ae3c76fdf647058350980da2a29c1935a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa70ed79c8ebb89c212e3947bd4663c72"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#aa70ed79c8ebb89c212e3947bd4663c72">getLightThresholdLow</a> ()</td></tr>
+<tr class="memdesc:aa70ed79c8ebb89c212e3947bd4663c72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get light sensor lower threshold.  <a href="#aa70ed79c8ebb89c212e3947bd4663c72">More...</a><br /></td></tr>
+<tr class="separator:aa70ed79c8ebb89c212e3947bd4663c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a857c34fde9eea37e9f0df1efc176349b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a857c34fde9eea37e9f0df1efc176349b">setLightVariance</a> (<a class="el" href="_adafruit___a_p_d_s9999_8h.html#a481e4c4e3cc8b9c7b55751d0c971a089">apds9999_light_variance_t</a> var)</td></tr>
+<tr class="memdesc:a857c34fde9eea37e9f0df1efc176349b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set light sensor variance threshold.  <a href="#a857c34fde9eea37e9f0df1efc176349b">More...</a><br /></td></tr>
+<tr class="separator:a857c34fde9eea37e9f0df1efc176349b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54d613e5500b351b90c698812ac25500"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a481e4c4e3cc8b9c7b55751d0c971a089">apds9999_light_variance_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a54d613e5500b351b90c698812ac25500">getLightVariance</a> ()</td></tr>
+<tr class="memdesc:a54d613e5500b351b90c698812ac25500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get light sensor variance threshold setting.  <a href="#a54d613e5500b351b90c698812ac25500">More...</a><br /></td></tr>
+<tr class="separator:a54d613e5500b351b90c698812ac25500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e9114d0fe02dec6c52212e1992754d9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a2e9114d0fe02dec6c52212e1992754d9">setProxCancellation</a> (uint16_t value)</td></tr>
+<tr class="memdesc:a2e9114d0fe02dec6c52212e1992754d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set proximity sensor digital cancellation (11-bit)  <a href="#a2e9114d0fe02dec6c52212e1992754d9">More...</a><br /></td></tr>
+<tr class="separator:a2e9114d0fe02dec6c52212e1992754d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9510f3d78db7813576119e72ec94162"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#aa9510f3d78db7813576119e72ec94162">getProxCancellation</a> ()</td></tr>
+<tr class="memdesc:aa9510f3d78db7813576119e72ec94162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get proximity sensor digital cancellation value.  <a href="#aa9510f3d78db7813576119e72ec94162">More...</a><br /></td></tr>
+<tr class="separator:aa9510f3d78db7813576119e72ec94162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8510a9477f776e38f3d28d9d01a57ee0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a8510a9477f776e38f3d28d9d01a57ee0">setProxAnalogCancellation</a> (uint8_t value)</td></tr>
+<tr class="memdesc:a8510a9477f776e38f3d28d9d01a57ee0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set proximity sensor analog cancellation (5-bit)  <a href="#a8510a9477f776e38f3d28d9d01a57ee0">More...</a><br /></td></tr>
+<tr class="separator:a8510a9477f776e38f3d28d9d01a57ee0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a714726b771ed14de9f9f4df1e7f77009"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a714726b771ed14de9f9f4df1e7f77009">getProxAnalogCancellation</a> ()</td></tr>
+<tr class="memdesc:a714726b771ed14de9f9f4df1e7f77009"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get proximity sensor analog cancellation value.  <a href="#a714726b771ed14de9f9f4df1e7f77009">More...</a><br /></td></tr>
+<tr class="separator:a714726b771ed14de9f9f4df1e7f77009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72b9bbf639a9d3c7da625ceec03f9efe"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a72b9bbf639a9d3c7da625ceec03f9efe">getMainStatus</a> ()</td></tr>
+<tr class="memdesc:a72b9bbf639a9d3c7da625ceec03f9efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the main status register (single read, clears all flags)  <a href="#a72b9bbf639a9d3c7da625ceec03f9efe">More...</a><br /></td></tr>
+<tr class="separator:a72b9bbf639a9d3c7da625ceec03f9efe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dd4fe66a2ec1639a19b240a1b994deb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a1dd4fe66a2ec1639a19b240a1b994deb">getProxInterruptStatus</a> ()</td></tr>
+<tr class="memdesc:a1dd4fe66a2ec1639a19b240a1b994deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get proximity sensor interrupt status (reading clears flag)  <a href="#a1dd4fe66a2ec1639a19b240a1b994deb">More...</a><br /></td></tr>
+<tr class="separator:a1dd4fe66a2ec1639a19b240a1b994deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86c111aa8f1c64f9601f55c47da050f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a86c111aa8f1c64f9601f55c47da050f3">getLightInterruptStatus</a> ()</td></tr>
+<tr class="memdesc:a86c111aa8f1c64f9601f55c47da050f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get light sensor interrupt status (reading clears flag)  <a href="#a86c111aa8f1c64f9601f55c47da050f3">More...</a><br /></td></tr>
+<tr class="separator:a86c111aa8f1c64f9601f55c47da050f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a980be15add3b6797a24d3a3e406a0e30"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a980be15add3b6797a24d3a3e406a0e30">isProxDataReady</a> ()</td></tr>
+<tr class="memdesc:a980be15add3b6797a24d3a3e406a0e30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if proximity sensor data is ready.  <a href="#a980be15add3b6797a24d3a3e406a0e30">More...</a><br /></td></tr>
+<tr class="separator:a980be15add3b6797a24d3a3e406a0e30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a210bfbc90f2ac03f1dca4c656ba57577"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a210bfbc90f2ac03f1dca4c656ba57577">isLightDataReady</a> ()</td></tr>
+<tr class="memdesc:a210bfbc90f2ac03f1dca4c656ba57577"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if light sensor data is ready.  <a href="#a210bfbc90f2ac03f1dca4c656ba57577">More...</a><br /></td></tr>
+<tr class="separator:a210bfbc90f2ac03f1dca4c656ba57577"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28a424ef2a124395953c6841ea238fe3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a28a424ef2a124395953c6841ea238fe3">setProxSleepAfterInterrupt</a> (bool enable)</td></tr>
+<tr class="memdesc:a28a424ef2a124395953c6841ea238fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable/disable sleep after proximity interrupt.  <a href="#a28a424ef2a124395953c6841ea238fe3">More...</a><br /></td></tr>
+<tr class="separator:a28a424ef2a124395953c6841ea238fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fe3b355d3ad00703f7620f615890ee3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#a9fe3b355d3ad00703f7620f615890ee3">getProxSleepAfterInterrupt</a> ()</td></tr>
+<tr class="memdesc:a9fe3b355d3ad00703f7620f615890ee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get sleep after proximity interrupt setting.  <a href="#a9fe3b355d3ad00703f7620f615890ee3">More...</a><br /></td></tr>
+<tr class="separator:a9fe3b355d3ad00703f7620f615890ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe939b09f1da98fb1eba6ded652e7329"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#abe939b09f1da98fb1eba6ded652e7329">setLightSleepAfterInterrupt</a> (bool enable)</td></tr>
+<tr class="memdesc:abe939b09f1da98fb1eba6ded652e7329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable/disable sleep after light sensor interrupt.  <a href="#abe939b09f1da98fb1eba6ded652e7329">More...</a><br /></td></tr>
+<tr class="separator:abe939b09f1da98fb1eba6ded652e7329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4d15f7b1ea43032a9be441ef4e18862"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#aa4d15f7b1ea43032a9be441ef4e18862">getLightSleepAfterInterrupt</a> ()</td></tr>
+<tr class="memdesc:aa4d15f7b1ea43032a9be441ef4e18862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get sleep after light sensor interrupt setting.  <a href="#aa4d15f7b1ea43032a9be441ef4e18862">More...</a><br /></td></tr>
+<tr class="separator:aa4d15f7b1ea43032a9be441ef4e18862"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff6557e683a3c04a6b7a8f4800e74817"><td class="memItemLeft" align="right" valign="top"><a id="aff6557e683a3c04a6b7a8f4800e74817"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_adafruit___a_p_d_s9999.html#aff6557e683a3c04a6b7a8f4800e74817">reset</a> ()</td></tr>
+<tr class="memdesc:aff6557e683a3c04a6b7a8f4800e74817"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform software reset. Note: device does not ACK this command. After reset, wait ~10ms before communicating again. <br /></td></tr>
+<tr class="separator:aff6557e683a3c04a6b7a8f4800e74817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class that stores state and functions for interacting with APDS-9999 Digital Proximity and RGB Sensor. </p>
@@ -123,6 +322,1560 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if initialization was successful, otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="afca71d2c26a7e60ca76879ebac308a61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca71d2c26a7e60ca76879ebac308a61">&#9670;&nbsp;</a></span>getPartID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Adafruit_APDS9999::getPartID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the part ID (upper nibble of PART_ID register) </p>
+<dl class="section return"><dt>Returns</dt><dd>Part ID value (should be 0x0C for APDS-9999) </dd></dl>
+
+</div>
+</div>
+<a id="addfca5f91630147aaa5f0c8f5d58901c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addfca5f91630147aaa5f0c8f5d58901c">&#9670;&nbsp;</a></span>getRevisionID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Adafruit_APDS9999::getRevisionID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the revision ID (lower nibble of PART_ID register) </p>
+<dl class="section return"><dt>Returns</dt><dd>Revision ID value </dd></dl>
+
+</div>
+</div>
+<a id="a1e3ade59c06c8e56aeb85b8bab7759fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e3ade59c06c8e56aeb85b8bab7759fe">&#9670;&nbsp;</a></span>enableLightSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::enableLightSensor </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>en</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable or disable the light sensor (ALS/RGB) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">en</td><td>True to enable, false to disable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a61c48bdb5faa5e1072e40f3a4118fb5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61c48bdb5faa5e1072e40f3a4118fb5a">&#9670;&nbsp;</a></span>lightSensorEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::lightSensorEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the light sensor is enabled. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if enabled </dd></dl>
+
+</div>
+</div>
+<a id="a9cdae0176bd5cd2f90e4733e8c8b7e74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cdae0176bd5cd2f90e4733e8c8b7e74">&#9670;&nbsp;</a></span>enableProximitySensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::enableProximitySensor </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>en</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable or disable the proximity sensor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">en</td><td>True to enable, false to disable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="aee09604119637142d2fa007a9ac4444c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee09604119637142d2fa007a9ac4444c">&#9670;&nbsp;</a></span>proximitySensorEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::proximitySensorEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if the proximity sensor is enabled. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if enabled </dd></dl>
+
+</div>
+</div>
+<a id="a4ce7931197558df37d1c97ae26cacadb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ce7931197558df37d1c97ae26cacadb">&#9670;&nbsp;</a></span>setRGBMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setRGBMode </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>en</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set RGB mode (vs ALS mode) for light sensor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">en</td><td>True for RGB mode, false for ALS mode </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="ae040ba0b40cd611e1754bc1b40c87e7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae040ba0b40cd611e1754bc1b40c87e7f">&#9670;&nbsp;</a></span>getRGBMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::getRGBMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get current RGB mode setting. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if RGB mode, false if ALS mode </dd></dl>
+
+</div>
+</div>
+<a id="a8bf02f0648fd57e660a26ac328db1bf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf02f0648fd57e660a26ac328db1bf0">&#9670;&nbsp;</a></span>setLightGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLightGain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a4a448a29115f00631d57ec9e855fafa7">apds9999_light_gain_t</a>&#160;</td>
+          <td class="paramname"><em>gain</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the light sensor gain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gain</td><td>The gain setting (1x, 3x, 6x, 9x, or 18x) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a925836228452f062ef67df7c66d486e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a925836228452f062ef67df7c66d486e4">&#9670;&nbsp;</a></span>getLightGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a4a448a29115f00631d57ec9e855fafa7">apds9999_light_gain_t</a> Adafruit_APDS9999::getLightGain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the current light sensor gain setting. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current gain setting </dd></dl>
+
+</div>
+</div>
+<a id="aa81bedf4d3351bdb629256074f95537e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa81bedf4d3351bdb629256074f95537e">&#9670;&nbsp;</a></span>setLightResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLightResolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#aa332b78510026a9080603cec08115dbf">apds9999_light_resolution_t</a>&#160;</td>
+          <td class="paramname"><em>res</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the light sensor ADC resolution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">res</td><td>The resolution setting (20, 19, 18, 17, 16, or 13 bit) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a6668eaa36be3bd35954a957e9348e620"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6668eaa36be3bd35954a957e9348e620">&#9670;&nbsp;</a></span>getLightResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#aa332b78510026a9080603cec08115dbf">apds9999_light_resolution_t</a> Adafruit_APDS9999::getLightResolution </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the current light sensor ADC resolution setting. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current resolution setting </dd></dl>
+
+</div>
+</div>
+<a id="a4f92c5d2194f5abda8d868965d32bcff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f92c5d2194f5abda8d868965d32bcff">&#9670;&nbsp;</a></span>setLightMeasRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLightMeasRate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#aea915ec523f9c75d9bfedcc0ac48ab45">apds9999_light_meas_rate_t</a>&#160;</td>
+          <td class="paramname"><em>rate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the light sensor measurement rate. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rate</td><td>The measurement rate setting (25ms to 2000ms) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="aff071559a3953c4b3c3402ceb683c8cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff071559a3953c4b3c3402ceb683c8cc">&#9670;&nbsp;</a></span>getLightMeasRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#aea915ec523f9c75d9bfedcc0ac48ab45">apds9999_light_meas_rate_t</a> Adafruit_APDS9999::getLightMeasRate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the current light sensor measurement rate setting. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current measurement rate setting </dd></dl>
+
+</div>
+</div>
+<a id="a11a64947fde912015fcd632812599c05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11a64947fde912015fcd632812599c05">&#9670;&nbsp;</a></span>setProxResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setProxResolution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#afe175ddd60b88c4005cdd44f64808c0e">apds9999_prox_resolution_t</a>&#160;</td>
+          <td class="paramname"><em>res</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the proximity sensor ADC resolution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">res</td><td>The resolution setting (8, 9, 10, or 11 bit) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a59f36638b36d765ce7a172a7f5dbf174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59f36638b36d765ce7a172a7f5dbf174">&#9670;&nbsp;</a></span>getProxResolution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#afe175ddd60b88c4005cdd44f64808c0e">apds9999_prox_resolution_t</a> Adafruit_APDS9999::getProxResolution </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the current proximity sensor ADC resolution setting. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current resolution setting </dd></dl>
+
+</div>
+</div>
+<a id="a45125b1ffeab3238c17acd26c66a305d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45125b1ffeab3238c17acd26c66a305d">&#9670;&nbsp;</a></span>setProxMeasRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setProxMeasRate </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a30fcb9547279a22650aec2cbd96e9375">apds9999_prox_meas_rate_t</a>&#160;</td>
+          <td class="paramname"><em>rate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the proximity sensor measurement rate. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rate</td><td>The measurement rate setting (6ms to 400ms) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="acf66487d91ffac48dec7dfcf676f612e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf66487d91ffac48dec7dfcf676f612e">&#9670;&nbsp;</a></span>getProxMeasRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a30fcb9547279a22650aec2cbd96e9375">apds9999_prox_meas_rate_t</a> Adafruit_APDS9999::getProxMeasRate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the current proximity sensor measurement rate setting. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current measurement rate setting </dd></dl>
+
+</div>
+</div>
+<a id="a9833d00dbe629c3ef957a46a3b3cac2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9833d00dbe629c3ef957a46a3b3cac2f">&#9670;&nbsp;</a></span>readProximity() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::readProximity </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>prox</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read proximity sensor data (11-bit value) with I2C error checking. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prox</td><td>Pointer to store proximity value (0-2047) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if read succeeded, false on I2C failure </dd></dl>
+
+</div>
+</div>
+<a id="a62bed2e6e2ced7880b5f739cc96dabba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62bed2e6e2ced7880b5f739cc96dabba">&#9670;&nbsp;</a></span>readProximity() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::readProximity </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t *&#160;</td>
+          <td class="paramname"><em>prox</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>overflow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read proximity sensor data with overflow flag and I2C error checking. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">prox</td><td>Pointer to store proximity value (0-2047) </td></tr>
+    <tr><td class="paramname">overflow</td><td>Pointer to store overflow flag (true if saturated) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if read succeeded, false on I2C failure </dd></dl>
+
+</div>
+</div>
+<a id="a8c531b9aefe9d851f3587b8e4f2bbe0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c531b9aefe9d851f3587b8e4f2bbe0d">&#9670;&nbsp;</a></span>getRGBIRData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::getRGBIRData </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>ir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read all RGB+IR data in a single 12-byte bulk read. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>Pointer to store red channel (20-bit value) </td></tr>
+    <tr><td class="paramname">g</td><td>Pointer to store green channel (20-bit value) </td></tr>
+    <tr><td class="paramname">b</td><td>Pointer to store blue channel (20-bit value) </td></tr>
+    <tr><td class="paramname">ir</td><td>Pointer to store IR channel (20-bit value) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if read succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a82fb73222961fefc037eebc1d282597d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82fb73222961fefc037eebc1d282597d">&#9670;&nbsp;</a></span>calculateLux()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Adafruit_APDS9999::calculateLux </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>green_count</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate lux from green channel count based on current settings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">green_count</td><td>Raw green channel ADC count </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Calculated lux value, or 0 if settings not supported </dd></dl>
+
+</div>
+</div>
+<a id="ae81e2304630ef1b02c2bb92ce17cf8b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae81e2304630ef1b02c2bb92ce17cf8b3">&#9670;&nbsp;</a></span>setLEDPulses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLEDPulses </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pulses</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the number of LED pulses for proximity sensing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pulses</td><td>Number of pulses (0-255) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a5902f197d18cb35dbf19fec514ddbe7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5902f197d18cb35dbf19fec514ddbe7c">&#9670;&nbsp;</a></span>getLEDPulses()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Adafruit_APDS9999::getLEDPulses </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the number of LED pulses for proximity sensing. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of pulses (0-255) </dd></dl>
+
+</div>
+</div>
+<a id="a9205cc6388303aeabd038a56dd394b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9205cc6388303aeabd038a56dd394b51">&#9670;&nbsp;</a></span>setLEDCurrent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLEDCurrent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a312902bea3267e03e951b33f5d8ebb23">apds9999_led_current_t</a>&#160;</td>
+          <td class="paramname"><em>current</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the LED drive current for proximity sensing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current</td><td>The LED current setting (apds9999_led_current_t) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a6b57a297be615ad4997a6094246f66d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b57a297be615ad4997a6094246f66d9">&#9670;&nbsp;</a></span>getLEDCurrent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a312902bea3267e03e951b33f5d8ebb23">apds9999_led_current_t</a> Adafruit_APDS9999::getLEDCurrent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the LED drive current for proximity sensing. </p>
+<dl class="section return"><dt>Returns</dt><dd>The LED current setting (apds9999_led_current_t) </dd></dl>
+
+</div>
+</div>
+<a id="a5be1028168b5e5cb2227d43ce25fb7ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5be1028168b5e5cb2227d43ce25fb7ef">&#9670;&nbsp;</a></span>setLEDFrequency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLEDFrequency </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#af0de4a44a8938dc924983d6ee16d36d4">apds9999_led_freq_t</a>&#160;</td>
+          <td class="paramname"><em>freq</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the LED pulse frequency for proximity sensing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">freq</td><td>The LED frequency setting (apds9999_led_freq_t) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="ab31f5a0ed5d3f68013e2dc1c1a15c30f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab31f5a0ed5d3f68013e2dc1c1a15c30f">&#9670;&nbsp;</a></span>getLEDFrequency()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#af0de4a44a8938dc924983d6ee16d36d4">apds9999_led_freq_t</a> Adafruit_APDS9999::getLEDFrequency </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the LED pulse frequency for proximity sensing. </p>
+<dl class="section return"><dt>Returns</dt><dd>The LED frequency setting (apds9999_led_freq_t) </dd></dl>
+
+</div>
+</div>
+<a id="a9bee294df37b74c605cc365ac4348ef5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bee294df37b74c605cc365ac4348ef5">&#9670;&nbsp;</a></span>enableProxInterrupt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::enableProxInterrupt </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>en</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable or disable proximity sensor interrupt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">en</td><td>True to enable, false to disable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a638bdf03dccdefa286ca8438493a27e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a638bdf03dccdefa286ca8438493a27e0">&#9670;&nbsp;</a></span>proxInterruptEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::proxInterruptEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if proximity sensor interrupt is enabled. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if enabled </dd></dl>
+
+</div>
+</div>
+<a id="abc27888804118511320236d4668626bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc27888804118511320236d4668626bc">&#9670;&nbsp;</a></span>setProxLogicMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setProxLogicMode </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set proximity sensor logic mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td>True for inside window, false for outside window </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a9c981c9b0cfe510172a5ea9864ac9fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c981c9b0cfe510172a5ea9864ac9fdf">&#9670;&nbsp;</a></span>getProxLogicMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::getProxLogicMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get proximity sensor logic mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if inside window triggers, false for outside window </dd></dl>
+
+</div>
+</div>
+<a id="adeedb713514d7b45045738737a8ab9ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeedb713514d7b45045738737a8ab9ae">&#9670;&nbsp;</a></span>enableLightInterrupt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::enableLightInterrupt </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>en</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable or disable light sensor interrupt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">en</td><td>True to enable, false to disable </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a828e41130cacde554993cef900572b5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a828e41130cacde554993cef900572b5c">&#9670;&nbsp;</a></span>lightInterruptEnabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::lightInterruptEnabled </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if light sensor interrupt is enabled. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if enabled </dd></dl>
+
+</div>
+</div>
+<a id="a1e9a3d6e66aa3d58b1bc93f38c4103b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9a3d6e66aa3d58b1bc93f38c4103b8">&#9670;&nbsp;</a></span>setLightVarianceMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLightVarianceMode </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set light sensor variance mode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td>True for variance mode, false for threshold mode </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="aa8c3acb3b3d4beb8e757fee42eff110e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8c3acb3b3d4beb8e757fee42eff110e">&#9670;&nbsp;</a></span>getLightVarianceMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::getLightVarianceMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get light sensor variance mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if variance mode, false if threshold mode </dd></dl>
+
+</div>
+</div>
+<a id="acf9353e3607e792dbd69d3afd8c76948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf9353e3607e792dbd69d3afd8c76948">&#9670;&nbsp;</a></span>setLightIntChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLightIntChannel </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a87768b15cfa83eec621774e552e4077c">apds9999_light_int_channel_t</a>&#160;</td>
+          <td class="paramname"><em>ch</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the light sensor interrupt channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ch</td><td>The channel to use for LS interrupt (IR, Green, Red, or Blue) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a6ed732efcd2af58674ef9973f17a29ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ed732efcd2af58674ef9973f17a29ea">&#9670;&nbsp;</a></span>getLightIntChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a87768b15cfa83eec621774e552e4077c">apds9999_light_int_channel_t</a> Adafruit_APDS9999::getLightIntChannel </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the current light sensor interrupt channel. </p>
+<dl class="section return"><dt>Returns</dt><dd>The current LS interrupt channel setting </dd></dl>
+
+</div>
+</div>
+<a id="a346d088e18d4df3b7612893f9b6a2313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a346d088e18d4df3b7612893f9b6a2313">&#9670;&nbsp;</a></span>setProxPersistence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setProxPersistence </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pers</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the proximity sensor interrupt persistence. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pers</td><td>Persistence value (0-15, number of consecutive readings) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a903dad86ebce44359de1ae051bc933ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a903dad86ebce44359de1ae051bc933ea">&#9670;&nbsp;</a></span>getProxPersistence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Adafruit_APDS9999::getProxPersistence </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the proximity sensor interrupt persistence. </p>
+<dl class="section return"><dt>Returns</dt><dd>Persistence value (0-15) </dd></dl>
+
+</div>
+</div>
+<a id="ab471c934fcbd55ca90702e81e4cb4d81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab471c934fcbd55ca90702e81e4cb4d81">&#9670;&nbsp;</a></span>setLightPersistence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLightPersistence </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>pers</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the light sensor interrupt persistence. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pers</td><td>Persistence value (0-15, number of consecutive readings) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="aebb8500675572daad37af521ac787b83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebb8500675572daad37af521ac787b83">&#9670;&nbsp;</a></span>getLightPersistence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Adafruit_APDS9999::getLightPersistence </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the light sensor interrupt persistence. </p>
+<dl class="section return"><dt>Returns</dt><dd>Persistence value (0-15) </dd></dl>
+
+</div>
+</div>
+<a id="ad20fa315325656ef4e3c6dc8a661dd9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad20fa315325656ef4e3c6dc8a661dd9c">&#9670;&nbsp;</a></span>setProxThresholdHigh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setProxThresholdHigh </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>threshold</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the proximity sensor upper threshold for interrupt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">threshold</td><td>11-bit threshold value (0-2047) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a1e427fcf2d9e4ac3d4acdcd39c0ac56e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e427fcf2d9e4ac3d4acdcd39c0ac56e">&#9670;&nbsp;</a></span>getProxThresholdHigh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Adafruit_APDS9999::getProxThresholdHigh </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the proximity sensor upper threshold. </p>
+<dl class="section return"><dt>Returns</dt><dd>11-bit threshold value (0-2047) </dd></dl>
+
+</div>
+</div>
+<a id="a032bcab841ca4cdd17cf8d825630493a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a032bcab841ca4cdd17cf8d825630493a">&#9670;&nbsp;</a></span>setProxThresholdLow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setProxThresholdLow </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>threshold</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the proximity sensor lower threshold for interrupt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">threshold</td><td>11-bit threshold value (0-2047) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="ad7a9cc51c2a2b756794d0685bf756686"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a9cc51c2a2b756794d0685bf756686">&#9670;&nbsp;</a></span>getProxThresholdLow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Adafruit_APDS9999::getProxThresholdLow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the proximity sensor lower threshold. </p>
+<dl class="section return"><dt>Returns</dt><dd>11-bit threshold value (0-2047) </dd></dl>
+
+</div>
+</div>
+<a id="a42e550a1cca055701e1db9dbc3c1e830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42e550a1cca055701e1db9dbc3c1e830">&#9670;&nbsp;</a></span>setLightThresholdHigh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLightThresholdHigh </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>threshold</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set light sensor upper threshold (20-bit) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">threshold</td><td>Threshold value (0-0xFFFFF) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="aafb4162e73eb37a12161ea5b852edb71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafb4162e73eb37a12161ea5b852edb71">&#9670;&nbsp;</a></span>getLightThresholdHigh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Adafruit_APDS9999::getLightThresholdHigh </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get light sensor upper threshold. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current upper threshold value (20-bit) </dd></dl>
+
+</div>
+</div>
+<a id="ae3c76fdf647058350980da2a29c1935a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3c76fdf647058350980da2a29c1935a">&#9670;&nbsp;</a></span>setLightThresholdLow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLightThresholdLow </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>threshold</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set light sensor lower threshold (20-bit) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">threshold</td><td>Threshold value (0-0xFFFFF) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="aa70ed79c8ebb89c212e3947bd4663c72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70ed79c8ebb89c212e3947bd4663c72">&#9670;&nbsp;</a></span>getLightThresholdLow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Adafruit_APDS9999::getLightThresholdLow </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get light sensor lower threshold. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current lower threshold value (20-bit) </dd></dl>
+
+</div>
+</div>
+<a id="a857c34fde9eea37e9f0df1efc176349b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a857c34fde9eea37e9f0df1efc176349b">&#9670;&nbsp;</a></span>setLightVariance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLightVariance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a481e4c4e3cc8b9c7b55751d0c971a089">apds9999_light_variance_t</a>&#160;</td>
+          <td class="paramname"><em>var</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set light sensor variance threshold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">var</td><td>Variance threshold setting </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a54d613e5500b351b90c698812ac25500"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54d613e5500b351b90c698812ac25500">&#9670;&nbsp;</a></span>getLightVariance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_adafruit___a_p_d_s9999_8h.html#a481e4c4e3cc8b9c7b55751d0c971a089">apds9999_light_variance_t</a> Adafruit_APDS9999::getLightVariance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get light sensor variance threshold setting. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current variance threshold setting </dd></dl>
+
+</div>
+</div>
+<a id="a2e9114d0fe02dec6c52212e1992754d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e9114d0fe02dec6c52212e1992754d9">&#9670;&nbsp;</a></span>setProxCancellation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setProxCancellation </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set proximity sensor digital cancellation (11-bit) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Cancellation value (0-2047) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="aa9510f3d78db7813576119e72ec94162"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9510f3d78db7813576119e72ec94162">&#9670;&nbsp;</a></span>getProxCancellation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Adafruit_APDS9999::getProxCancellation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get proximity sensor digital cancellation value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current digital cancellation value (11-bit) </dd></dl>
+
+</div>
+</div>
+<a id="a8510a9477f776e38f3d28d9d01a57ee0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8510a9477f776e38f3d28d9d01a57ee0">&#9670;&nbsp;</a></span>setProxAnalogCancellation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setProxAnalogCancellation </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set proximity sensor analog cancellation (5-bit) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Cancellation value (0-31) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a714726b771ed14de9f9f4df1e7f77009"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a714726b771ed14de9f9f4df1e7f77009">&#9670;&nbsp;</a></span>getProxAnalogCancellation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Adafruit_APDS9999::getProxAnalogCancellation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get proximity sensor analog cancellation value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current analog cancellation value (5-bit) </dd></dl>
+
+</div>
+</div>
+<a id="a72b9bbf639a9d3c7da625ceec03f9efe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72b9bbf639a9d3c7da625ceec03f9efe">&#9670;&nbsp;</a></span>getMainStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Adafruit_APDS9999::getMainStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the main status register (single read, clears all flags) </p>
+<dl class="section return"><dt>Returns</dt><dd>Status byte with APDS9999_STATUS_* bits set </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Use APDS9999_STATUS_PROX_DATA, APDS9999_STATUS_LIGHT_DATA, etc. to check individual flags. Reading clears all status bits, so read once and check multiple flags from the returned value. </dd></dl>
+
+</div>
+</div>
+<a id="a1dd4fe66a2ec1639a19b240a1b994deb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dd4fe66a2ec1639a19b240a1b994deb">&#9670;&nbsp;</a></span>getProxInterruptStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::getProxInterruptStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get proximity sensor interrupt status (reading clears flag) </p>
+<dl class="section return"><dt>Returns</dt><dd>True if PS interrupt flag is set </dd></dl>
+
+</div>
+</div>
+<a id="a86c111aa8f1c64f9601f55c47da050f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86c111aa8f1c64f9601f55c47da050f3">&#9670;&nbsp;</a></span>getLightInterruptStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::getLightInterruptStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get light sensor interrupt status (reading clears flag) </p>
+<dl class="section return"><dt>Returns</dt><dd>True if LS interrupt flag is set </dd></dl>
+
+</div>
+</div>
+<a id="a980be15add3b6797a24d3a3e406a0e30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a980be15add3b6797a24d3a3e406a0e30">&#9670;&nbsp;</a></span>isProxDataReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::isProxDataReady </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if proximity sensor data is ready. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if new proximity data is available </dd></dl>
+
+</div>
+</div>
+<a id="a210bfbc90f2ac03f1dca4c656ba57577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a210bfbc90f2ac03f1dca4c656ba57577">&#9670;&nbsp;</a></span>isLightDataReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::isLightDataReady </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if light sensor data is ready. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if new light sensor data is available </dd></dl>
+
+</div>
+</div>
+<a id="a28a424ef2a124395953c6841ea238fe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28a424ef2a124395953c6841ea238fe3">&#9670;&nbsp;</a></span>setProxSleepAfterInterrupt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setProxSleepAfterInterrupt </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable/disable sleep after proximity interrupt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td>True to sleep after PS interrupt </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="a9fe3b355d3ad00703f7620f615890ee3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fe3b355d3ad00703f7620f615890ee3">&#9670;&nbsp;</a></span>getProxSleepAfterInterrupt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::getProxSleepAfterInterrupt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get sleep after proximity interrupt setting. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if SAI_PS is enabled </dd></dl>
+
+</div>
+</div>
+<a id="abe939b09f1da98fb1eba6ded652e7329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe939b09f1da98fb1eba6ded652e7329">&#9670;&nbsp;</a></span>setLightSleepAfterInterrupt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::setLightSleepAfterInterrupt </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable/disable sleep after light sensor interrupt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">enable</td><td>True to sleep after LS interrupt </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if write succeeded </dd></dl>
+
+</div>
+</div>
+<a id="aa4d15f7b1ea43032a9be441ef4e18862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4d15f7b1ea43032a9be441ef4e18862">&#9670;&nbsp;</a></span>getLightSleepAfterInterrupt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Adafruit_APDS9999::getLightSleepAfterInterrupt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get sleep after light sensor interrupt setting. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if SAI_LS is enabled </dd></dl>
 
 </div>
 </div>

@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['setledcurrent',['setLEDCurrent',['../class_adafruit___a_p_d_s9999.html#a9205cc6388303aeabd038a56dd394b51',1,'Adafruit_APDS9999']]],
+  ['setledfrequency',['setLEDFrequency',['../class_adafruit___a_p_d_s9999.html#a5be1028168b5e5cb2227d43ce25fb7ef',1,'Adafruit_APDS9999']]],
+  ['setledpulses',['setLEDPulses',['../class_adafruit___a_p_d_s9999.html#ae81e2304630ef1b02c2bb92ce17cf8b3',1,'Adafruit_APDS9999']]],
+  ['setlightgain',['setLightGain',['../class_adafruit___a_p_d_s9999.html#a8bf02f0648fd57e660a26ac328db1bf0',1,'Adafruit_APDS9999']]],
+  ['setlightintchannel',['setLightIntChannel',['../class_adafruit___a_p_d_s9999.html#acf9353e3607e792dbd69d3afd8c76948',1,'Adafruit_APDS9999']]],
+  ['setlightmeasrate',['setLightMeasRate',['../class_adafruit___a_p_d_s9999.html#a4f92c5d2194f5abda8d868965d32bcff',1,'Adafruit_APDS9999']]],
+  ['setlightpersistence',['setLightPersistence',['../class_adafruit___a_p_d_s9999.html#ab471c934fcbd55ca90702e81e4cb4d81',1,'Adafruit_APDS9999']]],
+  ['setlightresolution',['setLightResolution',['../class_adafruit___a_p_d_s9999.html#aa81bedf4d3351bdb629256074f95537e',1,'Adafruit_APDS9999']]],
+  ['setlightsleepafterinterrupt',['setLightSleepAfterInterrupt',['../class_adafruit___a_p_d_s9999.html#abe939b09f1da98fb1eba6ded652e7329',1,'Adafruit_APDS9999']]],
+  ['setlightthresholdhigh',['setLightThresholdHigh',['../class_adafruit___a_p_d_s9999.html#a42e550a1cca055701e1db9dbc3c1e830',1,'Adafruit_APDS9999']]],
+  ['setlightthresholdlow',['setLightThresholdLow',['../class_adafruit___a_p_d_s9999.html#ae3c76fdf647058350980da2a29c1935a',1,'Adafruit_APDS9999']]],
+  ['setlightvariance',['setLightVariance',['../class_adafruit___a_p_d_s9999.html#a857c34fde9eea37e9f0df1efc176349b',1,'Adafruit_APDS9999']]],
+  ['setlightvariancemode',['setLightVarianceMode',['../class_adafruit___a_p_d_s9999.html#a1e9a3d6e66aa3d58b1bc93f38c4103b8',1,'Adafruit_APDS9999']]],
+  ['setproxanalogcancellation',['setProxAnalogCancellation',['../class_adafruit___a_p_d_s9999.html#a8510a9477f776e38f3d28d9d01a57ee0',1,'Adafruit_APDS9999']]],
+  ['setproxcancellation',['setProxCancellation',['../class_adafruit___a_p_d_s9999.html#a2e9114d0fe02dec6c52212e1992754d9',1,'Adafruit_APDS9999']]],
+  ['setproxlogicmode',['setProxLogicMode',['../class_adafruit___a_p_d_s9999.html#abc27888804118511320236d4668626bc',1,'Adafruit_APDS9999']]],
+  ['setproxmeasrate',['setProxMeasRate',['../class_adafruit___a_p_d_s9999.html#a45125b1ffeab3238c17acd26c66a305d',1,'Adafruit_APDS9999']]],
+  ['setproxpersistence',['setProxPersistence',['../class_adafruit___a_p_d_s9999.html#a346d088e18d4df3b7612893f9b6a2313',1,'Adafruit_APDS9999']]],
+  ['setproxresolution',['setProxResolution',['../class_adafruit___a_p_d_s9999.html#a11a64947fde912015fcd632812599c05',1,'Adafruit_APDS9999']]],
+  ['setproxsleepafterinterrupt',['setProxSleepAfterInterrupt',['../class_adafruit___a_p_d_s9999.html#a28a424ef2a124395953c6841ea238fe3',1,'Adafruit_APDS9999']]],
+  ['setproxthresholdhigh',['setProxThresholdHigh',['../class_adafruit___a_p_d_s9999.html#ad20fa315325656ef4e3c6dc8a661dd9c',1,'Adafruit_APDS9999']]],
+  ['setproxthresholdlow',['setProxThresholdLow',['../class_adafruit___a_p_d_s9999.html#a032bcab841ca4cdd17cf8d825630493a',1,'Adafruit_APDS9999']]],
+  ['setrgbmode',['setRGBMode',['../class_adafruit___a_p_d_s9999.html#a4ce7931197558df37d1c97ae26cacadb',1,'Adafruit_APDS9999']]]
+];
