@@ -115,10 +115,10 @@ typedef enum {
 
 /** Proximity sensor resolution (ADC bit depth) for PS_MEAS_RATE register */
 typedef enum {
-  APDS9999_PROX_RES_8BIT = 0x00,  ///< 8-bit resolution
+  APDS9999_PROX_RES_8BIT = 0x00,  ///< 8-bit resolution (hardware default)
   APDS9999_PROX_RES_9BIT = 0x01,  ///< 9-bit resolution
   APDS9999_PROX_RES_10BIT = 0x02, ///< 10-bit resolution
-  APDS9999_PROX_RES_11BIT = 0x03  ///< 11-bit resolution (default)
+  APDS9999_PROX_RES_11BIT = 0x03  ///< 11-bit resolution
 } apds9999_prox_resolution_t;
 
 /** Proximity sensor measurement rate for PS_MEAS_RATE register */
