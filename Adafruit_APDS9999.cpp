@@ -169,7 +169,7 @@ bool Adafruit_APDS9999::getRGBMode() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setLSGain(apds9999_ls_gain_t gain) {
+bool Adafruit_APDS9999::setLightGain(apds9999_light_gain_t gain) {
   Adafruit_BusIO_Register ls_gain_reg(i2c_dev, APDS9999_REG_LS_GAIN);
   Adafruit_BusIO_RegisterBits ls_gain_bits(&ls_gain_reg, 3, 0);
   return ls_gain_bits.write(gain);
@@ -181,10 +181,10 @@ bool Adafruit_APDS9999::setLSGain(apds9999_ls_gain_t gain) {
     @return The current gain setting
 */
 /**************************************************************************/
-apds9999_ls_gain_t Adafruit_APDS9999::getLSGain() {
+apds9999_light_gain_t Adafruit_APDS9999::getLightGain() {
   Adafruit_BusIO_Register ls_gain_reg(i2c_dev, APDS9999_REG_LS_GAIN);
   Adafruit_BusIO_RegisterBits ls_gain_bits(&ls_gain_reg, 3, 0);
-  return (apds9999_ls_gain_t)ls_gain_bits.read();
+  return (apds9999_light_gain_t)ls_gain_bits.read();
 }
 
 /**************************************************************************/
@@ -194,7 +194,7 @@ apds9999_ls_gain_t Adafruit_APDS9999::getLSGain() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setLSResolution(apds9999_ls_resolution_t res) {
+bool Adafruit_APDS9999::setLightResolution(apds9999_light_resolution_t res) {
   Adafruit_BusIO_Register ls_meas_rate(i2c_dev, APDS9999_REG_LS_MEAS_RATE);
   Adafruit_BusIO_RegisterBits ls_res(&ls_meas_rate, 3, 4);
   return ls_res.write(res);
@@ -206,10 +206,10 @@ bool Adafruit_APDS9999::setLSResolution(apds9999_ls_resolution_t res) {
     @return The current resolution setting
 */
 /**************************************************************************/
-apds9999_ls_resolution_t Adafruit_APDS9999::getLSResolution() {
+apds9999_light_resolution_t Adafruit_APDS9999::getLightResolution() {
   Adafruit_BusIO_Register ls_meas_rate(i2c_dev, APDS9999_REG_LS_MEAS_RATE);
   Adafruit_BusIO_RegisterBits ls_res(&ls_meas_rate, 3, 4);
-  return (apds9999_ls_resolution_t)ls_res.read();
+  return (apds9999_light_resolution_t)ls_res.read();
 }
 
 /**************************************************************************/
@@ -219,7 +219,7 @@ apds9999_ls_resolution_t Adafruit_APDS9999::getLSResolution() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setLSMeasRate(apds9999_ls_meas_rate_t rate) {
+bool Adafruit_APDS9999::setLightMeasRate(apds9999_light_meas_rate_t rate) {
   Adafruit_BusIO_Register ls_meas_rate(i2c_dev, APDS9999_REG_LS_MEAS_RATE);
   Adafruit_BusIO_RegisterBits ls_rate(&ls_meas_rate, 3, 0);
   return ls_rate.write(rate);
@@ -231,10 +231,10 @@ bool Adafruit_APDS9999::setLSMeasRate(apds9999_ls_meas_rate_t rate) {
     @return The current measurement rate setting
 */
 /**************************************************************************/
-apds9999_ls_meas_rate_t Adafruit_APDS9999::getLSMeasRate() {
+apds9999_light_meas_rate_t Adafruit_APDS9999::getLightMeasRate() {
   Adafruit_BusIO_Register ls_meas_rate(i2c_dev, APDS9999_REG_LS_MEAS_RATE);
   Adafruit_BusIO_RegisterBits ls_rate(&ls_meas_rate, 3, 0);
-  return (apds9999_ls_meas_rate_t)ls_rate.read();
+  return (apds9999_light_meas_rate_t)ls_rate.read();
 }
 
 /**************************************************************************/
@@ -244,7 +244,7 @@ apds9999_ls_meas_rate_t Adafruit_APDS9999::getLSMeasRate() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setPSResolution(apds9999_ps_resolution_t res) {
+bool Adafruit_APDS9999::setProxResolution(apds9999_prox_resolution_t res) {
   Adafruit_BusIO_Register ps_meas_rate(i2c_dev, APDS9999_REG_PS_MEAS_RATE);
   Adafruit_BusIO_RegisterBits ps_res(&ps_meas_rate, 2, 3);
   return ps_res.write(res);
@@ -256,10 +256,10 @@ bool Adafruit_APDS9999::setPSResolution(apds9999_ps_resolution_t res) {
     @return The current resolution setting
 */
 /**************************************************************************/
-apds9999_ps_resolution_t Adafruit_APDS9999::getPSResolution() {
+apds9999_prox_resolution_t Adafruit_APDS9999::getProxResolution() {
   Adafruit_BusIO_Register ps_meas_rate(i2c_dev, APDS9999_REG_PS_MEAS_RATE);
   Adafruit_BusIO_RegisterBits ps_res(&ps_meas_rate, 2, 3);
-  return (apds9999_ps_resolution_t)ps_res.read();
+  return (apds9999_prox_resolution_t)ps_res.read();
 }
 
 /**************************************************************************/
@@ -269,7 +269,7 @@ apds9999_ps_resolution_t Adafruit_APDS9999::getPSResolution() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setPSMeasRate(apds9999_ps_meas_rate_t rate) {
+bool Adafruit_APDS9999::setProxMeasRate(apds9999_prox_meas_rate_t rate) {
   Adafruit_BusIO_Register ps_meas_rate(i2c_dev, APDS9999_REG_PS_MEAS_RATE);
   Adafruit_BusIO_RegisterBits ps_rate(&ps_meas_rate, 3, 0);
   return ps_rate.write(rate);
@@ -281,10 +281,10 @@ bool Adafruit_APDS9999::setPSMeasRate(apds9999_ps_meas_rate_t rate) {
     @return The current measurement rate setting
 */
 /**************************************************************************/
-apds9999_ps_meas_rate_t Adafruit_APDS9999::getPSMeasRate() {
+apds9999_prox_meas_rate_t Adafruit_APDS9999::getProxMeasRate() {
   Adafruit_BusIO_Register ps_meas_rate(i2c_dev, APDS9999_REG_PS_MEAS_RATE);
   Adafruit_BusIO_RegisterBits ps_rate(&ps_meas_rate, 3, 0);
-  return (apds9999_ps_meas_rate_t)ps_rate.read();
+  return (apds9999_prox_meas_rate_t)ps_rate.read();
 }
 
 /**************************************************************************/
@@ -400,22 +400,22 @@ float Adafruit_APDS9999::calculateLux(uint32_t green_count) {
   };
 
   // Get current gain setting
-  apds9999_ls_gain_t gain = getLSGain();
+  apds9999_light_gain_t gain = getLightGain();
   uint8_t gain_index;
   switch (gain) {
-    case APDS9999_LS_GAIN_1X:
+    case APDS9999_LIGHT_GAIN_1X:
       gain_index = 0;
       break;
-    case APDS9999_LS_GAIN_3X:
+    case APDS9999_LIGHT_GAIN_3X:
       gain_index = 1;
       break;
-    case APDS9999_LS_GAIN_6X:
+    case APDS9999_LIGHT_GAIN_6X:
       gain_index = 2;
       break;
-    case APDS9999_LS_GAIN_9X:
+    case APDS9999_LIGHT_GAIN_9X:
       gain_index = 3;
       break;
-    case APDS9999_LS_GAIN_18X:
+    case APDS9999_LIGHT_GAIN_18X:
       gain_index = 4;
       break;
     default:
@@ -423,25 +423,25 @@ float Adafruit_APDS9999::calculateLux(uint32_t green_count) {
   }
 
   // Get current resolution setting
-  apds9999_ls_resolution_t res = getLSResolution();
+  apds9999_light_resolution_t res = getLightResolution();
   uint8_t res_index;
   switch (res) {
-    case APDS9999_LS_RES_20BIT:
+    case APDS9999_LIGHT_RES_20BIT:
       res_index = 0;
       break;
-    case APDS9999_LS_RES_19BIT:
+    case APDS9999_LIGHT_RES_19BIT:
       res_index = 1;
       break;
-    case APDS9999_LS_RES_18BIT:
+    case APDS9999_LIGHT_RES_18BIT:
       res_index = 2;
       break;
-    case APDS9999_LS_RES_17BIT:
+    case APDS9999_LIGHT_RES_17BIT:
       res_index = 3;
       break;
-    case APDS9999_LS_RES_16BIT:
+    case APDS9999_LIGHT_RES_16BIT:
       res_index = 4;
       break;
-    case APDS9999_LS_RES_13BIT:
+    case APDS9999_LIGHT_RES_13BIT:
       return 0; // Not supported in lux table
     default:
       return 0;
@@ -530,7 +530,7 @@ apds9999_led_freq_t Adafruit_APDS9999::getLEDFrequency() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::enablePSInterrupt(bool en) {
+bool Adafruit_APDS9999::enableProxInterrupt(bool en) {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ps_int_en(&int_cfg, 1, 0);
   return ps_int_en.write(en ? 1 : 0);
@@ -542,7 +542,7 @@ bool Adafruit_APDS9999::enablePSInterrupt(bool en) {
     @return True if enabled
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::psInterruptEnabled() {
+bool Adafruit_APDS9999::proxInterruptEnabled() {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ps_int_en(&int_cfg, 1, 0);
   return ps_int_en.read();
@@ -555,7 +555,7 @@ bool Adafruit_APDS9999::psInterruptEnabled() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setPSLogicMode(bool enable) {
+bool Adafruit_APDS9999::setProxLogicMode(bool enable) {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ps_logic(&int_cfg, 1, 1);
   return ps_logic.write(enable ? 1 : 0);
@@ -567,7 +567,7 @@ bool Adafruit_APDS9999::setPSLogicMode(bool enable) {
     @return True if inside window triggers, false for outside window
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::getPSLogicMode() {
+bool Adafruit_APDS9999::getProxLogicMode() {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ps_logic(&int_cfg, 1, 1);
   return ps_logic.read();
@@ -580,7 +580,7 @@ bool Adafruit_APDS9999::getPSLogicMode() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::enableLSInterrupt(bool en) {
+bool Adafruit_APDS9999::enableLightInterrupt(bool en) {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ls_int_en(&int_cfg, 1, 2);
   return ls_int_en.write(en ? 1 : 0);
@@ -592,7 +592,7 @@ bool Adafruit_APDS9999::enableLSInterrupt(bool en) {
     @return True if enabled
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::lsInterruptEnabled() {
+bool Adafruit_APDS9999::lightInterruptEnabled() {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ls_int_en(&int_cfg, 1, 2);
   return ls_int_en.read();
@@ -605,7 +605,7 @@ bool Adafruit_APDS9999::lsInterruptEnabled() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setLSVarianceMode(bool enable) {
+bool Adafruit_APDS9999::setLightVarianceMode(bool enable) {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ls_var_mode(&int_cfg, 1, 3);
   return ls_var_mode.write(enable ? 1 : 0);
@@ -617,7 +617,7 @@ bool Adafruit_APDS9999::setLSVarianceMode(bool enable) {
     @return True if variance mode, false if threshold mode
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::getLSVarianceMode() {
+bool Adafruit_APDS9999::getLightVarianceMode() {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ls_var_mode(&int_cfg, 1, 3);
   return ls_var_mode.read();
@@ -630,7 +630,7 @@ bool Adafruit_APDS9999::getLSVarianceMode() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setLSIntChannel(apds9999_ls_int_channel_t ch) {
+bool Adafruit_APDS9999::setLightIntChannel(apds9999_light_int_channel_t ch) {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ls_int_sel(&int_cfg, 2, 4);
   return ls_int_sel.write(ch);
@@ -642,10 +642,10 @@ bool Adafruit_APDS9999::setLSIntChannel(apds9999_ls_int_channel_t ch) {
     @return The current LS interrupt channel setting
 */
 /**************************************************************************/
-apds9999_ls_int_channel_t Adafruit_APDS9999::getLSIntChannel() {
+apds9999_light_int_channel_t Adafruit_APDS9999::getLightIntChannel() {
   Adafruit_BusIO_Register int_cfg(i2c_dev, APDS9999_REG_INT_CFG);
   Adafruit_BusIO_RegisterBits ls_int_sel(&int_cfg, 2, 4);
-  return (apds9999_ls_int_channel_t)ls_int_sel.read();
+  return (apds9999_light_int_channel_t)ls_int_sel.read();
 }
 
 /**************************************************************************/
@@ -655,7 +655,7 @@ apds9999_ls_int_channel_t Adafruit_APDS9999::getLSIntChannel() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setPSPersistence(uint8_t pers) {
+bool Adafruit_APDS9999::setProxPersistence(uint8_t pers) {
   Adafruit_BusIO_Register int_pst(i2c_dev, APDS9999_REG_INT_PST);
   Adafruit_BusIO_RegisterBits ps_pers(&int_pst, 4, 0);
   return ps_pers.write(pers & 0x0F);
@@ -667,7 +667,7 @@ bool Adafruit_APDS9999::setPSPersistence(uint8_t pers) {
     @return Persistence value (0-15)
 */
 /**************************************************************************/
-uint8_t Adafruit_APDS9999::getPSPersistence() {
+uint8_t Adafruit_APDS9999::getProxPersistence() {
   Adafruit_BusIO_Register int_pst(i2c_dev, APDS9999_REG_INT_PST);
   Adafruit_BusIO_RegisterBits ps_pers(&int_pst, 4, 0);
   return ps_pers.read();
@@ -680,7 +680,7 @@ uint8_t Adafruit_APDS9999::getPSPersistence() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setLSPersistence(uint8_t pers) {
+bool Adafruit_APDS9999::setLightPersistence(uint8_t pers) {
   Adafruit_BusIO_Register int_pst(i2c_dev, APDS9999_REG_INT_PST);
   Adafruit_BusIO_RegisterBits ls_pers(&int_pst, 4, 4);
   return ls_pers.write(pers & 0x0F);
@@ -692,7 +692,7 @@ bool Adafruit_APDS9999::setLSPersistence(uint8_t pers) {
     @return Persistence value (0-15)
 */
 /**************************************************************************/
-uint8_t Adafruit_APDS9999::getLSPersistence() {
+uint8_t Adafruit_APDS9999::getLightPersistence() {
   Adafruit_BusIO_Register int_pst(i2c_dev, APDS9999_REG_INT_PST);
   Adafruit_BusIO_RegisterBits ls_pers(&int_pst, 4, 4);
   return ls_pers.read();
@@ -705,7 +705,7 @@ uint8_t Adafruit_APDS9999::getLSPersistence() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setPSThresholdHigh(uint16_t threshold) {
+bool Adafruit_APDS9999::setProxThresholdHigh(uint16_t threshold) {
   Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_UP_0, 2,
                                     LSBFIRST);
   return ps_thresh.write(threshold & 0x07FF);
@@ -717,7 +717,7 @@ bool Adafruit_APDS9999::setPSThresholdHigh(uint16_t threshold) {
     @return 11-bit threshold value (0-2047)
 */
 /**************************************************************************/
-uint16_t Adafruit_APDS9999::getPSThresholdHigh() {
+uint16_t Adafruit_APDS9999::getProxThresholdHigh() {
   Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_UP_0, 2,
                                     LSBFIRST);
   return ps_thresh.read() & 0x07FF;
@@ -730,7 +730,7 @@ uint16_t Adafruit_APDS9999::getPSThresholdHigh() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setPSThresholdLow(uint16_t threshold) {
+bool Adafruit_APDS9999::setProxThresholdLow(uint16_t threshold) {
   Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_LOW_0, 2,
                                     LSBFIRST);
   return ps_thresh.write(threshold & 0x07FF);
@@ -742,7 +742,7 @@ bool Adafruit_APDS9999::setPSThresholdLow(uint16_t threshold) {
     @return 11-bit threshold value (0-2047)
 */
 /**************************************************************************/
-uint16_t Adafruit_APDS9999::getPSThresholdLow() {
+uint16_t Adafruit_APDS9999::getProxThresholdLow() {
   Adafruit_BusIO_Register ps_thresh(i2c_dev, APDS9999_REG_PS_THRES_LOW_0, 2,
                                     LSBFIRST);
   return ps_thresh.read() & 0x07FF;
@@ -755,7 +755,7 @@ uint16_t Adafruit_APDS9999::getPSThresholdLow() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setLSThresholdHigh(uint32_t threshold) {
+bool Adafruit_APDS9999::setLightThresholdHigh(uint32_t threshold) {
   threshold &= 0x0FFFFF; // Mask to 20 bits
   uint8_t buffer[4];
   buffer[0] = APDS9999_REG_LS_THRES_UP_0;
@@ -771,7 +771,7 @@ bool Adafruit_APDS9999::setLSThresholdHigh(uint32_t threshold) {
     @return Current upper threshold value (20-bit)
 */
 /**************************************************************************/
-uint32_t Adafruit_APDS9999::getLSThresholdHigh() {
+uint32_t Adafruit_APDS9999::getLightThresholdHigh() {
   uint8_t buffer[3];
   uint8_t reg = APDS9999_REG_LS_THRES_UP_0;
   i2c_dev->write_then_read(&reg, 1, buffer, 3);
@@ -786,7 +786,7 @@ uint32_t Adafruit_APDS9999::getLSThresholdHigh() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setLSThresholdLow(uint32_t threshold) {
+bool Adafruit_APDS9999::setLightThresholdLow(uint32_t threshold) {
   threshold &= 0x0FFFFF; // Mask to 20 bits
   uint8_t buffer[4];
   buffer[0] = APDS9999_REG_LS_THRES_LOW_0;
@@ -802,7 +802,7 @@ bool Adafruit_APDS9999::setLSThresholdLow(uint32_t threshold) {
     @return Current lower threshold value (20-bit)
 */
 /**************************************************************************/
-uint32_t Adafruit_APDS9999::getLSThresholdLow() {
+uint32_t Adafruit_APDS9999::getLightThresholdLow() {
   uint8_t buffer[3];
   uint8_t reg = APDS9999_REG_LS_THRES_LOW_0;
   i2c_dev->write_then_read(&reg, 1, buffer, 3);
@@ -817,7 +817,7 @@ uint32_t Adafruit_APDS9999::getLSThresholdLow() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setLSVariance(apds9999_ls_variance_t var) {
+bool Adafruit_APDS9999::setLightVariance(apds9999_light_variance_t var) {
   Adafruit_BusIO_Register ls_thres_var(i2c_dev, APDS9999_REG_LS_THRES_VAR);
   Adafruit_BusIO_RegisterBits ls_var_bits(&ls_thres_var, 3, 0);
   return ls_var_bits.write(var);
@@ -829,10 +829,10 @@ bool Adafruit_APDS9999::setLSVariance(apds9999_ls_variance_t var) {
     @return Current variance threshold setting
 */
 /**************************************************************************/
-apds9999_ls_variance_t Adafruit_APDS9999::getLSVariance() {
+apds9999_light_variance_t Adafruit_APDS9999::getLightVariance() {
   Adafruit_BusIO_Register ls_thres_var(i2c_dev, APDS9999_REG_LS_THRES_VAR);
   Adafruit_BusIO_RegisterBits ls_var_bits(&ls_thres_var, 3, 0);
-  return (apds9999_ls_variance_t)ls_var_bits.read();
+  return (apds9999_light_variance_t)ls_var_bits.read();
 }
 
 /**************************************************************************/
@@ -842,7 +842,7 @@ apds9999_ls_variance_t Adafruit_APDS9999::getLSVariance() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setPSCancellation(uint16_t value) {
+bool Adafruit_APDS9999::setProxCancellation(uint16_t value) {
   value &= 0x07FF; // Mask to 11 bits
   // Write low byte to 0x1F
   Adafruit_BusIO_Register ps_can_0(i2c_dev, APDS9999_REG_PS_CAN_0);
@@ -861,7 +861,7 @@ bool Adafruit_APDS9999::setPSCancellation(uint16_t value) {
     @return Current digital cancellation value (11-bit)
 */
 /**************************************************************************/
-uint16_t Adafruit_APDS9999::getPSCancellation() {
+uint16_t Adafruit_APDS9999::getProxCancellation() {
   Adafruit_BusIO_Register ps_can_0(i2c_dev, APDS9999_REG_PS_CAN_0);
   Adafruit_BusIO_Register ps_can_1(i2c_dev, APDS9999_REG_PS_CAN_1);
   uint16_t low = ps_can_0.read();
@@ -876,7 +876,7 @@ uint16_t Adafruit_APDS9999::getPSCancellation() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setPSAnalogCancellation(uint8_t value) {
+bool Adafruit_APDS9999::setProxAnalogCancellation(uint8_t value) {
   Adafruit_BusIO_Register ps_can_1(i2c_dev, APDS9999_REG_PS_CAN_1);
   Adafruit_BusIO_RegisterBits ana_can(&ps_can_1, 5, 3);
   return ana_can.write(value & 0x1F);
@@ -888,7 +888,7 @@ bool Adafruit_APDS9999::setPSAnalogCancellation(uint8_t value) {
     @return Current analog cancellation value (5-bit)
 */
 /**************************************************************************/
-uint8_t Adafruit_APDS9999::getPSAnalogCancellation() {
+uint8_t Adafruit_APDS9999::getProxAnalogCancellation() {
   Adafruit_BusIO_Register ps_can_1(i2c_dev, APDS9999_REG_PS_CAN_1);
   Adafruit_BusIO_RegisterBits ana_can(&ps_can_1, 5, 3);
   return ana_can.read();
@@ -898,7 +898,7 @@ uint8_t Adafruit_APDS9999::getPSAnalogCancellation() {
 /*!
     @brief  Get the main status register (single read, clears all flags)
     @return Status byte with APDS9999_STATUS_* bits set
-    @note   Use APDS9999_STATUS_PS_DATA, APDS9999_STATUS_LS_DATA, etc. to
+    @note   Use APDS9999_STATUS_PROX_DATA, APDS9999_STATUS_LIGHT_DATA, etc. to
             check individual flags. Reading clears all status bits, so read
             once and check multiple flags from the returned value.
 */
@@ -923,7 +923,7 @@ uint8_t Adafruit_APDS9999::getMainStatus() {
     @return True if PS interrupt flag is set
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::getPSInterruptStatus() {
+bool Adafruit_APDS9999::getProxInterruptStatus() {
   Adafruit_BusIO_Register main_status(i2c_dev, APDS9999_REG_MAIN_STATUS);
   Adafruit_BusIO_RegisterBits ps_int(&main_status, 1, 1);
   return ps_int.read();
@@ -935,7 +935,7 @@ bool Adafruit_APDS9999::getPSInterruptStatus() {
     @return True if LS interrupt flag is set
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::getLSInterruptStatus() {
+bool Adafruit_APDS9999::getLightInterruptStatus() {
   Adafruit_BusIO_Register main_status(i2c_dev, APDS9999_REG_MAIN_STATUS);
   Adafruit_BusIO_RegisterBits ls_int(&main_status, 1, 4);
   return ls_int.read();
@@ -947,7 +947,7 @@ bool Adafruit_APDS9999::getLSInterruptStatus() {
     @return True if new proximity data is available
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::isPSDataReady() {
+bool Adafruit_APDS9999::isProxDataReady() {
   Adafruit_BusIO_Register main_status(i2c_dev, APDS9999_REG_MAIN_STATUS);
   Adafruit_BusIO_RegisterBits ps_data(&main_status, 1, 0);
   return ps_data.read();
@@ -959,7 +959,7 @@ bool Adafruit_APDS9999::isPSDataReady() {
     @return True if new light sensor data is available
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::isLSDataReady() {
+bool Adafruit_APDS9999::isLightDataReady() {
   Adafruit_BusIO_Register main_status(i2c_dev, APDS9999_REG_MAIN_STATUS);
   Adafruit_BusIO_RegisterBits ls_data(&main_status, 1, 3);
   return ls_data.read();
@@ -972,7 +972,7 @@ bool Adafruit_APDS9999::isLSDataReady() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setPSSleepAfterInterrupt(bool enable) {
+bool Adafruit_APDS9999::setProxSleepAfterInterrupt(bool enable) {
   Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
   Adafruit_BusIO_RegisterBits sai_ps(&main_ctrl, 1, 6);
   return sai_ps.write(enable ? 1 : 0);
@@ -984,7 +984,7 @@ bool Adafruit_APDS9999::setPSSleepAfterInterrupt(bool enable) {
     @return True if SAI_PS is enabled
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::getPSSleepAfterInterrupt() {
+bool Adafruit_APDS9999::getProxSleepAfterInterrupt() {
   Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
   Adafruit_BusIO_RegisterBits sai_ps(&main_ctrl, 1, 6);
   return sai_ps.read();
@@ -997,7 +997,7 @@ bool Adafruit_APDS9999::getPSSleepAfterInterrupt() {
     @return True if write succeeded
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::setLSSleepAfterInterrupt(bool enable) {
+bool Adafruit_APDS9999::setLightSleepAfterInterrupt(bool enable) {
   Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
   Adafruit_BusIO_RegisterBits sai_ls(&main_ctrl, 1, 5);
   return sai_ls.write(enable ? 1 : 0);
@@ -1009,7 +1009,7 @@ bool Adafruit_APDS9999::setLSSleepAfterInterrupt(bool enable) {
     @return True if SAI_LS is enabled
 */
 /**************************************************************************/
-bool Adafruit_APDS9999::getLSSleepAfterInterrupt() {
+bool Adafruit_APDS9999::getLightSleepAfterInterrupt() {
   Adafruit_BusIO_Register main_ctrl(i2c_dev, APDS9999_REG_MAIN_CTRL);
   Adafruit_BusIO_RegisterBits sai_ls(&main_ctrl, 1, 5);
   return sai_ls.read();

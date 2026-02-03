@@ -42,22 +42,22 @@ void setup() {
   Serial.print(F("Mode: "));
   Serial.println(apds.getRGBMode() ? F("RGB + IR") : F("Ambient Light + IR"));
 
-  apds.setLSGain(APDS9999_LS_GAIN_3X);
+  apds.setLightGain(APDS9999_LIGHT_GAIN_3X);
   Serial.print(F("Gain: "));
-  switch (apds.getLSGain()) {
-    case APDS9999_LS_GAIN_1X:
+  switch (apds.getLightGain()) {
+    case APDS9999_LIGHT_GAIN_1X:
       Serial.println(F("1x"));
       break;
-    case APDS9999_LS_GAIN_3X:
+    case APDS9999_LIGHT_GAIN_3X:
       Serial.println(F("3x"));
       break;
-    case APDS9999_LS_GAIN_6X:
+    case APDS9999_LIGHT_GAIN_6X:
       Serial.println(F("6x"));
       break;
-    case APDS9999_LS_GAIN_9X:
+    case APDS9999_LIGHT_GAIN_9X:
       Serial.println(F("9x"));
       break;
-    case APDS9999_LS_GAIN_18X:
+    case APDS9999_LIGHT_GAIN_18X:
       Serial.println(F("18x"));
       break;
     default:
@@ -65,25 +65,25 @@ void setup() {
       break;
   }
 
-  apds.setLSResolution(APDS9999_LS_RES_18BIT);
+  apds.setLightResolution(APDS9999_LIGHT_RES_18BIT);
   Serial.print(F("Resolution: "));
-  switch (apds.getLSResolution()) {
-    case APDS9999_LS_RES_20BIT:
+  switch (apds.getLightResolution()) {
+    case APDS9999_LIGHT_RES_20BIT:
       Serial.println(F("20-bit (400ms conversion)"));
       break;
-    case APDS9999_LS_RES_19BIT:
+    case APDS9999_LIGHT_RES_19BIT:
       Serial.println(F("19-bit (200ms conversion)"));
       break;
-    case APDS9999_LS_RES_18BIT:
+    case APDS9999_LIGHT_RES_18BIT:
       Serial.println(F("18-bit (100ms conversion)"));
       break;
-    case APDS9999_LS_RES_17BIT:
+    case APDS9999_LIGHT_RES_17BIT:
       Serial.println(F("17-bit (50ms conversion)"));
       break;
-    case APDS9999_LS_RES_16BIT:
+    case APDS9999_LIGHT_RES_16BIT:
       Serial.println(F("16-bit (25ms conversion)"));
       break;
-    case APDS9999_LS_RES_13BIT:
+    case APDS9999_LIGHT_RES_13BIT:
       Serial.println(F("13-bit (3ms conversion)"));
       break;
     default:
@@ -91,28 +91,28 @@ void setup() {
       break;
   }
 
-  apds.setLSMeasRate(APDS9999_LS_RATE_100MS);
+  apds.setLightMeasRate(APDS9999_LIGHT_RATE_100MS);
   Serial.print(F("Measurement Rate: "));
-  switch (apds.getLSMeasRate()) {
-    case APDS9999_LS_RATE_25MS:
+  switch (apds.getLightMeasRate()) {
+    case APDS9999_LIGHT_RATE_25MS:
       Serial.println(F("25ms"));
       break;
-    case APDS9999_LS_RATE_50MS:
+    case APDS9999_LIGHT_RATE_50MS:
       Serial.println(F("50ms"));
       break;
-    case APDS9999_LS_RATE_100MS:
+    case APDS9999_LIGHT_RATE_100MS:
       Serial.println(F("100ms"));
       break;
-    case APDS9999_LS_RATE_200MS:
+    case APDS9999_LIGHT_RATE_200MS:
       Serial.println(F("200ms"));
       break;
-    case APDS9999_LS_RATE_500MS:
+    case APDS9999_LIGHT_RATE_500MS:
       Serial.println(F("500ms"));
       break;
-    case APDS9999_LS_RATE_1000MS:
+    case APDS9999_LIGHT_RATE_1000MS:
       Serial.println(F("1000ms"));
       break;
-    case APDS9999_LS_RATE_2000MS:
+    case APDS9999_LIGHT_RATE_2000MS:
       Serial.println(F("2000ms"));
       break;
     default:
@@ -127,19 +127,19 @@ void setup() {
   Serial.print(F("Enabled: "));
   Serial.println(apds.proximitySensorEnabled() ? F("Yes") : F("No"));
 
-  apds.setPSResolution(APDS9999_PS_RES_11BIT);
+  apds.setProxResolution(APDS9999_PROX_RES_11BIT);
   Serial.print(F("Resolution: "));
-  switch (apds.getPSResolution()) {
-    case APDS9999_PS_RES_8BIT:
+  switch (apds.getProxResolution()) {
+    case APDS9999_PROX_RES_8BIT:
       Serial.println(F("8-bit"));
       break;
-    case APDS9999_PS_RES_9BIT:
+    case APDS9999_PROX_RES_9BIT:
       Serial.println(F("9-bit"));
       break;
-    case APDS9999_PS_RES_10BIT:
+    case APDS9999_PROX_RES_10BIT:
       Serial.println(F("10-bit"));
       break;
-    case APDS9999_PS_RES_11BIT:
+    case APDS9999_PROX_RES_11BIT:
       Serial.println(F("11-bit"));
       break;
     default:
@@ -147,28 +147,28 @@ void setup() {
       break;
   }
 
-  apds.setPSMeasRate(APDS9999_PS_RATE_100MS);
+  apds.setProxMeasRate(APDS9999_PROX_RATE_100MS);
   Serial.print(F("Measurement Rate: "));
-  switch (apds.getPSMeasRate()) {
-    case APDS9999_PS_RATE_6MS:
+  switch (apds.getProxMeasRate()) {
+    case APDS9999_PROX_RATE_6MS:
       Serial.println(F("6.25ms"));
       break;
-    case APDS9999_PS_RATE_12MS:
+    case APDS9999_PROX_RATE_12MS:
       Serial.println(F("12.5ms"));
       break;
-    case APDS9999_PS_RATE_25MS:
+    case APDS9999_PROX_RATE_25MS:
       Serial.println(F("25ms"));
       break;
-    case APDS9999_PS_RATE_50MS:
+    case APDS9999_PROX_RATE_50MS:
       Serial.println(F("50ms"));
       break;
-    case APDS9999_PS_RATE_100MS:
+    case APDS9999_PROX_RATE_100MS:
       Serial.println(F("100ms"));
       break;
-    case APDS9999_PS_RATE_200MS:
+    case APDS9999_PROX_RATE_200MS:
       Serial.println(F("200ms"));
       break;
-    case APDS9999_PS_RATE_400MS:
+    case APDS9999_PROX_RATE_400MS:
       Serial.println(F("400ms"));
       break;
     default:
@@ -230,7 +230,7 @@ void loop() {
   uint8_t status = apds.getMainStatus();
 
   // Read proximity when ready
-  if (status & APDS9999_STATUS_PS_DATA) {
+  if (status & APDS9999_STATUS_PROX_DATA) {
     uint16_t prox;
     bool overflow;
     if (apds.readProximity(&prox, &overflow)) {
@@ -245,7 +245,7 @@ void loop() {
   }
 
   // Read RGBIR when ready
-  if (status & APDS9999_STATUS_LS_DATA) {
+  if (status & APDS9999_STATUS_LIGHT_DATA) {
     uint32_t r, g, b, ir;
     if (apds.getRGBIRData(&r, &g, &b, &ir)) {
       if (printed)
