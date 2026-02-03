@@ -779,6 +779,20 @@ uint8_t Adafruit_APDS9999::getPSAnalogCancellation() {
 
 /**************************************************************************/
 /*!
+    @brief  Get the main status register (single read, clears all flags)
+    @return Status byte with APDS9999_STATUS_* bits set
+    @note   Use APDS9999_STATUS_PS_DATA, APDS9999_STATUS_LS_DATA, etc. to
+            check individual flags. Reading clears all status bits, so read
+            once and check multiple flags from the returned value.
+*/
+/**************************************************************************/
+uint8_t Adafruit_APDS9999::getMainStatus() {
+  Adafruit_BusIO_Register main_status(i2c_dev, APDS9999_REG_MAIN_STATUS);
+  return main_status.read();
+}
+
+/**************************************************************************/
+/*!
     @brief  Get proximity sensor interrupt status (reading clears flag)
     @return True if PS interrupt flag is set
 */

@@ -60,6 +60,14 @@
 #define APDS9999_REG_LS_THRES_LOW_2 0x26  ///< LS lower threshold high byte
 #define APDS9999_REG_LS_THRES_VAR 0x27    ///< LS variance threshold
 
+/** Main status register bit masks (for getMainStatus()) */
+#define APDS9999_STATUS_PS_DATA 0x01  ///< Proximity data ready
+#define APDS9999_STATUS_PS_INT 0x02   ///< Proximity interrupt triggered
+#define APDS9999_STATUS_PS_LOGIC 0x04 ///< Proximity logic signal state
+#define APDS9999_STATUS_LS_DATA 0x08  ///< Light sensor data ready
+#define APDS9999_STATUS_LS_INT 0x10   ///< Light sensor interrupt triggered
+#define APDS9999_STATUS_POWER_ON 0x20 ///< Power-on reset occurred
+
 /** LS Gain settings for register 0x05 */
 typedef enum {
   APDS9999_LS_GAIN_1X = 0x00, ///< 1x gain
@@ -224,6 +232,9 @@ class Adafruit_APDS9999 {
   uint8_t getPSAnalogCancellation();
 
   // Status reading (0x07)
+  // Note: Reading status clears ALL status bits! Use getMainStatus() to read
+  // once and check multiple flags with APDS9999_STATUS_* masks.
+  uint8_t getMainStatus();
   bool getPSInterruptStatus();
   bool getLSInterruptStatus();
   bool isPSDataReady();
