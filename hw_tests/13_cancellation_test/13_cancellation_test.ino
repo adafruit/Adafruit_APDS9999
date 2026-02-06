@@ -1,6 +1,6 @@
 /*!
  * @file 13_cancellation_test.ino
- * @brief Test prox cancellation (digital 0-65535, analog 0-7)
+ * @brief Test prox cancellation (digital 0-2047, analog 0-7)
  *
  * Uses servo to position paper for consistent functional testing.
  * Verifies that cancellation settings actually reduce proximity readings.
@@ -38,10 +38,10 @@ uint16_t getAvgProx(int samples = 5) {
 }
 
 void testDigitalCancellation() {
-  Serial.println("Testing Digital Cancellation (16-bit)...\n");
+  Serial.println("Testing Digital Cancellation (11-bit, 0-2047)...\n");
 
-  // Test values spanning the 16-bit range
-  uint16_t test_values[] = {0, 100, 1000, 10000, 32768, 65535};
+  // Test values spanning the 11-bit range (0-2047)
+  uint16_t test_values[] = {0, 100, 500, 1000, 1500, 2047};
 
   for (size_t i = 0; i < sizeof(test_values) / sizeof(test_values[0]); i++) {
     apds.setProxCancellation(test_values[i]);
@@ -102,32 +102,27 @@ void testDigitalCancellationEffect() {
   Serial.print("Baseline (cancel=0): ");
   Serial.println(baseline);
 
-  // Calculate a cancellation value that's ~25% of baseline
-  // This should noticeably reduce the reading without zeroing it
-  uint16_t cancel_val = baseline / 4;
-  if (cancel_val < 50)
-    cancel_val = 50; // Minimum meaningful value
-
-  apds.setProxCancellation(cancel_val);
+  // Test with small cancellation value first (10)
+  uint16_t low_cancel = 10;
+  apds.setProxCancellation(low_cancel);
   delay(100);
-  uint16_t with_cancel = getAvgProx(5);
+  uint16_t with_low_cancel = getAvgProx(5);
   Serial.print("With cancel=");
-  Serial.print(cancel_val);
+  Serial.print(low_cancel);
   Serial.print(": ");
-  Serial.println(with_cancel);
+  Serial.println(with_low_cancel);
 
-  // Expected: reading should be reduced by approximately the cancel value
-  // Allow some tolerance since readings have noise
+  // Expected: reading should be reduced
   Serial.print("Digital cancellation reduces reading: ");
-  if (with_cancel < baseline) {
-    int16_t reduction = baseline - with_cancel;
+  if (with_low_cancel < baseline) {
+    int16_t reduction = baseline - with_low_cancel;
     Serial.print("PASS (reduced by ");
     Serial.print(reduction);
     Serial.println(")");
     passed++;
   } else {
     Serial.print("FAIL (");
-    Serial.print(with_cancel);
+    Serial.print(with_low_cancel);
     Serial.print(" not < ");
     Serial.print(baseline);
     Serial.println(")");
@@ -135,7 +130,7 @@ void testDigitalCancellationEffect() {
   }
 
   // Test with higher cancellation - should reduce more
-  uint16_t high_cancel = baseline / 2;
+  uint16_t high_cancel = 30;
   apds.setProxCancellation(high_cancel);
   delay(100);
   uint16_t with_high_cancel = getAvgProx(5);
@@ -145,18 +140,18 @@ void testDigitalCancellationEffect() {
   Serial.println(with_high_cancel);
 
   Serial.print("Higher cancellation reduces more: ");
-  if (with_high_cancel < with_cancel) {
+  if (with_high_cancel < with_low_cancel) {
     Serial.print("PASS (");
     Serial.print(with_high_cancel);
     Serial.print(" < ");
-    Serial.print(with_cancel);
+    Serial.print(with_low_cancel);
     Serial.println(")");
     passed++;
   } else {
     Serial.print("FAIL (");
     Serial.print(with_high_cancel);
     Serial.print(" not < ");
-    Serial.print(with_cancel);
+    Serial.print(with_low_cancel);
     Serial.println(")");
     failed++;
   }
