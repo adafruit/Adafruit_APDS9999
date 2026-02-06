@@ -240,7 +240,19 @@ void setup() {
   }
 
   Serial.println("APDS9999 found!");
+  
+  // Reset sensor to known state and re-init
+  apds.reset();
+  delay(200);
+  if (!apds.begin()) {
+    Serial.println("WARNING: Re-init after reset failed, continuing anyway");
+  }
+  
   apds.enableProximitySensor(true);
+  
+  // Set reasonable defaults for functional tests
+  apds.setLEDPulses(32);
+  apds.setLEDCurrent(APDS9999_LED_CURRENT_25MA);
 
   // Register read/write tests
   testPulses();
