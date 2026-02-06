@@ -121,9 +121,12 @@ typedef enum {
   APDS9999_PROX_RES_11BIT = 0x03  ///< 11-bit resolution
 } apds9999_prox_resolution_t;
 
-/** Proximity sensor measurement rate for PS_MEAS_RATE register */
+/** Proximity sensor measurement rate for PS_MEAS_RATE register
+ *  NOTE: Actual measurement period is approximately 3x the programmed value.
+ *  For example, PROX_RATE_100MS results in ~300ms between readings.
+ */
 typedef enum {
-  APDS9999_PROX_RATE_6MS = 0x01,   ///< 6.25ms measurement rate
+  APDS9999_PROX_RATE_6MS = 0x01,   ///< 6.25ms measurement rate (~19ms actual)
   APDS9999_PROX_RATE_12MS = 0x02,  ///< 12.5ms measurement rate
   APDS9999_PROX_RATE_25MS = 0x03,  ///< 25ms measurement rate
   APDS9999_PROX_RATE_50MS = 0x04,  ///< 50ms measurement rate

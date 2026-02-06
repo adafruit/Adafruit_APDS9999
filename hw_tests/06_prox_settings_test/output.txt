@@ -8,8 +8,8 @@ Resolution	Prox	Set/Get
 ----------	----	-------
 8bit		0	PASS
 9bit		1	PASS
-10bit		1	PASS
-11bit		4	PASS
+10bit		3	PASS
+11bit		7	PASS
 
 Testing measurement rate settings...
 
@@ -25,13 +25,13 @@ Testing measurement rate timing...
 
 Rate		Expected	Actual	Status
 ----		--------	------	------
-6ms		6		0	FAIL
-12ms		12		37	FAIL
-25ms		25		76	FAIL
-50ms		50		151	FAIL
-100ms		100		301	FAIL
-200ms		200		601	FAIL
-400ms		400		1201	FAIL
+6ms		18		19	PASS
+12ms		36		37	PASS
+25ms		75		76	PASS
+50ms		150		151	PASS
+100ms		300		301	PASS
+200ms		600		601	PASS
+400ms		1200		1201	PASS
 
-Passed: 11 / Failed: 7
-*** TEST FAILED ***
+Passed: 18 / Failed: 0
+*** TEST PASSED ***
