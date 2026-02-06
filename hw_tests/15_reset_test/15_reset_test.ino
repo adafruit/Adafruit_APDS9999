@@ -63,11 +63,11 @@ void setup() {
   // Check if values returned to defaults
   Serial.println("\nAfter reset (checking defaults):");
 
-  // Light gain default is 0x00 (1X)
+  // Light gain default is 0x01 (3X) per datasheet
   apds9999_light_gain_t gain = apds.getLightGain();
-  Serial.print("  Light gain (expect 1X/0): ");
+  Serial.print("  Light gain (expect 3X/1): ");
   Serial.print(gain);
-  if (gain == APDS9999_LIGHT_GAIN_1X) {
+  if (gain == APDS9999_LIGHT_GAIN_3X) {
     Serial.println(" PASS");
     passed++;
   } else {
@@ -87,11 +87,11 @@ void setup() {
     failed++;
   }
 
-  // LED pulses default is 0x01 (1 pulse)
+  // LED pulses default is 0x08 (8 pulses) per datasheet
   uint8_t pulses = apds.getLEDPulses();
-  Serial.print("  LED pulses (expect 1): ");
+  Serial.print("  LED pulses (expect 8): ");
   Serial.print(pulses);
-  if (pulses == 1) {
+  if (pulses == 8) {
     Serial.println(" PASS");
     passed++;
   } else {
