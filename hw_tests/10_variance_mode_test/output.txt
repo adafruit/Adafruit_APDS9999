@@ -3,25 +3,25 @@ APDS9999 Variance Mode Test - Self-Calibrating
 APDS9999 found!
 
 --- PHASE 1: Calibration ---
-NeoPixels OFF  - Green baseline: 744
-NeoPixels ON   - Green high:     10510
-Delta (high-low): 9766
-Calculated threshold (delta/8): 1220
+NeoPixels OFF  - Green baseline: 740
+NeoPixels ON   - Green high:     10496
+Delta (high-low): 9756
+Calculated threshold (delta/8): 1219
 Using variance enum: 5
 
 --- PHASE 2: Variance Interrupt Test ---
 Toggling NeoPixels rapidly...
-Interrupts during toggling: 18
+Interrupts during toggling: 19
 
 --- PHASE 3: Stable Light Test (INFO ONLY) ---
 NeoPixel steady ON - waiting 2 seconds...
-Interrupts during stable light: 20
+Interrupts during stable light: 19
 Note: Sensor fires ~10 int/sec even with stable light (known behavior)
 
 ===============================================
 RESULTS:
-  Phase 2 (Toggle): 18 interrupts - PASS
-  Phase 3 (Stable): 20 interrupts - INFO (not graded)
+  Phase 2 (Toggle): 19 interrupts - PASS
+  Phase 3 (Stable): 19 interrupts - INFO (not graded)
 -----------------------------------------------
 OVERALL: PASS - Variance mode detects light changes!
 

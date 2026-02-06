@@ -1,60 +1,4 @@
 APDS9999 LED Config Test
-
-------------------------
-
-APDS9999 found!
-
-Testing LED pulses (1, 64, 128, 255)...
-
-
-Pulses 1: PASS
-
-Pulses 64: PASS
-
-Pulses 128: PASS
-
-Pulses 255: PASS
-
-
-Testing LED current...
-
-
-Current 10mA: PASS
-
-Current 25mA: PASS
-
-
-Testing LED frequency...
-
-
-Frequency 60kHz: PASS
-
-Frequency 70kHz: PASS
-
-Frequency 80kHz: PASS
-
-Frequency 90kHz: PASS
-
-Frequency 100kHz: PASS
-
-
-=== FUNCTIONAL TEST: LED Current Affects Readings ===
-
-
-Moving paper in front of sensor...
-
-Prox with 10mA current: 77
-
-Prox with 25mA current: 219
-
-Current affects readings: PASS (25mA 219 > 10mA 77)
-
-APDS9999 LED Config Test
-------------------------
-APDS9999 found!
-APDS9999 LED Config Test
-------------------------
-APDS9999 LED Config Test
 ------------------------
 APDS9999 found!
 Testing LED pulses (1, 64, 128, 255)...
@@ -80,16 +24,16 @@ Frequency 100kHz: PASS
 === FUNCTIONAL TEST: LED Current Affects Readings ===
 
 Moving paper in front of sensor...
-Prox with 10mA current: 76
-Prox with 25mA current: 217
-Current affects readings: PASS (25mA 217 > 10mA 76)
+Prox with 10mA current: 75
+Prox with 25mA current: 213
+Current affects readings: PASS (25mA 213 > 10mA 75)
 
 === FUNCTIONAL TEST: LED Pulses Affect Readings ===
 
 Moving paper in front of sensor...
 Prox with 4 pulses: 4
-Prox with 64 pulses: 76
-Pulses affect readings: PASS (64 pulses 76 > 4 pulses 4)
+Prox with 64 pulses: 75
+Pulses affect readings: PASS (64 pulses 75 > 4 pulses 4)
 
 Passed: 13 / Failed: 0
 *** TEST PASSED ***

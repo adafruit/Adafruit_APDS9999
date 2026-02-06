@@ -56,8 +56,18 @@ void setup() {
   }
   Serial.println("APDS9999 found!");
 
-  // Enable proximity sensor
+  // Full reset and clean init
+  apds.reset();
+  delay(200);
+  apds.begin();
+
+  // Disable light sensor, enable prox only
+  apds.enableLightSensor(false);
   apds.enableProximitySensor(true);
+
+  // Good defaults for reliable readings
+  apds.setLEDPulses(32);
+  apds.setLEDCurrent(APDS9999_LED_CURRENT_25MA);
 
   // Set thresholds: low=10, high=20
   apds.setProxThresholdLow(10);

@@ -1,148 +1,29 @@
-APDS9999 Light Interrupt Test
-
------------------------------
-
-Connect sensor INT pin to D2
-
+APDS9999 Self-Calibrating Light Interrupt Test
+===============================================
 APDS9999 found!
 
-
-Thresholds set: Low=1000, High=50000 (Green channel)
-
-Cover/uncover sensor to trigger interrupt!
-
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 54
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53  *** INTERRUPT FIRED! *** Status: 0x19 (below low threshold - dark)
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
-G: 53
-
+--- Phase 1: Calibration ---
+Baseline (NeoPixels OFF): G=911
+High value (NeoPixels ON): G=10706
+Calculated low threshold:  3359
+Calculated high threshold: 8257
+
+--- Phase 2: Interrupt Test ---
+
+--- Test 1: NeoPixels OFF (expect LOW interrupt) ---
+NeoPixels OFF - waiting for sensor settle...
+Interrupt fired! G=911 Status=0x7
+PASS: Green below low threshold
+
+--- Test 2: NeoPixels ON (expect HIGH interrupt) ---
+NeoPixels ON - waiting for sensor settle...
+Interrupt fired! G=10694 Status=0xF
+PASS: Green above high threshold
+
+===============================================
+TEST SUMMARY
+===============================================
+Test 1 (Low Interrupt):  PASS
+Test 2 (High Interrupt): PASS
+-----------------------------------------------
+OVERALL: PASS
