@@ -1,0 +1,54 @@
+APDS9999 Sleep-After-Interrupt Test
+====================================
+Hardware: INT=D2, Servo=A0
+
+Servo initialized at 0deg (away)
+APDS9999 found!
+
+=== PART A: Getter/Setter Verification ===
+
+Test A1: setProxSAI(false) -> get: false PASS
+Test A2: setProxSAI(true) -> get: true PASS
+Test A3: setLightSAI(false) -> get: false PASS
+Test A4: setLightSAI(true) -> get: true PASS
+
+Part A Summary: 4/4 passed
+
+=== PART B: Prox SAI Behavior Test ===
+
+Config: Prox enabled, SAI=true, thresh low=10, high=20
+
+Step B1: Verify readings update (before interrupt)
+  Prox reading 1: 0
+  Prox reading 2: 0
+  Data valid: PASS
+
+Step B2: Trigger interrupt (servo to 90deg)
+  Interrupt fired: YES (PASS)
+
+Step B3: Check sensor enters standby after interrupt
+  Standby read 1: 0
+  Standby read 2: 0
+  Standby read 3: 0
+  Standby read 4: 0
+  Standby read 5: 0
+  Readings frozen (standby): PASS
+
+Step B4: Clear interrupt (read status)
+  Status read: 0x3
+  Interrupt cleared
+
+Step B5: Verify readings resume after clearing interrupt
+  Resume read 1: 0
+  Resume read 2: 0
+  Resume read 3: 0
+  Readings resumed: PASS
+
+=== FINAL SUMMARY ===
+Total tests: 8
+Passed: 8
+Failed: 0
+
+OVERALL: PASS - All Sleep-After-Interrupt tests passed!
+
+--- TEST COMPLETE ---
