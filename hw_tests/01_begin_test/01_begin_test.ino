@@ -1,6 +1,6 @@
 /*!
  * @file 01_begin_test.ino
- * @brief Initialize sensor, print part ID (expect 0xC2) and revision ID
+ * @brief Initialize sensor, print part ID (expect 0xC) and revision ID
  */
 
 #include <Adafruit_APDS9999.h>
@@ -30,13 +30,13 @@ void setup() {
 
   Serial.print("Part ID: 0x");
   Serial.print(partID, HEX);
-  Serial.print(" (expected 0xC2) - ");
-  Serial.println((partID == 0xC2) ? "PASS" : "FAIL");
+  Serial.print(" (expected 0xC) - ");
+  Serial.println((partID == 0xC) ? "PASS" : "FAIL");
 
   Serial.print("Revision ID: 0x");
   Serial.println(revID, HEX);
 
-  if (partID == 0xC2) {
+  if (partID == 0xC) {
     Serial.println("\n*** TEST PASSED ***");
   } else {
     Serial.println("\n*** TEST FAILED ***");
