@@ -1,6 +1,6 @@
 /*!
  * @file 18_servo_prox_test.ino
- * @brief Automated proximity test using servo to trigger detection
+ * @brief Automated proximity interrupt test with self-calibrating thresholds
  * @note Connect INT pin to D2, Servo to A0
  *       Servo 105° = paper in front of sensor
  *       Servo 0° = paper away from sensor
@@ -11,6 +11,8 @@
 
 #define INT_PIN 2
 #define SERVO_PIN A0
+#define NUM_SAMPLES 5
+#define INT_TIMEOUT_MS 2000
 
 Adafruit_APDS9999 apds;
 Servo testServo;
@@ -27,7 +29,21 @@ void isr() {
  */
 void moveServo(int angle) {
   testServo.write(angle);
-  delay(500); // Allow servo to reach position
+  delay(600); // Allow servo to reach position
+}
+
+/**
+ * @brief Read proximity multiple times and return average
+ */
+uint16_t readProxAverage(int samples) {
+  uint32_t sum = 0;
+  for (int i = 0; i < samples; i++) {
+    uint16_t prox;
+    apds.readProximity(&prox);
+    sum += prox;
+    delay(50);
+  }
+  return (uint16_t)(sum / samples);
 }
 
 void setup() {
@@ -36,10 +52,10 @@ void setup() {
     delay(10);
   }
 
-  Serial.println("APDS9999 Automated Servo Proximity Test");
+  Serial.println("APDS9999 Servo Proximity Interrupt Test");
   Serial.println("========================================");
   Serial.println("Hardware: INT=D2, Servo=A0");
-  Serial.println("Servo 105deg = paper in front, 0deg = away");
+  Serial.println("Self-calibrating thresholds");
   Serial.println();
 
   // Initialize servo
@@ -56,7 +72,7 @@ void setup() {
   }
   Serial.println("APDS9999 found!");
 
-  // Full reset and clean init
+  // Full reset and clean init (same as other working tests)
   apds.reset();
   delay(200);
   apds.begin();
@@ -69,15 +85,67 @@ void setup() {
   apds.setLEDPulses(32);
   apds.setLEDCurrent(APDS9999_LED_CURRENT_25MA);
 
-  // Set thresholds: low=10, high=20
-  apds.setProxThresholdLow(10);
-  apds.setProxThresholdHigh(20);
+  // ========================================
+  // PHASE 1: CALIBRATION
+  // ========================================
+  Serial.println();
+  Serial.println("--- PHASE 1: CALIBRATION ---");
 
-  // Set persistence to 1 for faster response
+  // Calibrate baseline (servo away)
+  Serial.println("Calibrating baseline (servo at 0deg)...");
+  moveServo(0);
+  delay(500);
+  uint16_t baseline = readProxAverage(NUM_SAMPLES);
+  Serial.print("  Baseline (away): ");
+  Serial.println(baseline);
+
+  // Calibrate high value (servo close)
+  Serial.println("Calibrating high value (servo at 105deg)...");
+  moveServo(105);
+  delay(500);
+  uint16_t highVal = readProxAverage(NUM_SAMPLES);
+  Serial.print("  High value (close): ");
+  Serial.println(highVal);
+
+  // Calculate threshold at 50% between baseline and high
+  uint16_t threshold = baseline + ((highVal - baseline) / 2);
+  Serial.print("  Calculated threshold (50%): ");
+  Serial.println(threshold);
+
+  // Sanity check
+  if (highVal <= baseline + 10) {
+    Serial.println("FAIL: High value not significantly greater than baseline!");
+    Serial.println("      Check servo/paper positioning.");
+    moveServo(0);
+    testServo.detach();
+    while (1) {
+      delay(10);
+    }
+  }
+
+  // ========================================
+  // PHASE 2: INTERRUPT TEST
+  // ========================================
+  Serial.println();
+  Serial.println("--- PHASE 2: INTERRUPT TEST ---");
+
+  // Move servo away first
+  Serial.println("Moving servo to 0deg (away)...");
+  moveServo(0);
+  delay(500);
+
+  // Configure thresholds with calibrated value
+  apds.setProxThresholdLow(0);
+  apds.setProxThresholdHigh(threshold);
+  Serial.print("Prox threshold high set to: ");
+  Serial.println(threshold);
+
+  // Set persistence to 1 for fast response
   apds.setProxPersistence(1);
 
   // Enable proximity interrupt
   apds.enableProxInterrupt(true);
+  Serial.println("Prox interrupt enabled");
 
   // Setup interrupt pin
   pinMode(INT_PIN, INPUT_PULLUP);
@@ -86,82 +154,74 @@ void setup() {
   // Clear any pending interrupt
   apds.getMainStatus();
   intFired = false;
+  Serial.println("Interrupt cleared, waiting for trigger...");
 
-  Serial.println("Prox thresholds: Low=10, High=20");
-  Serial.println("Interrupt enabled on D2 (FALLING)");
+  // Move servo to trigger position
   Serial.println();
-
-  // Begin test sequence
-  Serial.println("--- TEST SEQUENCE START ---");
-  Serial.println();
-
-  // Step 1: Baseline reading with paper away
-  Serial.println("Step 1: Servo at 0deg (paper away)");
-  moveServo(0);
-  delay(1000);
-
-  uint16_t baselineProx;
-  apds.readProximity(&baselineProx);
-  Serial.print("  Baseline proximity: ");
-  Serial.println(baselineProx);
-
-  // Clear interrupt flag before triggering
-  apds.getMainStatus();
-  intFired = false;
-
-  // Step 2: Move paper in front
-  Serial.println();
-  Serial.println("Step 2: Servo at 105deg (paper in front)");
+  Serial.println(
+      "Moving servo to 105deg (close) - should trigger interrupt...");
   moveServo(105);
-  delay(1000);
 
-  uint16_t triggeredProx;
-  apds.readProximity(&triggeredProx);
-  Serial.print("  Triggered proximity: ");
-  Serial.println(triggeredProx);
+  // Wait for interrupt with timeout
+  unsigned long startTime = millis();
+  while (!intFired && (millis() - startTime < INT_TIMEOUT_MS)) {
+    delay(10);
+  }
 
-  // Check interrupt status
+  // Read final proximity value
+  uint16_t finalProx;
+  apds.readProximity(&finalProx);
+
+  // Get status
   uint8_t status = apds.getMainStatus();
   bool intStatus = intFired;
+
+  Serial.print("  Final proximity: ");
+  Serial.println(finalProx);
   Serial.print("  Interrupt fired: ");
   Serial.println(intStatus ? "YES" : "NO");
   Serial.print("  Status register: 0x");
   Serial.println(status, HEX);
+  Serial.print("  Time waited: ");
+  Serial.print(millis() - startTime);
+  Serial.println(" ms");
 
-  // Step 3: Move paper away
+  // ========================================
+  // CLEANUP & RESULTS
+  // ========================================
   Serial.println();
-  Serial.println("Step 3: Servo back to 0deg (paper away)");
+  Serial.println("--- CLEANUP ---");
   moveServo(0);
-  delay(500);
+  testServo.detach();
+  Serial.println("Servo returned to 0deg and detached");
 
-  // Final result
   Serial.println();
   Serial.println("--- TEST RESULTS ---");
-  Serial.print("Baseline (away):   ");
-  Serial.println(baselineProx);
-  Serial.print("Triggered (front): ");
-  Serial.println(triggeredProx);
-  Serial.print("Prox increased:    ");
-  Serial.println((triggeredProx > baselineProx) ? "YES" : "NO");
-  Serial.print("Interrupt fired:   ");
+  Serial.print("Baseline (away):      ");
+  Serial.println(baseline);
+  Serial.print("High value (close):   ");
+  Serial.println(highVal);
+  Serial.print("Threshold (50%):      ");
+  Serial.println(threshold);
+  Serial.print("Final prox:           ");
+  Serial.println(finalProx);
+  Serial.print("Above threshold:      ");
+  Serial.println((finalProx >= threshold) ? "YES" : "NO");
+  Serial.print("Interrupt fired:      ");
   Serial.println(intStatus ? "YES" : "NO");
-  Serial.print("Above threshold:   ");
-  Serial.println((triggeredProx > 20) ? "YES" : "NO");
 
   Serial.println();
 
   // Determine pass/fail
-  bool proxIncreased = (triggeredProx > baselineProx);
-  bool aboveThreshold = (triggeredProx > 20);
-
-  if (intStatus && proxIncreased && aboveThreshold) {
+  if (intStatus && (finalProx >= threshold)) {
     Serial.println("PASS: Servo triggered proximity interrupt successfully!");
-  } else if (proxIncreased && aboveThreshold && !intStatus) {
-    Serial.println("PARTIAL: Prox detected but interrupt did not fire");
-  } else if (!proxIncreased) {
-    Serial.println("FAIL: Proximity did not increase with paper in front");
+  } else if (!intStatus && (finalProx >= threshold)) {
+    Serial.println("FAIL: Prox above threshold but interrupt did not fire");
+  } else if (intStatus && (finalProx < threshold)) {
+    Serial.println(
+        "FAIL: Interrupt fired but prox below threshold (spurious?)");
   } else {
-    Serial.println("FAIL: Test conditions not met");
+    Serial.println("FAIL: Neither interrupt nor threshold crossing detected");
   }
 
   Serial.println();

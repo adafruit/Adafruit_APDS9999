@@ -1,23 +1,33 @@
-APDS9999 NeoPixel Color Test
-----------------------------
+APDS9999 NeoPixel RGB Color Test
+================================
 NeoPixel ring on D6 (16 pixels)
+
 APDS9999 found!
 
-Hold colored objects near sensor!
-NeoPixel ring will mirror the detected color.
+--- Test A: RED Detection ---
+R=1299 G=358 B=59
+R highest? PASS
 
-R: 379	G: 1883	B: 592	-> RGB8(51,255,80)
-R: 639	G: 2034	B: 1316	-> RGB8(80,255,164)
-R: 788	G: 2183	B: 2147	-> RGB8(92,255,250)
-R: 885	G: 2326	B: 2970	-> RGB8(75,199,255)
-R: 774	G: 2018	B: 2955	-> RGB8(66,174,255)
-R: 744	G: 1882	B: 2920	-> RGB8(64,164,255)
-R: 721	G: 1827	B: 2930	-> RGB8(62,159,255)
-R: 713	G: 1785	B: 2899	-> RGB8(62,157,255)
-R: 712	G: 1783	B: 2917	-> RGB8(62,155,255)
-R: 714	G: 1772	B: 2915	-> RGB8(62,155,255)
-R: 710	G: 1751	B: 2902	-> RGB8(62,153,255)
-R: 713	G: 1759	B: 2914	-> RGB8(62,153,255)
-R: 710	G: 1743	B: 2875	-> RGB8(62,154,255)
-R: 713	G: 1758	B: 2916	-> RGB8(62,153,255)
-R: 714	G: 1759	B: 2910	-> RGB8(62,154,255)
+--- Test B: GREEN Detection ---
+R=214 G=1697 B=388
+G highest? PASS
+
+--- Test C: BLUE Detection ---
+R=204 G=553 B=2628
+B highest? PASS
+
+--- Test D: WHITE vs OFF ---
+WHITE: R=1400 G=2225 B=2891
+OFF:   R=132 G=163 B=47
+All channels higher with WHITE? PASS
+
+================================
+TEST SUMMARY:
+Test A (RED):      PASS
+Test B (GREEN):    PASS
+Test C (BLUE):     PASS
+Test D (WHITE/OFF):PASS
+================================
+OVERALL: PASS
+
+Test complete. NeoPixels off.

@@ -1,82 +1,39 @@
-APDS9999 Proximity Logic Mode Test
-===================================
-Connect sensor INT pin to D2
+APDS9999 Proximity Logic Mode Test (Servo Automated)
+=====================================================
+Hardware: Servo on A0, INT on D2
 
 APDS9999 found!
 
-TEST 1: Logic Mode Getter/Setter
---------------------------------
-setProxLogicMode(false) -> getProxLogicMode() = false (PASS)
-setProxLogicMode(true) -> getProxLogicMode() = true (PASS)
+=== PHASE 1: CALIBRATION ===
+Baseline (servo away): 1
+High prox (servo close): 167
+Threshold (50%): 84
+PHASE 1: PASS - Good calibration range
 
+=== PHASE 2: LOGIC MODE OFF (LATCHING) ===
+Logic mode set to OFF: OK
+INT before crossing (should be HIGH): HIGH - OK
+Moving servo to close position...
+INT after crossing (should be LOW): LOW - OK
+INT still latched LOW: LOW - OK (latched)
+Reading status to clear interrupt...
+INT after status clear (should be HIGH): LOW - FAIL
+PHASE 2: FAIL - Latching behavior incorrect
 
-TEST 2: Logic Mode OFF (Normal Interrupt)
------------------------------------------
-In this mode, INT goes LOW when threshold crossed,
-stays LOW until status is read to clear.
+=== PHASE 3: LOGIC MODE ON (FOLLOWING) ===
+Logic mode set to ON: OK
+Servo AWAY -> INT (should be HIGH): LOW - FAIL
+Servo CLOSE -> INT (should be LOW): LOW - OK
+Servo AWAY again -> INT (should be HIGH, no latch): LOW - FAIL (still latched!)
+Second cycle - CLOSE: LOW, AWAY: LOW
+PHASE 3: FAIL - Following behavior incorrect
 
-Wave hand near sensor... watching for 5 seconds:
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   1 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   1 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+========== TEST SUMMARY ==========
+Phase 1 (Calibration):      PASS
+Phase 2 (Logic Mode OFF):   FAIL
+Phase 3 (Logic Mode ON):    FAIL
+==================================
+OVERALL: FAIL
 
-
-TEST 3: Logic Mode ON (Logic Signal Output)
--------------------------------------------
-In this mode, INT follows logic state directly:
-  - HIGH when prox < threshold (no object)
-  - LOW when prox > threshold (object near)
-
-Wave hand near sensor... watching for 5 seconds:
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
-
-
-TEST COMPLETE
-=============
-Logic mode OFF: INT latches on threshold cross
-Logic mode ON: INT tracks object presence in real-time
+Cleaning up...
+Servo detached. Test complete.
