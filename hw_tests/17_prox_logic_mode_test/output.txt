@@ -1,0 +1,82 @@
+APDS9999 Proximity Logic Mode Test
+===================================
+Connect sensor INT pin to D2
+
+APDS9999 found!
+
+TEST 1: Logic Mode Getter/Setter
+--------------------------------
+setProxLogicMode(false) -> getProxLogicMode() = false (PASS)
+setProxLogicMode(true) -> getProxLogicMode() = true (PASS)
+
+
+TEST 2: Logic Mode OFF (Normal Interrupt)
+-----------------------------------------
+In this mode, INT goes LOW when threshold crossed,
+stays LOW until status is read to clear.
+
+Wave hand near sensor... watching for 5 seconds:
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   1 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   1 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+
+
+TEST 3: Logic Mode ON (Logic Signal Output)
+-------------------------------------------
+In this mode, INT follows logic state directly:
+  - HIGH when prox < threshold (no object)
+  - LOW when prox > threshold (object near)
+
+Wave hand near sensor... watching for 5 seconds:
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+Prox:   0 | INT pin: HIGH | Logic bit: 0 | INT changes: 0
+
+
+TEST COMPLETE
+=============
+Logic mode OFF: INT latches on threshold cross
+Logic mode ON: INT tracks object presence in real-time

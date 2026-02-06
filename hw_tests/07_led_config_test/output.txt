@@ -1,0 +1,45 @@
+APDS9999 LED Config Test
+
+------------------------
+
+APDS9999 found!
+
+Testing LED pulses (1, 64, 128, 255)...
+
+
+Pulses 1: PASS
+
+Pulses 64: PASS
+
+Pulses 128: PASS
+
+Pulses 255: PASS
+
+
+Testing LED current...
+
+
+Current 10mA: PASS
+
+Current 25mA: PASS
+
+
+Testing LED frequency...
+
+
+Frequency 60kHz: PASS
+
+Frequency 70kHz: PASS
+
+Frequency 80kHz: PASS
+
+Frequency 90kHz: PASS
+
+Frequency 100kHz: PASS
+
+
+
+Passed: 11 / Failed: 0
+
+*** TEST PASSED ***
+

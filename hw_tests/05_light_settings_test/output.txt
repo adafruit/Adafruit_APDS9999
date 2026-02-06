@@ -1,0 +1,46 @@
+APDS9999 Light Settings Test
+
+----------------------------
+
+APDS9999 found!
+
+
+Testing resolution settings...
+
+
+Resolution 20bit: PASS
+
+Resolution 19bit: PASS
+
+Resolution 18bit: PASS
+
+Resolution 17bit: PASS
+
+Resolution 16bit: PASS
+
+Resolution 13bit: PASS
+
+
+Testing measurement rate settings...
+
+
+Rate 25ms: PASS
+
+Rate 50ms: PASS
+
+Rate 100ms: PASS
+
+Rate 200ms: PASS
+
+Rate 500ms: PASS
+
+Rate 1000ms: PASS
+
+Rate 2000ms: PASS
+
+
+
+Passed: 13 / Failed: 0
+
+*** TEST PASSED ***
+

@@ -1,0 +1,56 @@
+APDS9999 Cancellation Test
+
+--------------------------
+
+APDS9999 found!
+
+
+Testing Digital Cancellation (16-bit)...
+
+
+Digital Cancel 0: PASS
+
+Digital Cancel 100: PASS
+
+Digital Cancel 1000: PASS
+
+Digital Cancel 10000: FAIL (got 1808)
+
+Digital Cancel 32768: FAIL (got 0)
+
+Digital Cancel 65535: FAIL (got 2047)
+
+
+Testing Analog Cancellation (0-7)...
+
+
+Analog Cancel 0: PASS
+
+Analog Cancel 1: PASS
+
+Analog Cancel 2: PASS
+
+Analog Cancel 3: PASS
+
+Analog Cancel 4: PASS
+
+Analog Cancel 5: PASS
+
+Analog Cancel 6: PASS
+
+Analog Cancel 7: PASS
+
+
+Demonstrating cancellation effect on readings...
+
+
+Baseline (no cancellation): 110
+
+With digital cancel=100: 17
+
+
+
+Passed: 11 / Failed: 3
+
+*** TEST FAILED ***
+

@@ -1,0 +1,32 @@
+APDS9999 Automated Servo Proximity Test
+========================================
+Hardware: INT=D2, Servo=A0
+Servo 90deg = paper in front, 0deg = away
+
+Servo initialized at 0deg (away)
+APDS9999 found!
+Prox thresholds: Low=50, High=200
+Interrupt enabled on D2 (FALLING)
+
+--- TEST SEQUENCE START ---
+
+Step 1: Servo at 0deg (paper away)
+  Baseline proximity: 0
+
+Step 2: Servo at 90deg (paper in front)
+  Triggered proximity: 27
+  Interrupt fired: NO
+  Status register: 0x3
+
+Step 3: Servo back to 0deg (paper away)
+
+--- TEST RESULTS ---
+Baseline (away):   0
+Triggered (front): 27
+Prox increased:    YES
+Interrupt fired:   NO
+Above threshold:   NO
+
+FAIL: Test conditions not met
+
+--- TEST COMPLETE ---

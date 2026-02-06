@@ -1,0 +1,148 @@
+APDS9999 Light Interrupt Test
+
+-----------------------------
+
+Connect sensor INT pin to D2
+
+APDS9999 found!
+
+
+Thresholds set: Low=1000, High=50000 (Green channel)
+
+Cover/uncover sensor to trigger interrupt!
+
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 54
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53  *** INTERRUPT FIRED! *** Status: 0x19 (below low threshold - dark)
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+
+G: 53
+

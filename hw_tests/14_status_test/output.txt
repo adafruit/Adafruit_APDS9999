@@ -1,0 +1,25 @@
+APDS9999 Status Test
+--------------------
+APDS9999 found!
+
+Reading status after power-on:
+Status: 0x9 -> [LIGHT_DATA] [PROX_DATA] 
+
+Reading status again (should be cleared):
+Status: 0x0 -> (no flags set)
+
+--- Clear-on-read test ---
+Note: POWER_ON behavior may vary
+
+--- Enabling sensors ---
+
+Status after enabling sensors:
+Status: 0x9 -> [LIGHT_DATA] [PROX_DATA] 
+
+--- Testing individual status functions ---
+isProxDataReady(): NO
+isLightDataReady(): NO
+getProxInterruptStatus(): NO
+getLightInterruptStatus(): NO
+
+*** TEST COMPLETE ***

@@ -1,0 +1,284 @@
+APDS9999 Variance Mode Test
+
+---------------------------
+
+Connect sensor INT pin to D2
+
+APDS9999 found!
+
+Variance mode enabled: YES
+
+Variance threshold: 2
+
+
+Variance threshold set to 32 counts
+
+Wave hand over sensor to create rapid light changes!
+
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 53  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 54  Interrupts: 0
+
+G: 53  Interrupts: 0
+

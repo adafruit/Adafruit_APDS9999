@@ -1,0 +1,282 @@
+APDS9999 Proximity Interrupt Test
+
+----------------------------------
+
+Connect sensor INT pin to D2
+
+APDS9999 found!
+
+
+Thresholds set: Low=100, High=500
+
+Wave hand near sensor to trigger interrupt!
+
+
+Proximity: 126
+
+Proximity: 119
+
+Proximity: 119
+
+Proximity: 119
+
+Proximity: 119
+
+Proximity: 140
+
+Proximity: 140
+
+Proximity: 140
+
+Proximity: 140
+
+Proximity: 117
+
+Proximity: 117
+
+Proximity: 117
+
+Proximity: 117
+
+Proximity: 115
+
+Proximity: 115
+
+Proximity: 115
+
+Proximity: 115
+
+Proximity: 121
+
+Proximity: 121
+
+Proximity: 121
+
+Proximity: 121
+
+Proximity: 125
+
+Proximity: 125
+
+Proximity: 125
+
+Proximity: 125
+
+Proximity: 139
+
+Proximity: 139
+
+Proximity: 139
+
+Proximity: 139
+
+Proximity: 136
+
+Proximity: 136
+
+Proximity: 136
+
+Proximity: 136
+
+Proximity: 126
+
+Proximity: 126
+
+Proximity: 126
+
+Proximity: 126
+
+Proximity: 123
+
+Proximity: 123
+
+Proximity: 123
+
+Proximity: 123
+
+Proximity: 112
+
+Proximity: 112
+
+Proximity: 112
+
+Proximity: 112
+
+Proximity: 118
+
+Proximity: 118
+
+Proximity: 118
+
+Proximity: 118
+
+Proximity: 123
+
+Proximity: 123
+
+Proximity: 123
+
+Proximity: 123
+
+Proximity: 135
+
+Proximity: 135
+
+Proximity: 135
+
+Proximity: 135
+
+Proximity: 117
+
+Proximity: 117
+
+Proximity: 117
+
+Proximity: 117
+
+Proximity: 122
+
+Proximity: 122
+
+Proximity: 122
+
+Proximity: 122
+
+Proximity: 127
+
+Proximity: 127
+
+Proximity: 127
+
+Proximity: 127
+
+Proximity: 128
+
+Proximity: 128
+
+Proximity: 128
+
+Proximity: 128
+
+Proximity: 128
+
+Proximity: 128
+
+Proximity: 128
+
+Proximity: 128
+
+Proximity: 120
+
+Proximity: 120
+
+Proximity: 120
+
+Proximity: 120
+
+Proximity: 126
+
+Proximity: 126
+
+Proximity: 126
+
+Proximity: 126
+
+Proximity: 120
+
+Proximity: 120
+
+Proximity: 120
+
+Proximity: 120
+
+Proximity: 129
+
+Proximity: 129
+
+Proximity: 129
+
+Proximity: 129
+
+Proximity: 131
+
+Proximity: 131
+
+Proximity: 131
+
+Proximity: 131
+
+Proximity: 139
+
+Proximity: 139
+
+Proximity: 139
+
+Proximity: 139
+
+Proximity: 137
+
+Proximity: 137
+
+Proximity: 137
+
+Proximity: 137
+
+Proximity: 129
+
+Proximity: 129
+
+Proximity: 129
+
+Proximity: 129
+
+Proximity: 131
+
+Proximity: 131
+
+Proximity: 131
+
+Proximity: 131
+
+Proximity: 134
+
+Proximity: 134
+
+Proximity: 134
+
+Proximity: 134
+
+Proximity: 126
+
+Proximity: 126
+
+Proximity: 126
+
+Proximity: 126
+
+Proximity: 126
+
+Proximity: 130
+
+Proximity: 130
+
+Proximity: 130
+
+Proximity: 130
+
+Proximity: 127
+
+Proximity: 127
+
+Proximity: 127
+
+Proximity: 127
+
+Proximity: 120
+
+Proximity: 120
+
+Proximity: 120
+
+Proximity: 120
+
