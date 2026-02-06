@@ -1,45 +1,32 @@
 APDS9999 LED Config Test
-
 ------------------------
-
 APDS9999 found!
-
 Testing LED pulses (1, 64, 128, 255)...
-
-
 Pulses 1: PASS
-
 Pulses 64: PASS
-
 Pulses 128: PASS
-
 Pulses 255: PASS
-
-
 Testing LED current...
-
-
 Current 10mA: PASS
-
 Current 25mA: PASS
-
-
 Testing LED frequency...
-
-
 Frequency 60kHz: PASS
-
 Frequency 70kHz: PASS
-
 Frequency 80kHz: PASS
-
 Frequency 90kHz: PASS
-
 Frequency 100kHz: PASS
+=== FUNCTIONAL TEST: LED Current Affects Readings ===
+Moving paper in front of sensor...
+Prox with 10mA current: 80
+Prox with 25mA current: 80
+Current affects readings: FAIL (25mA 80 not > 10mA 80)
+=== FUNCTIONAL TEST: LED Pulses Affect Readings ===
+Moving paper in front of sensor...
+Prox with 4 pulses: 80
+Prox with 64 pulses: 80
+Pulses affect readings: FAIL (64 pulses 80 not > 4 pulses 80)
+Passed: 11 / Failed: 2
+*** TEST FAILED ***
 
-
-
-Passed: 11 / Failed: 0
-
-*** TEST PASSED ***
-
+NOTE: Readings constant at 80 - may indicate sensor saturation with paper too close,
+or these settings may not affect readings at low signal levels. Needs investigation.

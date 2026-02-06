@@ -1,42 +1,37 @@
 APDS9999 Proximity Settings Test
-
 ---------------------------------
-
 APDS9999 found!
 
+Testing resolution settings with readings...
 
-Testing resolution settings...
-
-
-Resolution 8bit: PASS
-
-Resolution 9bit: PASS
-
-Resolution 10bit: PASS
-
-Resolution 11bit: PASS
-
+Resolution	Prox	Set/Get
+----------	----	-------
+8bit		0	PASS
+9bit		1	PASS
+10bit		1	PASS
+11bit		4	PASS
 
 Testing measurement rate settings...
 
-
 Rate 6ms: PASS
-
 Rate 12ms: PASS
-
 Rate 25ms: PASS
-
 Rate 50ms: PASS
-
 Rate 100ms: PASS
-
 Rate 200ms: PASS
-
 Rate 400ms: PASS
 
+Testing measurement rate timing...
 
+Rate		Expected	Actual	Status
+----		--------	------	------
+6ms		6		0	FAIL
+12ms		12		37	FAIL
+25ms		25		76	FAIL
+50ms		50		151	FAIL
+100ms		100		301	FAIL
+200ms		200		601	FAIL
+400ms		400		1201	FAIL
 
-Passed: 11 / Failed: 0
-
-*** TEST PASSED ***
-
+Passed: 11 / Failed: 7
+*** TEST FAILED ***
