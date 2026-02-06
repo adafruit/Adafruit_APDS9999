@@ -1,25 +1,65 @@
-APDS9999 Status Test
---------------------
+==========================================
+APDS9999 Status Register Hardware Test
+==========================================
 APDS9999 found!
 
-Reading status after power-on:
-Status: 0x9 -> [LIGHT_DATA] [PROX_DATA] 
+------------------------------------------
+TEST 1: POWER_ON flag (INFO - requires fresh power cycle)
+------------------------------------------
+First read: Status: 0xB -> [LIGHT_DATA] [PROX_INT] [PROX_DATA] 
+Second read: Status: 0x3 -> [PROX_INT] [PROX_DATA] 
+TEST 1: INFO - POWER_ON already cleared (not fresh boot)
 
-Reading status again (should be cleared):
-Status: 0x0 -> (no flags set)
+------------------------------------------
+TEST 2: PROX_DATA ready flag
+------------------------------------------
+After enabling prox: Status: 0xB -> [LIGHT_DATA] [PROX_INT] [PROX_DATA] 
+TEST 2: PASS - PROX_DATA flag set
 
---- Clear-on-read test ---
-Note: POWER_ON behavior may vary
+------------------------------------------
+TEST 3: LIGHT_DATA ready flag
+------------------------------------------
+After enabling light: Status: 0xB -> [LIGHT_DATA] [PROX_INT] [PROX_DATA] 
+TEST 3: PASS - LIGHT_DATA flag set
 
---- Enabling sensors ---
+------------------------------------------
+TEST 4: PROX_INT flag (servo triggered)
+------------------------------------------
+Servo at 0 deg (away)...
+Moving servo to 105 deg (close)...
+Status after threshold crossing: Status: 0xB -> [LIGHT_DATA] [PROX_INT] [PROX_DATA] 
+TEST 4: PASS - PROX_INT flag set
 
-Status after enabling sensors:
-Status: 0x9 -> [LIGHT_DATA] [PROX_DATA] 
+------------------------------------------
+TEST 5: PROX_LOGIC flag behavior
+------------------------------------------
+Thresholds: low=30, high=40 (away~0, close~60)
+Moving servo to 105 deg (close)...
+Servo at 105 deg (close): Status: 0xF -> [LIGHT_DATA] [PROX_LOGIC] [PROX_INT] [PROX_DATA] 
+Moving servo to 0 deg (away)...
+Servo at 0 deg (away): Status: 0xB -> [LIGHT_DATA] [PROX_INT] [PROX_DATA] 
+PROX_LOGIC close=1, away=0
+TEST 5: PASS - PROX_LOGIC changes with distance
 
---- Testing individual status functions ---
-isProxDataReady(): NO
-isLightDataReady(): NO
-getProxInterruptStatus(): NO
-getLightInterruptStatus(): NO
+------------------------------------------
+TEST 6: LIGHT_INT flag (NeoPixel triggered)
+------------------------------------------
+Light OFF - Green: 630
+Light ON - Green: 8869
+Setting threshold: 4434
+Turning NeoPixels ON...
+Status after light change: Status: 0x1B -> [LIGHT_INT] [LIGHT_DATA] [PROX_INT] [PROX_DATA] 
+TEST 6: PASS - LIGHT_INT flag set
 
-*** TEST COMPLETE ***
+------------------------------------------
+CLEANUP
+------------------------------------------
+
+==========================================
+TEST RESULTS
+==========================================
+Passed: 5
+Failed: 0
+Total:  5
+
+*** ALL TESTS PASSED ***
