@@ -1,60 +1,74 @@
-APDS9999 Thresholds Test
-
-------------------------
-
+APDS9999 Persistence Test
+=========================
 APDS9999 found!
 
+Phase 1: Register Roundtrip Tests
+----------------------------------
+Testing Proximity Persistence (0-15)...
 
-Testing Proximity Thresholds...
+Prox Persistence 0: PASS
+Prox Persistence 1: PASS
+Prox Persistence 2: PASS
+Prox Persistence 3: PASS
+Prox Persistence 4: PASS
+Prox Persistence 5: PASS
+Prox Persistence 6: PASS
+Prox Persistence 7: PASS
+Prox Persistence 8: PASS
+Prox Persistence 9: PASS
+Prox Persistence 10: PASS
+Prox Persistence 11: PASS
+Prox Persistence 12: PASS
+Prox Persistence 13: PASS
+Prox Persistence 14: PASS
+Prox Persistence 15: PASS
 
+Testing Light Persistence (0-15)...
 
-Prox High 0: PASS
+Light Persistence 0: PASS
+Light Persistence 1: PASS
+Light Persistence 2: PASS
+Light Persistence 3: PASS
+Light Persistence 4: PASS
+Light Persistence 5: PASS
+Light Persistence 6: PASS
+Light Persistence 7: PASS
+Light Persistence 8: PASS
+Light Persistence 9: PASS
+Light Persistence 10: PASS
+Light Persistence 11: PASS
+Light Persistence 12: PASS
+Light Persistence 13: PASS
+Light Persistence 14: PASS
+Light Persistence 15: PASS
 
-Prox Low 0: PASS
+Phase 1 Results - Passed: 32 / Failed: 0
 
-Prox High 100: PASS
+Phase 2: Functional Persistence Timing Test
+--------------------------------------------
+Calibrating...
+Servo at 0 degrees (away)
+Prox baseline: 0
+Servo at 105 degrees (close)
+Prox high: 61
+Threshold (50%): 30
 
-Prox Low 100: PASS
+Testing persistence = 1
+Interrupt fired after 318 ms
 
-Prox High 500: PASS
+Testing persistence = 8
+Interrupt fired after 1031 ms
 
-Prox Low 500: PASS
+--- Timing Test Results ---
+Persistence 1: 318 ms
+Persistence 8: 1031 ms
+Both persistence values triggered interrupt: PASS
+Persistence 8 took 713 ms longer than persistence 1: PASS
 
-Prox High 1000: PASS
+Cleanup...
 
-Prox Low 1000: PASS
-
-Prox High 2047: PASS
-
-Prox Low 2047: PASS
-
-
-Testing Light Thresholds...
-
-
-Light High 0: PASS
-
-Light Low 0: PASS
-
-Light High 1000: PASS
-
-Light Low 1000: PASS
-
-Light High 50000: PASS
-
-Light Low 50000: PASS
-
-Light High 500000: PASS
-
-Light Low 500000: PASS
-
-Light High 1048575: PASS
-
-Light Low 1048575: PASS
-
-
-
-Passed: 20 / Failed: 0
-
+=============================
+Final Combined Results
+=============================
+Passed: 34 / Failed: 0
 *** TEST PASSED ***
-
