@@ -1,0 +1,41 @@
+APDS9999 Servo Proximity Interrupt Test
+========================================
+Hardware: INT=D2, Servo=A0
+Self-calibrating thresholds
+
+Servo initialized at 0deg (away)
+APDS9999 found!
+
+--- PHASE 1: CALIBRATION ---
+Calibrating baseline (servo at 0deg)...
+  Baseline (away): 1
+Calibrating high value (servo at 105deg)...
+  High value (close): 167
+  Calculated threshold (50%): 84
+
+--- PHASE 2: INTERRUPT TEST ---
+Moving servo to 0deg (away)...
+Prox threshold high set to: 84
+Prox interrupt enabled
+Interrupt cleared, waiting for trigger...
+
+Moving servo to 105deg (close) - should trigger interrupt...
+  Final proximity: 168
+  Interrupt fired: YES
+  Status register: 0x7
+  Time waited: 3 ms
+
+--- CLEANUP ---
+Servo returned to 0deg and detached
+
+--- TEST RESULTS ---
+Baseline (away):      1
+High value (close):   167
+Threshold (50%):      84
+Final prox:           168
+Above threshold:      YES
+Interrupt fired:      YES
+
+PASS: Servo triggered proximity interrupt successfully!
+
+--- TEST COMPLETE ---

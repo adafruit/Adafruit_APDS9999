@@ -1,0 +1,39 @@
+========================================
+APDS9999 Proximity Interrupt Test
+Self-Calibrating with Servo
+========================================
+Servo initialized at 0 deg (paper away)
+APDS9999 found!
+
+--- PHASE 1: Calibration ---
+Reading baseline (paper away)...
+Baseline LOW: 1
+Moving servo to 105 deg (paper close)...
+Reading high value (paper close)...
+High value: 77
+
+Calculated thresholds:
+  Low threshold:  20 (25% of range)
+  High threshold: 58 (75% of range)
+
+--- PHASE 2: Interrupt Test ---
+Thresholds applied: Low=20, High=58
+Persistence set to 4
+
+--- TEST 1: Low threshold interrupt ---
+Moving servo to 0 deg (paper away)...
+Interrupt fired!
+Status: 0x19
+Proximity reading: 1
+TEST 1 PASS: Prox below low threshold
+
+--- TEST 2: High threshold interrupt ---
+Moving servo to 105 deg (paper close)...
+Interrupt fired!
+Status: 0x1B
+Proximity reading: 75
+TEST 2 PASS: Prox above high threshold
+
+========================================
+RESULT: ALL TESTS PASSED
+========================================

@@ -1,0 +1,7 @@
+APDS9999 Begin Test
+-------------------
+APDS9999 found!
+Part ID: 0xC (expected 0xC) - PASS
+Revision ID: 0x2
+
+*** TEST PASSED ***

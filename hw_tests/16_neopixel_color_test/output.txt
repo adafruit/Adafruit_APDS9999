@@ -1,0 +1,33 @@
+APDS9999 NeoPixel RGB Color Test
+================================
+NeoPixel ring on D6 (16 pixels)
+
+APDS9999 found!
+
+--- Test A: RED Detection ---
+R=1299 G=358 B=59
+R highest? PASS
+
+--- Test B: GREEN Detection ---
+R=214 G=1697 B=388
+G highest? PASS
+
+--- Test C: BLUE Detection ---
+R=204 G=553 B=2628
+B highest? PASS
+
+--- Test D: WHITE vs OFF ---
+WHITE: R=1400 G=2225 B=2891
+OFF:   R=132 G=163 B=47
+All channels higher with WHITE? PASS
+
+================================
+TEST SUMMARY:
+Test A (RED):      PASS
+Test B (GREEN):    PASS
+Test C (BLUE):     PASS
+Test D (WHITE/OFF):PASS
+================================
+OVERALL: PASS
+
+Test complete. NeoPixels off.

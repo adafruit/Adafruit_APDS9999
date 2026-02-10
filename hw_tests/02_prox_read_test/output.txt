@@ -1,0 +1,144 @@
+Proximity: 0  |
+
+APDS9999 Proximity Read Test
+
+----------------------------
+
+APDS9999 found!
+
+
+Wave hand near sensor to see values change!
+
+Proximity values (higher = closer):
+
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 1  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+
+Proximity: 1  |
+
+Proximity: 0  |
+
+Proximity: 0  |
+

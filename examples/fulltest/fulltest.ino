@@ -5,6 +5,11 @@
  * Adafruit Industries. MIT license, check license.txt for more information
  *
  * Displays continuous data from both proximity and light sensors.
+ *
+ * NOTE: The proximity sensor measurement rate (setProxMeasRate) exhibits
+ * approximately 3x the programmed period in actual operation. For example,
+ * APDS9999_PROX_RATE_100MS results in ~300ms between readings. This is
+ * consistent observed behavior across all rate settings.
  */
 
 #include "Adafruit_APDS9999.h"

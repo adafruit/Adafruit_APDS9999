@@ -1,0 +1,25 @@
+APDS9999 Reset Test
+-------------------
+APDS9999 found!
+
+Setting non-default values...
+
+Before reset:
+  Light gain: 4
+  Light resolution: 5
+  LED pulses: 128
+  Prox threshold high: 1000
+
+Performing software reset...
+
+After reset (checking defaults):
+  Light gain (expect 3X/1): 1 PASS
+  Light resolution (expect 18bit/2): 2 PASS
+  LED pulses (expect 8): 8 PASS
+  Prox threshold high (expect 2047): 2047 PASS
+  Prox persistence (expect 0): 0 PASS
+  Light enabled (expect false): false PASS
+  Prox enabled (expect false): false PASS
+
+Passed: 7 / Failed: 0
+*** TEST PASSED ***
