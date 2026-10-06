@@ -3,7 +3,7 @@
 This is the Adafruit APDS9999 Digital Proximity and RGB Sensor library for Arduino.
 
 Tested and works great with the Adafruit APDS9999 Breakout Board
-* https://www.adafruit.com/products/TBD
+* https://www.adafruit.com/products/6461
 
 This chip uses I2C to communicate, 2 pins are required to interface. An optional interrupt pin can be used for threshold-based alerts.
 
